@@ -1,5 +1,55 @@
 # SQL na Prática: Do Básico ao Avançado
 
+## Material usado no Curso de SQL
+
+[Docker](https://www.docker.com/)
+
+[Dbeaver](https://dbeaver.io/)
+
+[Imagem Docker AdventureWorks](https://hub.docker.com/r/chriseaton/adventureworks)
+
+**Comandos para subir a Imagem Docker AdventureWorks**
+
+Microsoft SQL Server: 
+```bash
+docker run -p 1433:1433 -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=my_password' -d chriseaton/adventureworks:latest
+```
+Lembrando que o user é `sa` e a senha pode mudar em `my_password`
+
+PostgreSQL: 
+```bash
+docker run -p 5432:5432 -e 'POSTGRES_PASSWORD=my_password' -d chriseaton/adventureworks:postgres
+```
+Lembrando que o user é `postgres` e a senha pode mudar em `my_password`
+
+
+**Comandos úteis Docker**
+
+Listar as imagens:
+```bash
+docker images
+```
+
+Listar os containers:
+```bash
+docker ps -a
+```
+
+Parar um container:
+```bash
+docker stop <container_id>
+```
+
+Remover um container:
+```bash
+docker rm <container_id>
+```
+
+Remover uma imagem:
+```bash
+docker rmi <image_id>
+```
+
 ## 1. Introdução ao SQL
 
 ### 1.1. O que é SQL e por que é importante?
