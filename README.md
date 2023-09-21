@@ -4,13 +4,12 @@
 
 ## Material usado no Curso de SQL
 
+[Dbeaver](https://dbeaver.io/)
+
 ### Opção 1 - Docker
 [Docker](https://www.docker.com/)
 
-[Dbeaver](https://dbeaver.io/)
-
 [Imagem Docker AdventureWorks](https://hub.docker.com/r/chriseaton/adventureworks)
-
 
 ### Opção 2 - SQLServer Local
 
