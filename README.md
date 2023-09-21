@@ -394,7 +394,7 @@ Os operadores lógicos são fundamentais em SQL, especialmente quando se trabalh
 
 - Operadores de Comparação:
     - `=` : Igual a.
-    - `<>` ou != : Diferente de.
+    - `<>` ou `!=` : Diferente de.
     - `>` : Maior que.
     - `<` : Menor que.
     - `>=` : Maior ou igual a.
