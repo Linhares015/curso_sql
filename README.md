@@ -4,11 +4,19 @@
 
 ## Material usado no Curso de SQL
 
+### Opção 1 - Docker
 [Docker](https://www.docker.com/)
 
 [Dbeaver](https://dbeaver.io/)
 
 [Imagem Docker AdventureWorks](https://hub.docker.com/r/chriseaton/adventureworks)
+
+
+### Opção 2 - SQLServer Local
+
+[SQLServer](https://www.microsoft.com/pt-br/sql-server/sql-server-downloads)
+
+[Backup Adventure](https://learn.microsoft.com/pt-br/sql/samples/adventureworks-install-configure?view=sql-server-ver16&tabs=ssms)
 
 ### Comandos para subir a Imagem Docker AdventureWorks
 
