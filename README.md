@@ -1,4 +1,6 @@
-# SQL na Prática: Do Básico ao Avançado
+# SQL na Master: Do Básico ao Avançado
+
+![Alt text](imagens/capa.jpeg)
 
 ## Material usado no Curso de SQL
 
@@ -346,49 +348,1609 @@ O SQL não é apenas sobre a recuperação de dados brutos; é também sobre a t
 
 ##### Funções de String: 
 
-Estas são usadas para manipular dados textuais. 
+Permitem manipular e formatar strings.
 
-Exemplos incluem:
+- UPPER():
+
+    - Descrição: Converte todos os caracteres de uma string para maiúsculas.
     
-    UPPER(): Converte uma string para maiúsculas.
-    LOWER(): Converte uma string para minúsculas.
-    LENGTH(): Retorna o número de caracteres em uma string.
-    CONCAT(): Combina duas ou mais strings.
+    Exemplo:
+
+    ```sql
+    SELECT 
+        UPPER('banana') AS Result;
+    ```
+    Resultado: `BANANA`
+
+- LOWER():
+
+    - Descrição: Converte todos os caracteres de uma string para minúsculas.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        LOWER('APPLE') AS Result;
+    ```
+    Resultado: `apple`
+
+- LENGTH():
+
+    - Descrição: Retorna o número de caracteres em uma string.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        LENGTH('grape') AS Result;
+    ```
+    Resultado: `5`
+
+- CONCAT():
+
+    - Descrição: Combina duas ou mais strings.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        CONCAT('pine', 'apple') AS Result;
+    ```
+    Resultado: `pineapple`
+
+- TRIM():
+
+    - Descrição: Remove espaços do início e do final de uma string.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        TRIM('   mango   ') AS Result;
+    ```
+    Resultado: `mango`
+
+- SUBSTRING():
+
+    - Descrição: Extrai uma parte da string.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        SUBSTRING('strawberry', 1, 5) AS Result;
+    ```
+    Resultado: `straw`
+
+- REPLACE():
+
+    - Descrição: Substitui uma substring por outra.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        REPLACE('blueberry is blue', 'blue', 'red') AS Result;
+    ```
+    Resultado: `redberry is red`
+
+- CHAR_LENGTH():
+
+    - Descrição: Retorna o número de caracteres em uma string.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        CHAR_LENGTH('kiwi') AS Result;
+    ```
+    Resultado: `4`
+
+- POSITION():
+
+    - Descrição: Retorna a posição da primeira ocorrência de uma substring.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        POSITION('nut' IN 'coconut') AS Result;
+    ```
+    Resultado: `5`
+
+- LTRIM() e RTRIM():
+
+    - Descrição: Remove espaços do início ou final.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        LTRIM('   raspberry') AS LeftTrimResult
+        , RTRIM('blackberry   ') AS RightTrimResult;
+    ```
+    Resultado: `raspberry` e `blackberry`
+
+- INITCAP():
+
+    - Descrição: Converte a primeira letra de cada palavra para maiúscula.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        INITCAP('hello world') AS Result;
+    ```
+    Resultado: `Hello World`
+
+- REPEAT():
+
+    - Descrição: Repete uma string um número específico de vezes.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        REPEAT('ha', 3) AS Result;
+    ```
+    Resultado: `hahaha`
+
+- REVERSE():
+
+    - Descrição: Inverte uma string.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        REVERSE('melon') AS Result;
+    ```
+    Resultado: `nolem`
+
+- LEFT() e RIGHT():
+
+    - Descrição: Retorna um número específico de caracteres do início ou final da string.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        LEFT('cherry', 3) AS LeftResult
+        , RIGHT('cherry', 3) AS RightResult;
+    ```
+    Resultado: `che` e `rry`
+
+- PADLEFT() e PADRIGHT():
+
+    - Descrição: Adiciona caracteres à esquerda ou à direita de uma string até atingir um comprimento especificado.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        PADLEFT('fruit', 8, '0') AS LeftPadResult
+        , PADRIGHT('fruit', 8, '0') AS RightPadResult;
+    ```
+    Resultado: `000fruit` e `fruit000`
+
+- SOUNDEX():
+
+    - Descrição: Retorna um código que representa a string, útil para encontrar palavras que soam de forma semelhante.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        SOUNDEX('pear') AS Result;
+    ```
+    Resultado: `Um código específico para "pear".`
+
+- LTRIM(R):
+
+    - Descrição: Remove caracteres específicos do início ou final da string.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        LTRIM('000123', '0') AS Result;
+    ```
+    Resultado: `123`
+
+- FORMAT():
+
+    - Descrição: Formata uma string de acordo com um padrão especificado.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        FORMAT(12345.6789, '#,##0.00') AS Result;
+    ```
+    Resultado: `12,345.68`
+
+- ASCII():
+
+    - Descrição: Retorna o valor ASCII do primeiro caractere da string.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        ASCII('A') AS Result;
+    ```
+    Resultado: `65`
+
+- CHAR():
+
+    - Descrição: Retorna o caractere correspondente a um valor ASCII.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        CHAR(65) AS Result;
+    ```
+    Resultado: `A`
+
+Estas são apenas algumas das muitas funções de manipulação de strings disponíveis em SQL. A disponibilidade e a sintaxe exata podem variar dependendo do sistema de gerenciamento de banco de dados que você está usando.
     
 ##### Funções de Data: 
 
 Estas são cruciais para trabalhar com campos de data e hora. 
 
-Exemplos incluem:
+- CURRENT_DATE:
+
+    - Descrição: Retorna a data atual.
     
-    NOW(): Retorna a data e hora atuais.
-    DATE_PART(): Extrai uma parte específica de uma data (como dia, mês ou ano).
-    DATEDIFF(): Calcula a diferença entre duas datas.
+    Exemplo:
+
+    ```sql
+    SELECT 
+        CURRENT_DATE AS Today;
+    ```
+    Resultado: `2023-07-10` (por exemplo)
+
+- CURRENT_TIMESTAMP:
+
+    - Descrição: Retorna a data e hora atuais.
     
+    Exemplo:
+
+    ```sql
+    SELECT 
+        CURRENT_TIMESTAMP AS Now;
+    ```
+    Resultado: `2023-07-10 12:00:00` (por exemplo)
+
+- DATEADD():
+
+    - Descrição: Adiciona um intervalo específico a uma data.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        DATEADD(DAY, 7, '2023-07-10') AS OneWeekLater;
+    ```
+    Resultado: `2023-07-17`
+
+- DATEDIFF():
+
+    - Descrição: Retorna a diferença entre duas datas.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        DATEDIFF(DAY, '2023-07-01', '2023-07-10') AS DaysDifference;
+    ```
+    Resultado: `9`
+
+- DAY(), MONTH(), YEAR():
+
+    - Descrição: Extraem o dia, mês ou ano de uma data, respectivamente.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        DAY('2023-07-10') AS DayPart
+        , MONTH('2023-07-10') AS MonthPart
+        , YEAR('2023-07-10') AS YearPart;
+    ```
+    Resultado: `10`, `7`, `2023`
+
+- GETDATE():
+
+    - Descrição: Retorna a data e hora atuais (específico do SQL Server).
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        GETDATE() AS Now;
+    ```
+    Resultado: `2023-07-10 12:00:00` (por exemplo)
+
+- DATEPART():
+
+    - Descrição: Retorna uma parte específica de uma data, como o dia da semana.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        DATEPART(WEEKDAY, '2023-07-10') AS DayOfWeek;
+    ```
+    Resultado: `2`
+
+- LAST_DAY():
+
+    - Descrição: Retorna o último dia do mês para a data fornecida.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        LAST_DAY('2023-07-10') AS LastDayOfMonth;
+    ```
+    Resultado: `2023-07-31`
+
+- TO_DATE():
+
+    - Descrição: Converte uma string para uma data.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        TO_DATE('10-JUL-2023', 'DD-MON-YYYY') AS DateConversion;
+    ```
+    Resultado: `2023-07-10`
+
+- EXTRACT():
+
+    - Descrição: Extrai uma parte específica de uma data, como o trimestre.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        EXTRACT(QUARTER FROM '2023-07-10') AS QuarterPart;
+    ```
+    Resultado: `3`
+
+- NOW():
+
+    - Descrição: Retorna a data e hora atuais.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        NOW() AS CurrentDateTime;
+    ```
+    Resultado: `2023-07-10 12:00:00` (por exemplo)
+
+- AGE():
+
+    - Descrição: Retorna a idade entre duas datas.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        AGE('2023-07-10', '2000-01-01') AS AgeDifference;
+    ```
+    Resultado: `23 years 6 mons 9 days`
+
+- INTERVAL:
+
+    - Descrição: Usado para adicionar ou subtrair um intervalo específico de uma data.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        '2023-07-10' + INTERVAL '1 YEAR' AS OneYearLater;
+    ```
+    Resultado: `2024-07-10`
+
+- TRUNC():
+
+    - Descrição: Trunca uma data para o início do dia, mês ou ano.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        TRUNC('2023-07-10', 'MONTH') AS StartOfMonth;
+    ```
+    Resultado: `2023-07-01`
+
+- SYSDATE:
+
+    - Descrição: Retorna a data e hora atuais do sistema (específico do Oracle).
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        SYSDATE FROM DUAL;
+    ```
+
+- EOMONTH():
+
+    - Descrição: Retorna o último dia do mês da data fornecida.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        EOMONTH('2023-07-10') AS EndOfMonth;
+    ```
+    Resultado: `2023-07-31`
+
+- ISDATE():
+
+    - Descrição: Verifica se uma expressão é uma data válida.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        ISDATE('2023-07-10') AS IsValid;
+    ```
+    Resultado: `1` (verdadeiro)
+
+- CAST():
+
+    - Descrição: Converte um tipo de dado em outro, como uma string em uma data.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        CAST('2023-07-10' AS DATE) AS DateConversion;
+    ```
+    Resultado: `2023-07-10`
+
+- DATE_FORMAT():
+
+    - Descrição: Formata uma data de acordo com um padrão especificado.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        DATE_FORMAT('2023-07-10', '%W %D %M %Y') AS FormattedDate;
+    ```
+    Resultado: `Tuesday 10th July 2023`
+
+- TIMESTAMPDIFF():
+
+    - Descrição: Retorna a diferença entre duas datas em um intervalo específico, como dias ou meses.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        TIMESTAMPDIFF(MONTH, '2023-01-01', '2023-07-10') AS MonthsDifference;
+    ```
+    Resultado: `6`
+
+Estas são algumas das funções relacionadas a datas em SQL. A disponibilidade e a sintaxe exata podem variar dependendo do sistema de gerenciamento de banco de dados que você está usando.
+
 ##### Funções Numéricas:
 
 Estas são usadas para realizar operações matemáticas. 
 
-Exemplos incluem:
-    
-    ROUND(): Arredonda um número.
-    ABS(): Retorna o valor absoluto de um número.
-    SQRT(): Calcula a raiz quadrada de um número.
+- ABS():
 
+    - Descrição: Retorna o valor absoluto de um número.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        ABS(-123) AS AbsoluteValue;
+    ```
+    Resultado: `123`
+
+- ROUND():
+
+    - Descrição: Arredonda um número para um número especificado de casas decimais.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        ROUND(123.4567, 2) AS RoundedValue;
+    ```
+    Resultado: `123.46`
+
+- CEIL() ou CEILING():
+
+    - Descrição: Arredonda um número para o menor inteiro maior ou igual ao número.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        CEIL(123.4567) AS CeilingValue;
+    ```
+    Resultado: `124`
+
+- FLOOR():
+
+    - Descrição: Arredonda um número para o maior inteiro menor ou igual ao número.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        FLOOR(123.4567) AS FloorValue;
+    ```
+    Resultado: `123`
+
+- MOD():
+
+    - Descrição: Retorna o resto da divisão de dois números.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        MOD(7, 3) AS ModulusValue;
+    ```
+    Resultado: `1`
+
+- POWER():
+
+    - Descrição: Retorna o valor de um número elevado à potência de outro número.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        POWER(2, 3) AS PowerValue;
+    ```
+    Resultado: `8`
+
+- SQRT():
+
+    - Descrição: Retorna a raiz quadrada de um número.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        SQRT(16) AS SqrtValue;
+    ```
+    Resultado: `4`
+
+- RAND():
+
+    - Descrição: Retorna um número aleatório entre 0 e 1.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        RAND() AS RandomValue;
+    ```
+    Resultado: `0.123456789`
+
+- LOG():
+
+    - Descrição: Retorna o logaritmo natural de um número.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        LOG(10) AS LogValue;
+    ```
+    Resultado: `2.302585092994046`
+
+- EXP():
+
+    - Descrição: Retorna e (número de Euler) elevado à potência de um número dado.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        EXP(1) AS ExpValue;
+    ```
+    Resultado: Aproximadamente `2.71828`
+
+- SIN(), COS(), TAN():
+
+    - Descrição: Funções trigonométricas que retornam o seno, cosseno e tangente de um número, respectivamente.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        SIN(PI()/2) AS SinValue
+        , COS(PI()) AS CosValue
+        , TAN(PI()/4) AS TanValue;
+    ```
+    Resultado: `1`, `-1`, `1`
+
+- PI():
+
+    - Descrição: Retorna o valor de π (pi).
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        PI() AS PiValue;
+    ```
+    Resultado: Aproximadamente `3.14159`
+
+- DEGREES():
+
+    - Descrição: Converte um valor em radianos para graus.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        DEGREES(PI()) AS DegreesValue;
+    ```
+    Resultado: `180`
+
+- RADIANS():
+
+    - Descrição: Converte um valor em graus para radianos.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        RADIANS(180) AS RadiansValue;
+    ```
+    Resultado: Aproximadamente `3.14159`
+
+- SIGN():
+
+    - Descrição: Retorna o sinal de um número (-1, 0, 1 para números negativos, zero e positivos, respectivamente).
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        SIGN(-5) AS SignValue;
+    ```
+    Resultado: `-1`
+
+- TRUNCATE():
+
+    Descrição: Trunca um número para um número especificado de casas decimais, sem arredondamento.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        TRUNCATE(123.4567, 2) AS TruncatedValue;
+    ```
+    Resultado: `123.45`
+
+- GREATEST():
+
+    - Descrição: Retorna o maior valor em uma lista de expressões.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        GREATEST(1, 2, 3, 4, 5) AS GreatestValue;
+    ```
+    Resultado: `5`
+
+- LEAST():
+
+    - Descrição: Retorna o menor valor em uma lista de expressões.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        LEAST(1, 2, 3, 4, 5) AS LeastValue;
+    ```
+    Resultado: `1`
+
+- ATAN2():
+
+    - Descrição: Retorna a arco tangente do quociente de seus argumentos.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        ATAN2(1, 1) AS Atan2Value;
+    ```
+    Resultado: `0.7853981633974483`
+
+- LOG10():
+
+    - Descrição: Retorna o logaritmo base 10 de um número.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        LOG10(100) AS Log10Value;
+    ```
+    Resultado: `2`
+
+Estas são algumas das funções numéricas mais comuns em SQL. A disponibilidade e a sintaxe exata podem variar dependendo do sistema de gerenciamento de banco de dados que você está usando.
 ##### Funções de Agregação:
 
 Estas funções são usadas para resumir e analisar conjuntos de dados.
-        
-    SUM(): Calcula a soma de valores numéricos.
-    AVG(): Calcula a média de valores numéricos.
-    COUNT(): Conta o número de linhas que atendem a um critério específico.
-    MAX(): Retorna o valor máximo de um conjunto.
-    MIN(): Retorna o valor mínimo de um conjunto.
-    GROUP BY e HAVING:
-    GROUP BY: Este comando é usado em conjunto com funções de agregação para agrupar os resultados por uma ou mais colunas. Por exemplo, se você quiser saber o total de vendas por produto, pode usar GROUP BY nome_do_produto.
-    HAVING: Funciona como o WHERE, mas é usado para filtrar os resultados após a agregação. Por exemplo, se você quiser ver produtos que venderam mais de 100 unidades, após agrupar por produto, pode usar HAVING COUNT(quantidade) > 100.
 
-Dominar funções e agregações é fundamental para qualquer analista de dados. Elas permitem que você vá além da simples recuperação de dados e comece a fazer análises significativas e a extrair insights valiosos de seus conjuntos de dados.
+- SUM():
+
+    - Descrição: Retorna a soma total de uma coluna numérica.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        SUM(salary) AS TotalSalary FROM employees;
+    ```
+    Resultado: `100000`
+
+- AVG():
+
+    - Descrição: Retorna a média dos valores em uma coluna numérica.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        AVG(salary) AS AverageSalary FROM employees;
+    ```
+    Resultado: `50000`
+
+- COUNT():
+
+    - Descrição: Retorna o número de linhas que correspondem a um critério especificado.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        COUNT(*) AS TotalEmployees FROM employees;
+    ```
+    Resultado: `2`
+
+- MIN():
+
+    - Descrição: Retorna o menor valor em uma coluna.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        MIN(salary) AS LowestSalary FROM employees;
+    ```
+    Resultado: `25000`
+
+- MAX():
+
+    - Descrição: Retorna o maior valor em uma coluna.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        MAX(salary) AS HighestSalary FROM employees;
+    ```
+    Resultado: `75000`
+
+- GROUP_CONCAT() (em alguns DBMS, como MySQL) ou STRING_AGG() (em SQL Server):
+
+    - Descrição: Agrega valores de várias linhas em uma única string.
+    
+    Exemplo (usando GROUP_CONCAT):
+
+    ```sql
+    SELECT 
+        department
+        , GROUP_CONCAT(employee_name) AS EmployeeList 
+    FROM employees 
+    GROUP BY department;
+    ```
+    Resultado: `engineering` e `John, Jane`
+
+- STDDEV():
+
+    - Descrição: Retorna o desvio padrão de um conjunto de números.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        STDDEV(salary) AS SalaryStandardDeviation 
+    FROM employees;
+    ```
+    Resultado: `25000`
+
+- VARIANCE():
+
+    - Descrição: Retorna a variância de um conjunto de números.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        VARIANCE(salary) AS SalaryVariance 
+    FROM employees;
+    ```
+    Resultado: `625000000`
+
+- FIRST_VALUE():
+
+    - Descrição: Retorna o primeiro valor em um conjunto ordenado de valores.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        FIRST_VALUE(employee_name) OVER (ORDER BY hire_date) AS FirstHired 
+    FROM employees;
+    ```
+    Resultado: `John`
+
+- LAST_VALUE():
+
+    - Descrição: Retorna o último valor em um conjunto ordenado de valores.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        LAST_VALUE(employee_name) OVER (ORDER BY hire_date) AS LastHired
+    FROM employees;
+    ```
+    Resultado: `Jane`
+
+- PERCENTILE_CONT():
+
+    - Descrição: Calcula o valor do percentil contínuo para um conjunto ordenado de valores.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY salary) AS MedianSalary 
+    FROM employees;
+    ```
+    Resultado: `50000`
+
+- PERCENTILE_DISC():
+
+    - Descrição: Calcula o valor do percentil discreto para um conjunto ordenado de valores.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        PERCENTILE_DISC(0.5) WITHIN GROUP (ORDER BY salary) AS MedianSalary 
+    FROM employees;
+    ```
+    Resultado: `50000`
+
+- MODE():
+
+    - Descrição: Retorna o valor que aparece com mais frequência em um conjunto de valores.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        MODE() WITHIN GROUP (ORDER BY department) AS MostCommonDepartment 
+    FROM employees;
+    ```
+    Resultado: `engineering`
+
+- ARRAY_AGG():
+
+    - Descrição: Agrega valores de várias linhas em uma matriz.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        department
+        , ARRAY_AGG(employee_name) AS EmployeeArray 
+    FROM employees 
+    GROUP BY department;
+    ```
+    Resultado: `engineering` e `John, Jane`
+
+- COVAR_POP(), COVAR_SAMP():
+
+    - Descrição: Calcula a covariância de um conjunto de números.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        COVAR_POP(salary, age) AS PopulationCovariance 
+    FROM employees;
+    ```
+    Resultado: `125000000`
+
+##### Funções de Conversão:
+
+Estas são algumas das funções de agregação mais comuns em SQL. A disponibilidade e a sintaxe exata podem variar dependendo do sistema de gerenciamento de banco de dados que você está usando.
+
+- CAST():
+        
+    - Descrição: Converte um tipo de dado em outro.
+    
+    Exemplo: 
+    
+    ```sql
+    SELECT 
+        CAST('1234' AS INT) AS Result;
+    ```
+    Resultado: `1234`
+
+- CONVERT():
+        
+    - Descrição: Semelhante ao CAST(), mas com uma sintaxe diferente e, em alguns DBMSs, oferece mais opções.
+        
+    Exemplo: 
+    
+    ```sql
+    SELECT 
+        CONVERT(INT, '1234') AS Result;
+    ```
+    Resultado: `1234`
+
+- TO_DATE():
+    - Descrição: Converte uma string em uma data.
+    
+    Exemplo: 
+    
+    ```sql
+    SELECT 
+        TO_DATE('2023-01-01', 'YYYY-MM-DD') AS ResultDate;
+    ```
+    Resultado: `2023-01-01`
+
+- TO_CHAR():
+    - Descrição: Converte um número ou data em uma string.
+    
+    Exemplo: 
+    
+    ```sql
+    SELECT 
+        TO_CHAR(1234, '9999') AS ResultString;
+    ```
+    Resultado: `1234`
+
+- TO_NUMBER():
+    - Descrição: Converte uma string em um número.
+
+    Exemplo: 
+    
+    ```sql
+    SELECT 
+        TO_NUMBER('1234.56', '9999.99') AS ResultNumber;
+    ```
+    Resultado: `1234.56`
+- STR():
+    - Descrição: Converte um número em uma string.
+    
+    Exemplo: 
+    
+    ```sql
+    SELECT 
+        STR(1234) AS ResultString;
+    ```
+    Resultado: `1234`
+
+- FORMAT():
+    - Descrição: Formata um valor usando um padrão específico. Muito útil para formatar números e datas.
+    
+    Exemplo: 
+    
+    ```sql
+    SELECT 
+        FORMAT(1234.5678, 'N2') AS FormattedNumber;
+    ```
+    Resultado: `1,234.57`
+
+- PARSE():
+    - Descrição: Analisa uma string usando um formato específico e a converte em um tipo de dado específico.
+    
+    Exemplo: 
+    
+    ```sql
+    SELECT 
+        PARSE('2023-01-01' AS DATE USING 'en-US') AS ResultDate;
+    ```
+    Resultado: `2023-01-01` 
+- TRY_CAST():
+    - Descrição: Semelhante ao CAST(), mas retorna NULL se a conversão falhar.
+    
+    Exemplo: 
+    
+    ```sql
+    SELECT 
+        TRY_CAST('ABC' AS INT) AS Result;
+    ```
+    Resultado: `NULL` 
+
+- TRY_CONVERT():
+    - Descrição: Semelhante ao CONVERT(), mas retorna NULL se a conversão falhar.
+    
+    Exemplo: 
+    
+    ```sql
+    SELECT 
+        TRY_CONVERT(INT, 'ABC') AS Result;
+    ```
+    Resultado: `NULL`
+
+- TRY_PARSE():
+    - Descrição: Semelhante ao PARSE(), mas retorna NULL se a análise falhar.
+
+    Exemplo: 
+    
+    ```sql
+    SELECT 
+        TRY_PARSE('ABC' AS INT USING 'en-US') AS Result;
+    ```
+    Resultado: `NULL`
+
+Estes são algumas das principais funções de conversão em SQL. A disponibilidade e a sintaxe exata podem variar dependendo do sistema de gerenciamento de banco de dados (DBMS) que você está usando. Além disso, é importante lembrar que a conversão inadequada de tipos de dados pode levar a erros ou resultados inesperados, então sempre é bom testar e entender completamente as conversões antes de aplicá-las em situações reais.
+
+##### Funções de Sistema:
+
+Estas são funções específicas do sistema que retornam informações sobre o sistema de banco de dados.
+
+- DATABASE():
+        
+    - Descrição: Retorna o nome do banco de dados atual.
+        
+    Exemplo: 
+    
+    ```sql
+    SELECT 
+        DATABASE() AS CurrentDatabase;
+    ```
+
+- USER():
+        
+    - Descrição: Retorna o nome do usuário atual.
+        
+    Exemplo: 
+    
+    ```sql
+    SELECT 
+        USER() AS CurrentUser;
+    ```
+
+- VERSION():
+    
+    - Descrição: Retorna a versão atual do sistema de gerenciamento de banco de dados.
+        
+    Exemplo: 
+    
+    ```sql
+    SELECT 
+        VERSION() AS DBVersion;
+    ```
+    
+- NOW():
+    
+    - Descrição: Retorna a data e hora atuais.
+        
+    Exemplo:
+
+    ```sql 
+    SELECT 
+        NOW() AS CurrentDateTime;
+    ```
+
+- CURDATE():
+    
+    - Descrição: Retorna a data atual.
+        
+    Exemplo: 
+    
+    ```sql
+    SELECT 
+        CURDATE() AS CurrentDate;
+    ```
+
+- CURTIME():
+
+    - Descrição: Retorna a hora atual.
+        
+    Exemplo: 
+    
+    ```sql
+    SELECT 
+        CURTIME() AS CurrentTime;
+    ```
+
+- LAST_INSERT_ID():
+        
+    - Descrição: Retorna o último ID inserido em uma tabela com uma coluna de autoincremento.
+        
+    Exemplo: 
+    
+    ```sql
+    INSERT INTO table_name (column1) VALUES ('value1'); 
+    SELECT LAST_INSERT_ID();
+    ```
+    
+- SESSION_USER():
+        
+    - Descrição: Retorna o nome do usuário da sessão atual.
+        
+    Exemplo: 
+    
+    ```sql
+    SELECT 
+        SESSION_USER() AS SessionUser;
+    ```
+
+- SYSTEM_USER():
+        
+    - Descrição: Retorna o nome do usuário do sistema.
+        
+    Exemplo: 
+    
+    ```sql
+    SELECT 
+        SYSTEM_USER() AS SystemUser;
+    ```
+
+- UUID():
+        
+    - Descrição: Gera um valor UUID (Universal Unique Identifier) único.
+        
+    Exemplo: 
+    
+    ```sql
+    SELECT 
+        UUID() AS UniqueID;
+    ```
+
+- RAND():
+    
+    - Descrição: Gera um número aleatório entre 0 e 1.
+        
+    Exemplo: 
+    
+    ```sql
+    SELECT 
+        RAND() AS RandomNumber;
+    ```
+
+Estas são algumas das principais funções de sistema em SQL. A disponibilidade e a sintaxe exata podem variar dependendo do sistema de gerenciamento de banco de dados (DBMS) que você está usando. Funções de sistema são extremamente úteis para obter informações sobre o ambiente do banco de dados, gerar valores únicos ou aleatórios e muito mais.
+
+##### Funções de Controle de Fluxo:
+
+Estas são funções que controlam o fluxo de execução de uma consulta.
+
+- CASE:
+
+    - Descrição: Permite condições em consultas SQL. Pode ser usado em instruções ou expressões.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        name
+        , CASE 
+            WHEN age < 18 THEN 'Menor'
+            WHEN age BETWEEN 18 AND 64 THEN 'Adulto'
+            ELSE 'Sênior'
+        END AS age_group
+    FROM people;
+    ```
+    Classifica pessoas em grupos de idade.
+
+- IF():
+
+    - Descrição: Retorna um valor se a condição for verdadeira e outro se for falsa.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        name
+        , IF(is_student = 1, 'Estudante', 'Não-Estudante') AS status
+    FROM people;
+    ```
+    Classifica pessoas como estudante ou não-estudante.
+
+- NULLIF():
+
+    - Descrição: Retorna NULL se dois valores forem iguais, caso contrário, retorna o primeiro valor.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        name
+        , NULLIF(age, 0) AS age
+    FROM people;
+    ```
+    Retorna NULL para idade se o valor for 0.
+
+- COALESCE():
+
+    - Descrição: Retorna o primeiro valor não nulo na lista.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        name
+        , COALESCE(phone, email, 'N/A') AS contact
+    FROM people;
+    ```
+    Retorna o primeiro método de contato disponível ou 'N/A' se ambos forem nulos.
+
+- IIF():
+
+    - Descrição: Função similar ao IF(), mas mais concisa. Retorna um valor se a condição for verdadeira e outro se for falsa.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        name
+        , IIF(is_employee = 1, 'Empregado', 'Freelancer') AS job_status
+    FROM people;
+    ```
+    Classifica pessoas como empregado ou freelancer.
+
+Estas são algumas das principais funções de controle de fluxo em SQL. Elas permitem que os desenvolvedores criem lógica condicional em suas consultas, tornando-as mais dinâmicas e adaptáveis às necessidades de análise de dados. A disponibilidade e a sintaxe exata podem variar dependendo do sistema de gerenciamento de banco de dados (DBMS) que você está usando. Utilizar funções de controle de fluxo corretamente pode melhorar significativamente a eficiência e a clareza de suas consultas SQL.
+
+##### Funções de Janela:
+
+Estas são funções que operam em um conjunto de linhas que estão relacionadas a uma linha atual.
+
+- ROW_NUMBER():
+
+    - Descrição: Atribui um número único a cada linha de um conjunto de resultados.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        name
+        , age
+        , ROW_NUMBER() OVER (ORDER BY age) AS row_num
+    FROM people;
+    ```
+    Numera as pessoas por ordem crescente de idade.
+
+- RANK():
+
+    - Descrição: Atribui um rank a cada linha, com valores idênticos recebendo o mesmo rank.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        name
+        , score
+        , RANK() OVER (ORDER BY score DESC) AS ranking
+    FROM exam_results;
+    ```
+    Classifica os resultados do exame por pontuação, do maior para o menor.
+
+- DENSE_RANK():
+
+    - Descrição: Semelhante ao RANK(), mas sem lacunas entre os ranks quando há valores idênticos.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        name
+        , score
+        , DENSE_RANK() OVER (ORDER BY score DESC) AS dense_ranking
+    FROM exam_results;
+    ```
+    Classifica os resultados do exame por pontuação, sem lacunas no ranking.
+
+- NTILE(n):
+
+    - Descrição: Divide o conjunto de resultados em 'n' número de aproximadamente tamanhos iguais.
+    Exemplo:
+
+    ```sql
+    SELECT 
+        name
+        , score
+        , NTILE(4) OVER (ORDER BY score) AS quartile
+    FROM exam_results;
+    ```
+    Divide os resultados do exame em quartis.
+
+- LAG():
+
+    - Descrição: Acessa dados da linha anterior no conjunto de resultados.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        month
+        , sales
+        , LAG(sales) OVER (ORDER BY month) AS previous_month_sales
+    FROM monthly_sales;
+    ```
+    Compara as vendas de um mês com o mês anterior.
+
+- LEAD():
+
+    - Descrição: Acessa dados da próxima linha no conjunto de resultados.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        month
+        , sales
+        , LEAD(sales) OVER (ORDER BY month) AS next_month_sales
+    FROM monthly_sales;
+    ```
+    Compara as vendas de um mês com o próximo mês.
+
+- FIRST_VALUE():
+
+    - Descrição: Retorna o primeiro valor em uma janela ordenada.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        date
+        , temperature
+        , FIRST_VALUE(temperature) OVER (ORDER BY date) AS first_temp
+    FROM daily_temperatures;
+    ```
+    Mostra a primeira temperatura registrada no conjunto de dados.
+
+- LAST_VALUE():
+
+    - Descrição: Retorna o último valor em uma janela ordenada.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        date
+        , temperature
+        , LAST_VALUE(temperature) OVER (ORDER BY date) AS last_temp
+    FROM daily_temperatures;
+    ```
+    Mostra a última temperatura registrada no conjunto de dados.
+
+Estas são algumas das principais funções de janela em SQL. Elas oferecem uma maneira poderosa de realizar análises complexas diretamente no banco de dados, sem a necessidade de extrair dados ou usar ferramentas adicionais. A capacidade de entender e usar funções de janela é uma habilidade valiosa para qualquer profissional que trabalhe com análise de dados. A disponibilidade e a sintaxe exata podem variar dependendo do sistema de gerenciamento de banco de dados (DBMS) que você está usando.
+
+
+##### Funções JSON:
+
+Estas são funções que operam em dados JSON.
+
+- JSON_VALUE:
+
+    - Descrição: Extrai um valor escalar de um objeto JSON.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        JSON_VALUE('{"name": "Alice"}', '$.name') AS UserName;
+    ```
+    Retorna `Alice`.
+
+- JSON_QUERY:
+
+    - Descrição: Extrai um objeto ou array do JSON.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        JSON_QUERY('{"skills": ["SQL", "Python"]}', '$.skills') AS UserSkills;
+    ```
+    Retorna [`SQL`, `Python`].
+
+- JSON_OBJECT:
+
+    - Descrição: Cria um objeto JSON a partir de pares chave-valor.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        JSON_OBJECT('name', 'Alice', 'age', 30) AS UserObject;
+    ```
+    Retorna {`name`: `Alice`, `age`: `30`}.
+
+- JSON_ARRAY:
+
+    - Descrição: Cria um array JSON a partir de uma lista de valores.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        JSON_ARRAY('SQL', 'Python') AS SkillsArray;
+    ```
+    Retorna [`SQL`, `Python`].
+
+- JSON_EXISTS:
+
+    - Descrição: Verifica se um caminho específico existe dentro de um objeto JSON.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        JSON_EXISTS('{"name": "Alice"}', '$.name') AS NameExists;
+    ```
+    Retorna true se o caminho existir, caso contrário, retorna false.
+
+- JSON_LENGTH:
+
+    - Descrição: Retorna o número de elementos em um array JSON ou o número de pares chave-valor em um objeto JSON.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        JSON_LENGTH('{"skills": ["SQL", "Python"]}', '$.skills') AS SkillsCount;
+    ```
+    Retorna `2`.
+
+- JSON_KEYS:
+
+    - Descrição: Retorna um array contendo as chaves de um objeto JSON.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        JSON_KEYS('{"name": "Alice", "age": 30}') AS ObjectKeys;
+    ```
+    Retorna [`name`, `age`].
+
+- JSON_REMOVE:
+
+    - Descrição: Remove um ou mais caminhos de um objeto JSON.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        JSON_REMOVE('{"name": "Alice", "age": 30}', '$.age') AS UpdatedObject;
+    ```
+    Retorna {`name`: `Alice`}.
+
+Estas são algumas das principais funções JSON em SQL. Elas são cruciais para trabalhar com dados semi-estruturados em um ambiente relacional. A capacidade de manipular e consultar dados JSON diretamente no SQL oferece uma grande flexibilidade e poder aos desenvolvedores. Assim como outras funções, a disponibilidade e a sintaxe exata dessas funções podem variar dependendo do sistema de gerenciamento de banco de dados (DBMS) que você está usando.
+
+##### Funções XML:
+
+Estas são funções que operam em dados XML.
+
+- XML_VALUE:
+
+    - Descrição: Extrai um valor de um elemento ou atributo XML.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        XML_VALUE('<user><name>Alice</name></user>', '/user/name') AS UserName;
+    ```
+    Retorna `Alice`.
+
+- XML_QUERY:
+
+    - Descrição: Extrai um fragmento XML usando uma expressão XQuery.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        XML_QUERY('<skills><skill>SQL</skill><skill>Python</skill></skills>', '/skills/skill') AS UserSkills;
+    ```
+    Retorna `<skill>SQL</skill><skill>Python</skill>`.
+
+- XML_ELEMENT:
+
+    - Descrição: Cria um elemento XML com um nome especificado e valor.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        XML_ELEMENT(NAME "name", 'Alice') AS UserElement;
+    ```
+    Retorna `<name>Alice</name>`.
+
+- XML_ATTRIBUTES:
+
+    - Descrição: Cria atributos XML para um elemento.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        XML_ELEMENT(NAME "user", XML_ATTRIBUTES('Alice' AS "name")) AS UserAttribute;
+    ```
+    Retorna `<user name="Alice"/>`.
+
+- XML_EXISTS:
+
+    - Descrição: Verifica se uma expressão XQuery retorna um resultado.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        XML_EXISTS('<user><name>Alice</name></user>', '/user/name') AS NameExists;
+    ```
+    Retorna true se a expressão XQuery retornar um resultado, caso contrário, retorna false.
+
+- XMLTABLE:
+
+    - Descrição: Transforma XML em uma tabela relacional.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        name 
+    FROM XMLTABLE('/users/user' PASSING '<users><user>Alice</user><user>Bob</user></users>' COLUMNS name VARCHAR(50) PATH '.') AS UserDetails;
+    ```
+    Retorna uma tabela com nomes `Alice` e `Bob`.
+
+- XMLSERIALIZE:
+
+    - Descrição: Converte um valor XML em uma string.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        XMLSERIALIZE('<name>Alice</name>' AS VARCHAR(50)) AS UserName;
+    ```
+    Retorna a string `Alice`.
+
+- XMLPARSE:
+
+    - Descrição: Converte uma string em um valor XML.
+    
+    Exemplo:
+
+    ```sql
+    SELECT 
+        XMLPARSE(CONTENT '<name>Alice</name>') AS UserXML;
+    ```
+    Retorna o valor XML `<name>Alice</name>`.
+
+Estas são algumas das principais funções XML em SQL. Elas são essenciais para trabalhar com dados estruturados em formato XML em um ambiente relacional. A capacidade de manipular, consultar e transformar dados XML diretamente no SQL oferece uma grande flexibilidade aos desenvolvedores. Assim como outras funções, a disponibilidade e a sintaxe exata dessas funções podem variar dependendo do sistema de gerenciamento de banco de dados (DBMS) que você está usando.
 
 ### 4. Junções e Relações
 
