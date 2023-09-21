@@ -319,15 +319,56 @@ As colunas em uma tabela representam campos. Cada campo tem um nome e armazena u
 
 #### 2.2 Tipos de dados básicos
         
-- Inteiro (INTEGER): Usado para armazenar números inteiros.
-        
-- Ponto flutuante (FLOAT ou REAL): Para números com decimais.
-        
-- Caractere (CHAR ou VARCHAR): Para strings ou texto. CHAR tem um comprimento fixo, enquanto VARCHAR pode ter um comprimento variável.
-        
-- Data e Hora (DATE, TIME, TIMESTAMP): Específicos para armazenar datas, horas ou ambos.
-        
-- Booleano (BOOLEAN): Armazena valores verdadeiro ou falso.
+Os tipos de dados em SQL definem o tipo de valor que uma coluna pode conter. É crucial escolher o tipo de dado correto para uma coluna, pois isso afeta não apenas o tipo de informação que você pode armazenar, mas também o desempenho do banco de dados e a quantidade de espaço de armazenamento usado. Aqui está uma lista dos tipos de dados mais comuns em SQL, agrupados por categorias:
+
+- Tipos Numéricos:
+    - `INT`: Um número inteiro.
+    - `SMALLINT`: Um número inteiro menor que INT.
+    - `TINYINT`: Um número inteiro ainda menor que SMALLINT.
+    - `BIGINT`: Um número inteiro maior que INT.
+    - `FLOAT`: Número de ponto flutuante.
+    - `REAL`: Número de ponto flutuante menor que FLOAT.
+    - `DECIMAL(p, s)`: Número decimal fixo. Onde p é a precisão total e s é a escala.
+    - `NUMERIC(p, s)`: Semelhante ao DECIMAL.
+
+- Tipos de Caracteres:
+    - `CHAR(n)`: String de tamanho fixo.
+    - `VARCHAR(n)`: String de tamanho variável.
+    - `TEXT`: Uma string de tamanho variável longa.
+
+- Tipos de Data e Hora:
+    - `DATE`: Data no formato YYYY-MM-DD.
+    - `TIME`: Hora no formato HH:MI:SS.
+    - `DATETIME`: Combinação de data e hora.
+    - `TIMESTAMP`: Marca de data/hora que inclui a data e a hora até a fração de segundo.
+
+- Tipos Lógicos:
+    - `BIT`: Valor binário (0 ou 1).
+    - `BOOLEAN`: Verdadeiro ou falso.
+
+- Tipos de Dados Binários:
+    - `BINARY(n)`: Dados binários de tamanho fixo.
+    - `VARBINARY(n)`: Dados binários de tamanho variável.
+    - `BLOB`: Dados binários de tamanho variável longo.
+
+- Tipos de Dados Espaciais (para bancos de dados que suportam GIS):
+    - `GEOMETRY`: Tipo de dado base para todos os tipos espaciais.
+    - `POINT`: Representa um ponto em um plano.
+    - `LINESTRING`: Representa uma linha.
+    - `POLYGON`: Representa um polígono.
+
+- Tipos de Dados JSON (em DBMSs modernos):
+    - `JSON`: Armazena valores JSON.
+    - `JSONB`: Armazena valores JSON em formato binário (específico do PostgreSQL).
+
+- Tipos de Dados XML (em alguns DBMSs):
+    - `XML`: Armazena valores XML.
+
+- Outros Tipos:
+    - `UUID`: Identificador único universal.
+    - `ENUM`: Um tipo que consiste em uma lista estática de strings.
+
+Lembre-se de que a disponibilidade, a sintaxe e o comportamento exatos desses tipos de dados podem variar dependendo do sistema de gerenciamento de banco de dados (DBMS) que você está usando. Além disso, muitos DBMSs oferecem tipos de dados adicionais ou variações dos tipos listados acima. Sempre consulte a documentação oficial do seu DBMS ao projetar sua base de dados.
 
 #### 2.3 Comandos básicos
         
@@ -337,11 +378,60 @@ As colunas em uma tabela representam campos. Cada campo tem um nome e armazena u
         
 - WHERE: Permite filtrar os resultados com base em uma condição. Por exemplo, SELECT nome FROM clientes WHERE idade > 21; retornaria os nomes de todos os clientes com mais de 21 anos.
 
+- Lembre-se sempre:
+
+```sql
+select -- Selecione
+    * -- Colunas
+from tabela --Aonde
+where condicao -- Quando
+```
 #### 2.4 Filtrando e ordenando dados
         
 ##### Filtragem: 
 
-Com o comando WHERE, você pode filtrar os dados que deseja ver com base em critérios específicos. Por exemplo, se quiser ver apenas os clientes de uma cidade específica, pode usar algo como WHERE cidade = 'São Paulo'.
+Os operadores lógicos são fundamentais em SQL, especialmente quando se trabalha com a cláusula WHERE para filtrar resultados. Eles permitem combinar ou modificar condições para tornar uma consulta mais específica ou flexível. Aqui estão os operadores lógicos mais comuns usados em SQL:
+
+- Operadores de Comparação:
+    - `=` : Igual a.
+    - `<>` ou != : Diferente de.
+    - `>` : Maior que.
+    - `<` : Menor que.
+    - `>=` : Maior ou igual a.
+    - `<=` : Menor ou igual a.
+    - `BETWEEN` : Entre um intervalo (inclusive).
+    - `LIKE` : Pesquisa por um padrão específico.
+    - `IN` : Verifica se o valor está em uma lista de valores.
+
+- Operadores Lógicos:
+    - `AND` : Retorna verdadeiro se ambas as condições especificadas forem verdadeiras.
+    - `OR` : Retorna verdadeiro se pelo menos uma das condições especificadas for verdadeira.
+    - `NOT` : Retorna verdadeiro se a condição especificada for falsa.
+
+- Operadores de Existência:
+    - `IS NULL` : Retorna verdadeiro se o valor é nulo.
+    - `IS NOT NULL` : Retorna verdadeiro se o valor não é nulo.
+    - `EXISTS` : Retorna verdadeiro se a subconsulta retornar pelo menos um registro.
+
+- Operadores de Conjunto (usados em subconsultas):
+    - `ALL` : Compara um valor a todos os valores em outra lista ou conjunto de resultados.
+    - `ANY` : Compara um valor a pelo menos um dos valores em outra lista ou conjunto de resultados.
+    - `SOME` : Funciona da mesma forma que ANY.
+
+Ao usar esses operadores, é crucial entender a ordem das operações para garantir que sua consulta retorne os resultados esperados. Por exemplo, o operador AND tem precedência sobre o OR, o que significa que, em uma expressão com ambos, as condições ligadas por AND serão avaliadas primeiro. Se necessário, você pode usar parênteses para alterar a ordem de avaliação e tornar sua intenção mais clara.
+
+Exemplo:
+
+```sql
+SELECT 
+    * 
+FROM employees
+WHERE department = 'Sales' 
+AND (years_of_experience > 5 
+OR manager = 'Yes');
+```
+
+Neste exemplo, a consulta retornará todos os registros de empregados no departamento de vendas que têm mais de 5 anos de experiência ou que são gerentes. Graças aos parênteses, a consulta não se limita a retornar gerentes com mais de 5 anos de experiência.
         
 ##### Ordenação: 
 
