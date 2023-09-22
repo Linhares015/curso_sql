@@ -73,9 +73,14 @@ docker rmi <image_id>
     - Comandos básicos
     - Filtrando e ordenando dados
 - Funções e Agregações
-    - Funções de String, Data e Numéricas
-    - Funções de Agregação
-    - GROUP BY e HAVING
+    - Funções de String
+    - Funções de Data
+    - Funções Numéricas
+    - Funções de Conversão
+    - Funções de Formatação
+    - Funções de Validação
+    - Funções de Agrupamento
+    - Funções de Janela
 - Junções e Relações
     - Chaves Primárias e Estrangeiras
     - Junções
@@ -504,9 +509,7 @@ A cláusula ORDER BY é extremamente útil para apresentar dados de uma maneira 
 
 O SQL não é apenas sobre a recuperação de dados brutos; é também sobre a transformação e análise desses dados para obter insights valiosos. As funções e agregações são ferramentas essenciais nesse processo, permitindo que você manipule e resuma dados de maneiras significativas.
 
-#### 3.1 Funções de String, Data e Numéricas
-
-##### Funções de String: 
+#### 3.1 Funções de String: 
 
 Permitem manipular e formatar strings.
 
@@ -755,7 +758,7 @@ Permitem manipular e formatar strings.
 
 Estas são apenas algumas das muitas funções de manipulação de strings disponíveis em SQL. A disponibilidade e a sintaxe exata podem variar dependendo do sistema de gerenciamento de banco de dados que você está usando.
     
-##### Funções de Data: 
+#### 3.2 Funções de Data: 
 
 Estas são cruciais para trabalhar com campos de data e hora. 
 
@@ -1002,7 +1005,7 @@ Estas são cruciais para trabalhar com campos de data e hora.
 
 Estas são algumas das funções relacionadas a datas em SQL. A disponibilidade e a sintaxe exata podem variar dependendo do sistema de gerenciamento de banco de dados que você está usando.
 
-##### Funções Numéricas:
+#### 3.3 Funções Numéricas:
 
 Estas são usadas para realizar operações matemáticas. 
 
@@ -1249,7 +1252,7 @@ Estas são usadas para realizar operações matemáticas.
     Resultado: `2`
 
 Estas são algumas das funções numéricas mais comuns em SQL. A disponibilidade e a sintaxe exata podem variar dependendo do sistema de gerenciamento de banco de dados que você está usando.
-##### Funções de Agregação:
+#### 3.4 Funções de Agregação:
 
 Estas funções são usadas para resumir e analisar conjuntos de dados.
 
@@ -1447,7 +1450,7 @@ Estas funções são usadas para resumir e analisar conjuntos de dados.
     ```
     Resultado: `125000000`
 
-##### Funções de Conversão:
+#### 3.5 Funções de Conversão:
 
 Estas são algumas das funções de agregação mais comuns em SQL. A disponibilidade e a sintaxe exata podem variar dependendo do sistema de gerenciamento de banco de dados que você está usando.
 
@@ -1574,7 +1577,7 @@ Estas são algumas das funções de agregação mais comuns em SQL. A disponibil
 
 Estes são algumas das principais funções de conversão em SQL. A disponibilidade e a sintaxe exata podem variar dependendo do sistema de gerenciamento de banco de dados (DBMS) que você está usando. Além disso, é importante lembrar que a conversão inadequada de tipos de dados pode levar a erros ou resultados inesperados, então sempre é bom testar e entender completamente as conversões antes de aplicá-las em situações reais.
 
-##### Funções de Sistema:
+#### 3.6 Funções de Sistema:
 
 Estas são funções específicas do sistema que retornam informações sobre o sistema de banco de dados.
 
@@ -1701,7 +1704,7 @@ Estas são funções específicas do sistema que retornam informações sobre o 
 
 Estas são algumas das principais funções de sistema em SQL. A disponibilidade e a sintaxe exata podem variar dependendo do sistema de gerenciamento de banco de dados (DBMS) que você está usando. Funções de sistema são extremamente úteis para obter informações sobre o ambiente do banco de dados, gerar valores únicos ou aleatórios e muito mais.
 
-##### Funções de Controle de Fluxo:
+#### 3.7 Funções de Controle de Fluxo:
 
 Estas são funções que controlam o fluxo de execução de uma consulta.
 
@@ -1781,7 +1784,7 @@ Estas são funções que controlam o fluxo de execução de uma consulta.
 
 Estas são algumas das principais funções de controle de fluxo em SQL. Elas permitem que os desenvolvedores criem lógica condicional em suas consultas, tornando-as mais dinâmicas e adaptáveis às necessidades de análise de dados. A disponibilidade e a sintaxe exata podem variar dependendo do sistema de gerenciamento de banco de dados (DBMS) que você está usando. Utilizar funções de controle de fluxo corretamente pode melhorar significativamente a eficiência e a clareza de suas consultas SQL.
 
-##### Funções de Janela:
+#### 3.8 Funções de Janela:
 
 Estas são funções que operam em um conjunto de linhas que estão relacionadas a uma linha atual.
 
@@ -1907,7 +1910,7 @@ Estas são funções que operam em um conjunto de linhas que estão relacionadas
 Estas são algumas das principais funções de janela em SQL. Elas oferecem uma maneira poderosa de realizar análises complexas diretamente no banco de dados, sem a necessidade de extrair dados ou usar ferramentas adicionais. A capacidade de entender e usar funções de janela é uma habilidade valiosa para qualquer profissional que trabalhe com análise de dados. A disponibilidade e a sintaxe exata podem variar dependendo do sistema de gerenciamento de banco de dados (DBMS) que você está usando.
 
 
-##### Funções JSON:
+#### 3.9 Funções JSON:
 
 Estas são funções que operam em dados JSON.
 
@@ -2009,7 +2012,7 @@ Estas são funções que operam em dados JSON.
 
 Estas são algumas das principais funções JSON em SQL. Elas são cruciais para trabalhar com dados semi-estruturados em um ambiente relacional. A capacidade de manipular e consultar dados JSON diretamente no SQL oferece uma grande flexibilidade e poder aos desenvolvedores. Assim como outras funções, a disponibilidade e a sintaxe exata dessas funções podem variar dependendo do sistema de gerenciamento de banco de dados (DBMS) que você está usando.
 
-##### Funções XML:
+#### 3.10 Funções XML:
 
 Estas são funções que operam em dados XML.
 
