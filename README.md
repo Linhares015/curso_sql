@@ -435,9 +435,70 @@ Neste exemplo, a consulta retornará todos os registros de empregados no departa
         
 ##### Ordenação: 
 
-O comando ORDER BY permite ordenar os resultados com base em uma ou mais colunas. Por exemplo, SELECT nome FROM clientes ORDER BY nome; listaria todos os clientes em ordem alfabética pelo nome.
+A ordenação é uma parte crucial das consultas SQL, permitindo que os usuários apresentem os resultados de uma maneira específica e legível. A cláusula ORDER BY é usada para classificar os registros em ordem crescente ou decrescente com base em uma ou mais colunas. Aqui estão os principais componentes e conceitos relacionados à ordenação em SQL:
 
-Compreender esses fundamentos é a chave para começar a trabalhar com SQL. À medida que avançamos no curso, você verá como esses conceitos básicos se expandem e se combinam para formar consultas mais complexas e poderosas.
+- ORDER BY: 
+    - É a cláusula usada para especificar a ordem dos registros retornados.
+    - Pode ser aplicada a qualquer tipo de coluna: numérica, string, data, etc.
+    - Por padrão, a ordenação é em ordem ascendente.
+
+Exemplo:
+
+```sql
+SELECT 
+    * 
+FROM employees
+ORDER BY last_name;
+```
+
+Este exemplo retornará todos os registros da tabela employees, ordenados alfabeticamente pelo sobrenome.
+
+- ASC: 
+    - Significa "ascendente" e é usado para ordenar os registros de forma ascendente.
+    - Embora seja o comportamento padrão, pode ser útil especificá-lo para tornar a intenção clara.
+
+Exemplo:
+
+```sql
+SELECT 
+    * 
+FROM products
+ORDER BY price ASC;
+```
+
+Este exemplo retornará todos os produtos da tabela products, ordenados pelo preço do mais baixo para o mais alto.
+
+- DESC:
+    - Significa "descendente" e é usado para ordenar os registros de forma descendente.
+
+Exemplo:
+
+```sql
+SELECT 
+    * 
+FROM sales
+ORDER BY sale_date DESC;
+```
+
+Este exemplo retornará todos os registros da tabela sales, ordenados pela data de venda do mais recente para o mais antigo.
+
+- Ordenação Múltipla:
+    - É possível ordenar os resultados por mais de uma coluna.
+    - A ordenação é aplicada da esquerda para a direita, ou seja, a primeira coluna especificada tem prioridade sobre as subsequentes.
+
+Exemplo:
+
+```sql
+SELECT 
+    * 
+FROM employees
+ORDER BY department ASC
+    , last_name DESC;
+```
+
+Neste exemplo, os registros serão primeiro ordenados pelo departamento em ordem ascendente. Dentro de cada departamento, os registros serão ordenados pelo sobrenome em ordem descendente.
+
+A cláusula ORDER BY é extremamente útil para apresentar dados de uma maneira que faça sentido para os usuários finais, seja para relatórios, análises ou qualquer outra finalidade. Ao compreender e utilizar eficazmente as opções de ordenação, você pode garantir que seus resultados sejam não apenas precisos, mas também facilmente interpretáveis.
 
 ### 3. Funções e Agregações
 
