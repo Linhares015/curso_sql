@@ -62,87 +62,92 @@ docker rmi <image_id>
 ```
 # Tópicos do Curso
 
-- Introdução ao SQL
-    - O que é SQL e por que é importante?
-    - Visão geral dos sistemas de gerenciamento de banco de dados (DBMS)
-    - Principais DBMS e suas características
-    - Diferença entre Cloud e On-Premises
-- Fundamentos do SQL
-    - Entendendo tabelas, registros e campos
-    - Tipos de dados básicos
-    - Comandos básicos
-    - Filtrando e ordenando dados
-- Funções e Agregações
-    - Funções de String
-    - Funções de Data
-    - Funções Numéricas
-    - Funções de Conversão
-    - Funções de Formatação
-    - Funções de Validação
-    - Funções de Agrupamento
-    - Funções de Janela
-- Junções e Relações
-    - Chaves Primárias e Estrangeiras
-    - Junções
-    - Subconsultas
-- Manipulação de Dados
-    - Inserindo Dados
-    - Atualizando Dados
-    - Excluindo Dados
-    - Transações
-- Funções Especiais do SQL
-    - ROW_NUMBER()
-    - RANK() e DENSE_RANK()
-    - NTILE(n)
-    - LAG() e LEAD()
-    - CUME_DIST()
-    - FIRST_VALUE() e LAST_VALUE()
-- Tópicos Avançados
-    - Indexação e Performance
-    - Views
-    - Triggers e Procedimentos Armazenados
-    - Normalização
-- Maiores Erros em SQL: Explicação e Soluções
-    - Subqueries Ineficientes
-    - Uso Excessivo de Wildcards
-    - Não Utilizar Índices Adequadamente
-    - Consultas N+1
-    - Não Considerar a Distribuição de Dados
-    - Injeção de SQL
-    - Não Utilizar Transações Quando Necessário
-- Estilo de Código SQL e Boas Práticas
-    - Estilo de Código SQL
-    - Common Table Expressions (CTEs)
-    - Ferramentas e Extensões para VSCode
-- Recursos Avançados em SQL
-    - Tabelas Temporárias
-    - Loops
-    - Defaults
-    - Identity
-- SQL para Análise de Dados
-    - Técnicas de Limpeza de Dados
-    - Análise Exploratória com SQL
-    - Funções Analíticas e Janelas
-- Diferenças entre DBMSs
-    - Sintaxes Específicas de Diferentes DBMSs
-    - Funções e Características Exclusivas
-    - Casos de Uso e Quando Escolher Cada DBMS
-- Prática e Projetos Reais
-    - Análise de um Conjunto de Dados do Mundo Real
-    - Resolução de Problemas Comuns do Dia a Dia
-    - Construção de um Mini-Projeto
-- Recursos para Aprendizado Contínuo
-- Próximos Passos
-- Projeto Final
-- Recomendações para Aprendizado Avançado
-    - Integração SQL com Outras Ferramentas
-    - Aprendizado de Outras Linguagens Relacionadas a Banco de Dados
-    - DBT (Data Build Tool)
-- Conclusão
+## Conteúdo
+- [Introdução ao SQL](#introdução-ao-sql)
+    - [O que é SQL e por que é importante?](#o-que-é-sql-e-por-que-é-importante)
+    - [Visão geral dos sistemas de gerenciamento de banco de dados (DBMS)](#visão-geral-dos-sistemas-de-gerenciamento-de-banco-de-dados-dbms)
+    - [Principais DBMS e suas características](#principais-dbms-e-suas-características)
+    - [Diferença entre Cloud e On-Premises](#diferença-entre-cloud-e-on-premises)
+- [Fundamentos do SQL](#fundamentos-do-sql)
+    - [Entendendo tabelas, registros e campos](#entendendo-tabelas-registros-e-campos)
+    - [Tipos de dados](#tipos-de-dados)
+    - [Comandos básicos](#comandos-básicos)
+    - [Filtrando e ordenando dados](#filtrando-e-ordenando-dados)
+- [Funções e Agregações](#funções-e-agregações)
+    - [Funções de String](#funções-de-string)
+    - [Funções de Data](#funções-de-data)
+    - [Funções Numéricas](#funções-numéricas)
+    - [Funções de Agregação](#funções-de-agregação)
+    - [Funções de Conversão](#funções-de-conversão)
+    - [Funções de Sistema](#funções-de-sistema)
+    - [Funções de Controle de Fluxo](#funções-de-controle-de-fluxo)
+    - [Funções de Janela](#funções-de-janela)
+    - [Funções de Json](#funções-de-json)
+    - [Funções de Xml](#funções-de-xml)
+- [Junções e Relações](#junções-e-relações)
+    - [Chaves Primárias e Estrangeiras](#chaves-primárias-e-estrangeiras)
+    - [Junções](#junções)
+    - [Subconsultas](#subconsultas)
+- [Manipulação de Dados](#manipulação-de-dados)
+    - [Inserindo Dados](#inserindo-dados)
+    - [Atualizando Dados](#atualizando-dados)
+    - [Excluindo Dados](#excluindo-dados)
+    - [Transações](#transações)
+- [Funções Especiais do SQL](#funções-especiais-do-sql)
+    - [ROW_NUMBER()](#row_number)
+    - [RANK() e DENSE_RANK()](#rank-e-dense_rank)
+    - [NTILE(n)](#ntilen)
+    - [LAG() e LEAD()](#lag-e-lead)
+    - [CUME_DIST()](#cume_dist)
+    - [FIRST_VALUE() e LAST_VALUE()](#first_value-e-last_value)
+- [Tópicos Avançados](#tópicos-avançados)
+    - [Indexação e Performance](#indexação-e-performance)
+    - [Views](#views)
+    - [Triggers e Procedimentos Armazenados](#triggers-e-procedimentos-armazenados)
+    - [Normalização](#normalização)
+- [Maiores Erros em SQL: Explicação e Soluções](#maiores-erros-em-sql-explicação-e-soluções)
+    - [Subqueries Ineficientes](#subqueries-ineficientes)
+    - [Uso Excessivo de Wildcards](#uso-excessivo-de-wildcards)
+    - [Não Utilizar Índices Adequadamente](#não-utilizar-índices-adequadamente)
+    - [Consultas N+1](#consultas-n1)
+    - [Não Considerar a Distribuição de Dados](#não-considerar-a-distribuição-de-dados)
+    - [Injeção de SQL](#injeção-de-sql)
+    - [Não Utilizar Transações Quando Necessário](#não-utilizar-transações-quando-necessário)
+- [Estilo de Código SQL e Boas Práticas](#estilo-de-código-sql-e-boas-práticas)
+    - [Estilo de Código SQL](#estilo-de-código-sql)
+    - [Common Table Expressions (CTEs)](#common-table-expressions-ctes)
+    - [Ferramentas e Extensões para VSCode](#ferramentas-e-extensões-para-vscode)
+- [Recursos Avançados em SQL](#recursos-avançados-em-sql)
+    - [Tabelas Temporárias](#tabelas-temporárias)
+    - [Variáveis](#variáveis)
+    - [Loops](#loops)
+    - [Defaults](#defaults)
+    - [Identity](#identity)
+- [SQL para Análise de Dados](#sql-para-análise-de-dados)
+    - [Técnicas de Limpeza de Dados](#técnicas-de-limpeza-de-dados)
+    - [Análise Exploratória com SQL](#análise-exploratória-com-sql)
+    - [Funções Analíticas e Janelas](#funções-analíticas-e-janelas)
+- [Diferenças entre DBMSs](#diferenças-entre-dbmss)
+    - [Sintaxes Específicas de Diferentes DBMSs](#sintaxes-específicas-de-diferentes-dbmss)
+    - [Funções e Características Exclusivas](#funções-e-características-exclusivas)
+    - [Casos de Uso e Quando Escolher Cada DBMS](#casos-de-uso-e-quando-escolher-cada-dbms)
+- [Prática e Projetos Reais](#prática-e-projetos-reais)
+    - [Análise de um Conjunto de Dados do Mundo Real](#análise-de-um-conjunto-de-dados-do-mundo-real)
+    - [Resolução de Problemas Comuns do Dia a Dia](#resolução-de-problemas-comuns-do-dia-a-dia)
+    - [Construção de um Mini-Projeto](#construção-de-um-mini-projeto)
+- [Recursos para Aprendizado Contínuo](#recursos-para-aprendizado-contínuo)
+- [Conclusão e Próximos Passos](#conclusão-e-próximos-passos)
+- [Projeto Final](#projeto-final)
+- [Recomendações para Aprendizado Avançado](#recomendações-para-aprendizado-avançado)
+    - [Integração SQL com Outras Ferramentas](#integração-sql-com-outras-ferramentas)
+    - [Aprendizado de Outras Linguagens Relacionadas a Banco de Dados](#aprendizado-de-outras-linguagens-relacionadas-a-banco-de-dados)
+    - [DBT (Data Build Tool)](#dbt-data-build-tool)
+- [Conclusão](#conclusão)
 
-## 1. Introdução ao SQL
 
-### 1.1. O que é SQL e por que é importante?
+## introdução-ao-sql
+
+### o-que-é-sql-e-por-que-é-importante
 
 #### Definição 
 SQL (Structured Query Language) é uma linguagem padrão para armazenar, manipular e recuperar dados em bancos de dados.
@@ -171,7 +176,7 @@ Muitos aplicativos modernos dependem de bancos de dados para armazenar informaç
 #### Integração de Sistemas
 SQL serve como uma linguagem comum entre diferentes sistemas para troca de dados.
 
-### 1.2. Visão geral dos sistemas de gerenciamento de banco de dados (DBMS)
+### visão-geral-dos-sistemas-de-gerenciamento-de-banco-de-dados-dbms
 
 #### Definição 
 Um DBMS é um software que permite criar, definir e manipular bancos de dados para vários aplicativos.
@@ -192,7 +197,7 @@ Um DBMS é um software que permite criar, definir e manipular bancos de dados pa
 - Ferramentas de Administração: 
     Auxiliam na manutenção e monitoramento do banco de dados. Usaremos nesse curso o um banco SQLServer, e o Dbeaver como ferramenta de administração.
     
-### 1.3. Principais DBMS e suas características
+### principais-dbms-e-suas-características
 
 #### SQL Server
 - Visão Geral: Desenvolvido pela Microsoft, o SQL Server é um RDBMS poderoso e versátil que suporta uma ampla variedade de cargas de trabalho de transação e análise.
@@ -258,7 +263,7 @@ Um DBMS é um software que permite criar, definir e manipular bancos de dados pa
 - Configuração: Redshift é um serviço em nuvem, portanto, não requer instalação tradicional.
 
 
-### 1.4. Diferença entre Cloud e On-Premises
+### diferença-entre-cloud-e-on-premises
 
 #### Cloud (Nuvem)
 
@@ -304,11 +309,11 @@ Um DBMS é um software que permite criar, definir e manipular bancos de dados pa
         
 - Escalabilidade: Aumentar a capacidade pode exigir novos investimentos e tempo.
 
-### 2. Fundamentos do SQL
+### fundamentos-do-sql
 
 O SQL é uma linguagem poderosa e versátil, mas, como qualquer linguagem, é essencial entender seus fundamentos para usá-la efetivamente. Aqui, exploraremos os conceitos básicos que formam a base da linguagem SQL.
 
-#### 2.1 Entendendo tabelas, registros e campos
+#### entendendo-tabelas-registros-e-campos
 
 ##### Tabelas: 
 
@@ -322,7 +327,7 @@ Cada linha em uma tabela representa um registro. Um registro é um conjunto úni
 
 As colunas em uma tabela representam campos. Cada campo tem um nome e armazena um tipo específico de informação. Por exemplo, em uma tabela de "Clientes", você pode ter campos como "Nome", "Endereço" e "Número de Telefone".
 
-#### 2.2 Tipos de dados básicos
+#### tipos-de-dados
         
 Os tipos de dados em SQL definem o tipo de valor que uma coluna pode conter. É crucial escolher o tipo de dado correto para uma coluna, pois isso afeta não apenas o tipo de informação que você pode armazenar, mas também o desempenho do banco de dados e a quantidade de espaço de armazenamento usado. Aqui está uma lista dos tipos de dados mais comuns em SQL, agrupados por categorias:
 
@@ -375,7 +380,7 @@ Os tipos de dados em SQL definem o tipo de valor que uma coluna pode conter. É 
 
 Lembre-se de que a disponibilidade, a sintaxe e o comportamento exatos desses tipos de dados podem variar dependendo do sistema de gerenciamento de banco de dados (DBMS) que você está usando. Além disso, muitos DBMSs oferecem tipos de dados adicionais ou variações dos tipos listados acima. Sempre consulte a documentação oficial do seu DBMS ao projetar sua base de dados.
 
-#### 2.3 Comandos básicos
+#### comandos-básicos
         
 - SELECT: Usado para selecionar dados de uma ou mais tabelas. Por exemplo, SELECT nome FROM clientes; retornaria todos os nomes da tabela de clientes.
         
@@ -391,7 +396,7 @@ select -- Selecione
 from tabela --Aonde
 where condicao -- Quando
 ```
-#### 2.4 Filtrando e ordenando dados
+#### filtrando-e-ordenando-dados
         
 ##### Filtragem: 
 
@@ -505,11 +510,11 @@ Neste exemplo, os registros serão primeiro ordenados pelo departamento em ordem
 
 A cláusula ORDER BY é extremamente útil para apresentar dados de uma maneira que faça sentido para os usuários finais, seja para relatórios, análises ou qualquer outra finalidade. Ao compreender e utilizar eficazmente as opções de ordenação, você pode garantir que seus resultados sejam não apenas precisos, mas também facilmente interpretáveis.
 
-### 3. Funções e Agregações
+### funções-e-agregações
 
 O SQL não é apenas sobre a recuperação de dados brutos; é também sobre a transformação e análise desses dados para obter insights valiosos. As funções e agregações são ferramentas essenciais nesse processo, permitindo que você manipule e resuma dados de maneiras significativas.
 
-#### 3.1 Funções de String: 
+#### funções-de-string 
 
 Permitem manipular e formatar strings.
 
@@ -758,7 +763,7 @@ Permitem manipular e formatar strings.
 
 Estas são apenas algumas das muitas funções de manipulação de strings disponíveis em SQL. A disponibilidade e a sintaxe exata podem variar dependendo do sistema de gerenciamento de banco de dados que você está usando.
     
-#### 3.2 Funções de Data: 
+#### funções-de-data 
 
 Estas são cruciais para trabalhar com campos de data e hora. 
 
@@ -1005,7 +1010,7 @@ Estas são cruciais para trabalhar com campos de data e hora.
 
 Estas são algumas das funções relacionadas a datas em SQL. A disponibilidade e a sintaxe exata podem variar dependendo do sistema de gerenciamento de banco de dados que você está usando.
 
-#### 3.3 Funções Numéricas:
+#### funções-numéricas
 
 Estas são usadas para realizar operações matemáticas. 
 
@@ -1252,7 +1257,7 @@ Estas são usadas para realizar operações matemáticas.
     Resultado: `2`
 
 Estas são algumas das funções numéricas mais comuns em SQL. A disponibilidade e a sintaxe exata podem variar dependendo do sistema de gerenciamento de banco de dados que você está usando.
-#### 3.4 Funções de Agregação:
+#### funções-de-agregação
 
 Estas funções são usadas para resumir e analisar conjuntos de dados.
 
@@ -1450,7 +1455,7 @@ Estas funções são usadas para resumir e analisar conjuntos de dados.
     ```
     Resultado: `125000000`
 
-#### 3.5 Funções de Conversão:
+#### funções-de-conversão
 
 Estas são algumas das funções de agregação mais comuns em SQL. A disponibilidade e a sintaxe exata podem variar dependendo do sistema de gerenciamento de banco de dados que você está usando.
 
@@ -1577,7 +1582,7 @@ Estas são algumas das funções de agregação mais comuns em SQL. A disponibil
 
 Estes são algumas das principais funções de conversão em SQL. A disponibilidade e a sintaxe exata podem variar dependendo do sistema de gerenciamento de banco de dados (DBMS) que você está usando. Além disso, é importante lembrar que a conversão inadequada de tipos de dados pode levar a erros ou resultados inesperados, então sempre é bom testar e entender completamente as conversões antes de aplicá-las em situações reais.
 
-#### 3.6 Funções de Sistema:
+#### funções-de-sistema
 
 Estas são funções específicas do sistema que retornam informações sobre o sistema de banco de dados.
 
@@ -1704,7 +1709,7 @@ Estas são funções específicas do sistema que retornam informações sobre o 
 
 Estas são algumas das principais funções de sistema em SQL. A disponibilidade e a sintaxe exata podem variar dependendo do sistema de gerenciamento de banco de dados (DBMS) que você está usando. Funções de sistema são extremamente úteis para obter informações sobre o ambiente do banco de dados, gerar valores únicos ou aleatórios e muito mais.
 
-#### 3.7 Funções de Controle de Fluxo:
+#### funções-de-controle-de-fluxo
 
 Estas são funções que controlam o fluxo de execução de uma consulta.
 
@@ -1784,7 +1789,7 @@ Estas são funções que controlam o fluxo de execução de uma consulta.
 
 Estas são algumas das principais funções de controle de fluxo em SQL. Elas permitem que os desenvolvedores criem lógica condicional em suas consultas, tornando-as mais dinâmicas e adaptáveis às necessidades de análise de dados. A disponibilidade e a sintaxe exata podem variar dependendo do sistema de gerenciamento de banco de dados (DBMS) que você está usando. Utilizar funções de controle de fluxo corretamente pode melhorar significativamente a eficiência e a clareza de suas consultas SQL.
 
-#### 3.8 Funções de Janela:
+#### funções-de-janela
 
 Estas são funções que operam em um conjunto de linhas que estão relacionadas a uma linha atual.
 
@@ -1910,7 +1915,7 @@ Estas são funções que operam em um conjunto de linhas que estão relacionadas
 Estas são algumas das principais funções de janela em SQL. Elas oferecem uma maneira poderosa de realizar análises complexas diretamente no banco de dados, sem a necessidade de extrair dados ou usar ferramentas adicionais. A capacidade de entender e usar funções de janela é uma habilidade valiosa para qualquer profissional que trabalhe com análise de dados. A disponibilidade e a sintaxe exata podem variar dependendo do sistema de gerenciamento de banco de dados (DBMS) que você está usando.
 
 
-#### 3.9 Funções JSON:
+#### funções-de-json
 
 Estas são funções que operam em dados JSON.
 
@@ -2012,7 +2017,7 @@ Estas são funções que operam em dados JSON.
 
 Estas são algumas das principais funções JSON em SQL. Elas são cruciais para trabalhar com dados semi-estruturados em um ambiente relacional. A capacidade de manipular e consultar dados JSON diretamente no SQL oferece uma grande flexibilidade e poder aos desenvolvedores. Assim como outras funções, a disponibilidade e a sintaxe exata dessas funções podem variar dependendo do sistema de gerenciamento de banco de dados (DBMS) que você está usando.
 
-#### 3.10 Funções XML:
+#### funções-de-xml
 
 Estas são funções que operam em dados XML.
 
@@ -2115,11 +2120,11 @@ Estas são funções que operam em dados XML.
 
 Estas são algumas das principais funções XML em SQL. Elas são essenciais para trabalhar com dados estruturados em formato XML em um ambiente relacional. A capacidade de manipular, consultar e transformar dados XML diretamente no SQL oferece uma grande flexibilidade aos desenvolvedores. Assim como outras funções, a disponibilidade e a sintaxe exata dessas funções podem variar dependendo do sistema de gerenciamento de banco de dados (DBMS) que você está usando.
 
-### 4. Junções e Relações
+### junções-e-relações
 
 A capacidade de relacionar tabelas é uma das características mais poderosas dos sistemas de banco de dados relacional. Isso permite que os dados sejam organizados de forma eficiente, evitando redundâncias e facilitando a recuperação de informações de várias tabelas de forma coesa. Vamos mergulhar profundamente neste tópico.
 
-#### 4.1 Chaves Primárias e Estrangeiras
+#### chaves-primárias-e-estrangeiras
 
 ##### Chave Primária (PK): 
 
@@ -2129,7 +2134,7 @@ A capacidade de relacionar tabelas é uma das características mais poderosas do
 
 É uma coluna ou conjunto de colunas em uma tabela que é usada para estabelecer e impor um link entre os dados em duas tabelas. Ela estabelece uma relação entre duas tabelas ao referenciar a chave primária de outra tabela. A principal utilidade da FK é garantir a integridade referencial dos dados.
 
-#### 4.2 Junções
+#### junções
         
 ##### INNER JOIN: 
 
@@ -2147,7 +2152,7 @@ Retorna todas as linhas da tabela à esquerda e as correspondentes da tabela à 
 
 Retorna linhas quando há uma correspondência em uma das tabelas. Portanto, ele retorna todas as linhas da tabela à esquerda e todas as linhas da tabela à direita.
 
-#### 4.3 Subconsultas
+#### subconsultas
 
 Uma subconsulta é uma consulta dentro de outra consulta. Ela pode retornar um ou mais valores e é usada em várias situações, como para comparar com um valor ou lista de valores, verificar a existência de dados, entre outros.
         
@@ -2161,11 +2166,11 @@ São subconsultas que são executadas apenas uma vez e o resultado é entregue �
 
 Entender junções e relações é fundamental para trabalhar com bancos de dados relacionais. Elas permitem que os analistas de dados explorem e analisem dados de várias tabelas simultaneamente, proporcionando uma visão mais completa e integrada dos dados. Ao dominar esses conceitos, você pode combinar, comparar e analisar dados de várias fontes com facilidade e precisão.
 
-### 5. Manipulação de Dados
+### manipulação-de-dados
 
 A manipulação de dados é uma parte essencial do trabalho com bancos de dados. Ela se refere ao processo de inserção, atualização, exclusão e gerenciamento de dados armazenados em um banco de dados. Vamos explorar cada um desses aspectos em detalhes:
 
-#### 5.1 Inserindo Dados
+#### inserindo-dados
     
 ##### INSERT
     
@@ -2184,7 +2189,7 @@ Ao inserir dados, é crucial garantir que os tipos de dados das colunas correspo
 
 Se estiver inserindo valores para todas as colunas da tabela, você não precisa especificar os nomes das colunas na consulta SQL.
 
-#### 5.2 Atualizando Dados
+#### atualizando-dados
     
 ##### UPDATE
 
@@ -2204,7 +2209,7 @@ A cláusula WHERE é essencial ao atualizar registros para garantir que apenas o
 
 É fundamental testar sua condição WHERE com uma consulta SELECT antes de executar o UPDATE para evitar alterações indesejadas.
 
-#### 5.3 Excluindo Dados
+#### excluindo-dados
 
 ##### DELETE
 
@@ -2222,7 +2227,7 @@ Assim como com o UPDATE, a cláusula WHERE é crucial ao excluir registros. Sem 
 
 Sempre faça backup dos seus dados antes de executar comandos DELETE, especialmente em ambientes de produção.
 
-#### 5.4 Transações
+#### transações
 
 - Objetivo:
 
@@ -2244,11 +2249,11 @@ Se algo der errado durante uma transação, você pode usar ROLLBACK para revert
 
 Dominar a manipulação de dados é fundamental para qualquer profissional que trabalhe com bancos de dados. Isso permite que você interaja efetivamente com os dados, garantindo que as informações sejam precisas, atualizadas e relevantes para suas necessidades analíticas ou operacionais.
 
-### 6. Funções Especiais do SQL
+### funções-especiais-do-sql
 
 As funções especiais do SQL são ferramentas poderosas que permitem realizar operações mais complexas e avançadas em seus dados. Elas são frequentemente usadas para resolver problemas específicos que não podem ser facilmente abordados com comandos SQL padrão. Vamos explorar algumas das funções especiais mais comuns:
 
-#### ROW_NUMBER()
+#### row_number
     
 - Objetivo: 
         
@@ -2264,7 +2269,7 @@ Comumente usado para numerar linhas ou para encontrar registros duplicados.
         
 A cláusula ORDER BY dentro do OVER() determina a ordem da numeração.
 
-#### RANK() e DENSE_RANK()
+#### rank-e-dense_rank
 
 - Objetivo: 
         
@@ -2281,7 +2286,7 @@ RANK() pode deixar lacunas nos rankings (por exemplo, 1, 2, 2, 4).
         
 DENSE_RANK() não deixa lacunas nos rankings (por exemplo, 1, 2, 2, 3).
 
-#### NTILE(n)
+#### ntilen
 
 - Objetivo: 
         
@@ -2295,7 +2300,7 @@ NTILE(n) OVER (ORDER BY coluna)
         
 Útil para dividir um conjunto de resultados em percentis ou quartis.
 
-#### LAG() e LEAD()
+#### lag-e-lead
 
 - Objetivo: 
         
@@ -2310,7 +2315,7 @@ LEAD(coluna, n, valor_default) OVER (ORDER BY coluna)
         
 Útil para comparar valores entre linhas consecutivas.
 
-#### CUME_DIST()
+#### cume_dist
 
 - Objetivo: 
     
@@ -2324,7 +2329,7 @@ CUME_DIST() OVER (ORDER BY coluna)
 
 Pode ser usado para calcular percentis.
 
-#### FIRST_VALUE() e LAST_VALUE()
+#### first_value-e-last_value
 
 - Objetivo: 
     
@@ -2341,11 +2346,11 @@ Pode ser útil para comparar valores dentro de um conjunto de resultados.
 
 Estas são apenas algumas das muitas funções especiais disponíveis em SQL. Elas oferecem uma grande flexibilidade e poder para resolver problemas complexos e realizar análises avançadas. Ao dominar essas funções, você pode elevar suas habilidades de SQL a um novo patamar e lidar com uma ampla variedade de desafios de manipulação de dados.
 
-### 7. Tópicos Avançados
+### tópicos-avançados
 
 À medida que nos aprofundamos no mundo do SQL, encontramos tópicos que são essenciais para profissionais que desejam otimizar, proteger e expandir a funcionalidade de seus bancos de dados. Estes tópicos avançados são a espinha dorsal de muitos sistemas de banco de dados em produção e são cruciais para garantir a eficiência, segurança e escalabilidade.
 
-#### 7.1 Indexação e Performance
+#### indexação-e-performance
         
 - Objetivo: 
         
@@ -2363,7 +2368,7 @@ Embora os índices acelerem as operações de consulta, eles podem desacelerar a
         
 A seleção de quais colunas indexar e como projetar índices é uma arte e requer uma compreensão profunda das consultas que serão executadas.
 
-#### 7.2 Views
+#### views
         
 - Objetivo: 
         
@@ -2379,7 +2384,7 @@ Views são úteis para simplificar consultas complexas, restringir o acesso a pa
         
 Como as views não armazenam dados, elas sempre refletem os dados atuais das tabelas subjacentes.
 
-#### 7.3 Triggers e Procedimentos Armazenados
+#### triggers-e-procedimentos-armazenados
         
 - Objetivo: 
         
@@ -2397,7 +2402,7 @@ Triggers podem ser úteis para manter a integridade dos dados, registrar altera�
         
 Procedimentos armazenados podem melhorar a performance ao reduzir o tráfego de rede, pois múltiplas instruções podem ser executadas em uma única chamada.
     
-#### 7.4 Normalização
+#### normalização
 
 - Objetivo: 
         
@@ -2419,7 +2424,9 @@ Estes tópicos avançados fornecem uma base sólida para qualquer profissional d
 
 O SQL, apesar de ser uma linguagem poderosa para manipulação e consulta de dados, também é suscetível a erros comuns que podem afetar a performance, a integridade dos dados e a segurança. Vamos explorar alguns dos erros mais comuns, entender por que eles ocorrem e aprender como resolvê-los.
 
-#### 8.1 Subqueries Ineficientes
+#### maiores-erros-em-sql-explicação-e-soluções
+
+#### subqueries-ineficientes
 
 - Descrição: 
         
@@ -2433,7 +2440,7 @@ Se possível, limite a quantidade de dados retornados pela subquery usando cláu
         
 Considere a utilização de CTEs (Common Table Expressions) para tornar as subqueries mais legíveis e otimizáveis.
     
-#### 8.2 Uso Excessivo de Wildcards
+#### uso-excessivo-de-wildcards
 
 - Descrição: 
         
@@ -2445,7 +2452,7 @@ Especifique explicitamente as colunas que você precisa em sua consulta.
         
 Isso não apenas melhora a performance, mas também torna o código mais legível e menos propenso a erros.
 
-#### 8.3 Não Utilizar Índices Adequadamente
+#### não-utilizar-índices-adequadamente
 
 - Descrição: 
 
@@ -2457,7 +2464,7 @@ Certifique-se de que as colunas frequentemente consultadas ou filtradas estejam 
         
 Evite índices desnecessários, pois eles podem desacelerar operações de inserção e atualização.
 
-#### 8.4 Consultas N+1
+#### consultas-n1
 
 - Descrição: 
 
@@ -2467,7 +2474,7 @@ Este é um problema comum onde, para cada registro em um conjunto de resultados,
         
 Use junções para buscar todos os dados relacionados de uma vez, em vez de fazer múltiplas consultas individuais.
     
-#### 8.5 Não Considerar a Distribuição de Dados
+#### não-considerar-a-distribuição-de-dados
 
 - Descrição: 
         
@@ -2477,7 +2484,7 @@ A performance pode ser afetada se a distribuição de dados em uma coluna não f
         
 Use estatísticas e histogramas para entender a distribuição de dados e otimize suas consultas e índices de acordo.
     
-#### 8.6 Injeção de SQL
+#### injeção-de-sql
         
 - Descrição: 
         
@@ -2489,7 +2496,7 @@ Nunca construa consultas SQL concatenando strings diretamente com entradas do us
         
 Use consultas parametrizadas ou prepared statements para garantir que as entradas sejam tratadas como dados e não como código SQL.
     
-#### 8.7 Não Utilizar Transações Quando Necessário
+#### não-utilizar-transações-quando-necessário
     
 - Descrição: 
         
@@ -2502,11 +2509,11 @@ Use transações sempre que estiver realizando múltiplas operações que depend
 Estes são apenas alguns dos erros mais comuns em SQL. A chave para escrever SQL eficiente e seguro é entender profundamente a linguagem, o esquema do banco de dados e os dados subjacentes. Com prática e experiência, você pode evitar esses erros e escrever consultas que são rápidas, precisas e seguras.
 
 
-### 9. Estilo de Código SQL e Boas Práticas
+### estilo-de-código-sql-e-boas-práticas
 
 A legibilidade e a manutenção do código SQL são tão importantes quanto a eficiência das consultas. Adotar um estilo de código consistente e seguir boas práticas não apenas torna o código mais compreensível, mas também facilita a colaboração entre desenvolvedores e analistas. Vamos explorar o estilo de código, o modelo de escrita CTE e as ferramentas que podem ajudar a manter a qualidade do código.
 
-#### 9.1 Estilo de Código SQL
+#### estilo-de-código-sql
 
 - Indentação: Use espaços (geralmente dois ou quatro) para indentar o código e mostrar a estrutura da consulta.
     
@@ -2516,7 +2523,7 @@ A legibilidade e a manutenção do código SQL são tão importantes quanto a ef
     
 - Comentários: Use comentários para explicar a lógica complexa, decisões de design ou qualquer aspecto que possa não ser imediatamente óbvio para outros desenvolvedores.
 
-#### 9.2 Common Table Expressions (CTEs)
+#### common-table-expressions-ctes
 
 - O que são: 
         
@@ -2536,7 +2543,7 @@ Ao dividir uma consulta em várias CTEs, é mais fácil modificar ou depurar par
         
 Uma CTE pode ser referenciada várias vezes na mesma consulta, evitando a repetição de subconsultas.
 
-#### 9.3 Ferramentas e Extensões para VSCode
+#### ferramentas-e-extensões-para-vscode
     
 ##### SQLFluff:
         
@@ -2570,11 +2577,11 @@ Uma ferramenta versátil que pode se conectar a vários bancos de dados, tornand
 
 Adotar um estilo de código consistente e usar ferramentas que promovam a qualidade do código são práticas essenciais para qualquer desenvolvedor ou analista SQL. Elas não apenas melhoram a legibilidade e manutenção do código, mas também promovem uma colaboração mais eficaz entre membros da equipe.
 
-### 10. Recursos Avançados em SQL
+### recursos-avançados-em-sql
 
 O SQL, como linguagem de consulta estruturada, oferece uma variedade de recursos avançados que permitem aos desenvolvedores e analistas de dados manipular e gerenciar dados de maneira mais eficiente e flexível. Vamos explorar alguns desses recursos em detalhes:
 
-#### 10.1 Tabelas Temporárias
+#### tabelas-temporárias
 
 - O que são: 
         
@@ -2588,7 +2595,7 @@ São úteis para armazenar resultados intermediários, especialmente quando se t
         
 Permitem melhorar a performance ao evitar repetições de subconsultas e facilitam a legibilidade ao dividir consultas complexas em etapas.
 
-#### 10.2 Variáveis
+#### variáveis
     
 - O que são: 
         
@@ -2602,7 +2609,7 @@ Geralmente, são declaradas usando a palavra-chave DECLARE e atribuídas usando 
 
 São úteis para armazenar valores que serão referenciados várias vezes em uma consulta ou para armazenar resultados intermediários.
 
-#### 10.3 Loops
+#### loops
     
 - O que são: 
         
@@ -2616,7 +2623,7 @@ WHILE é o tipo mais comum de loop em SQL.
 
 Embora o SQL seja projetado principalmente para operações de conjunto, os loops são úteis em procedimentos armazenados ou quando tarefas específicas precisam ser repetidas.
 
-#### 10.4 Defaults
+#### defaults
 
 - O que são: 
         
@@ -2630,7 +2637,7 @@ São úteis para garantir que uma coluna sempre tenha um valor, mesmo que não s
         
 Ajudam a manter a integridade dos dados e podem simplificar operações de inserção.
 
-#### 10.5 Identity
+#### identity
 
 - O que é: 
         
@@ -2646,11 +2653,11 @@ Garante a unicidade dos registros e elimina a necessidade de gerar manualmente u
 
 Estes recursos avançados do SQL proporcionam uma maior flexibilidade e eficiência na manipulação e gestão de dados. Ao compreender e utilizar adequadamente esses recursos, os desenvolvedores e analistas podem otimizar suas consultas, garantir a integridade dos dados e simplificar tarefas complexas.
 
-### 11. SQL para Análise de Dados
+### sql-para-análise-de-dados
 
 A linguagem SQL, embora tradicionalmente associada à gestão de bancos de dados, é uma ferramenta poderosa para análise de dados. Ela permite que analistas e cientistas de dados acessem, transformem e analisem grandes volumes de dados diretamente na fonte. Vamos explorar como o SQL pode ser usado para esses propósitos:
 
-#### 11.1 Técnicas de Limpeza de Dados
+#### técnicas-de-limpeza-de-dados
 
 - O que é: 
         
@@ -2670,7 +2677,7 @@ Conversão de tipos de dados: Funções como CAST() ou CONVERT().
         
 Dados limpos e de alta qualidade são essenciais para análises precisas e tomada de decisões informadas.
 
-#### 11.2 Análise Exploratória com SQL
+#### análise-exploratória-com-sql
 
 - O que é: 
         
@@ -2688,7 +2695,7 @@ Identificação de outliers: Combinando funções de janela com lógica condicio
         
 Fornece uma compreensão inicial dos dados, identifica tendências, padrões e anomalias.
 
-#### 11.3 Funções Analíticas e Janelas
+#### funções-analíticas-e-janelas
 
 - O que são: 
         
@@ -2711,11 +2718,11 @@ Permitem análises mais complexas e detalhadas sem a necessidade de subconsultas
 
 O SQL, quando usado para análise de dados, oferece uma maneira eficiente e direta de obter insights a partir de grandes conjuntos de dados. Ao dominar essas técnicas, os analistas podem extrair valor dos dados de maneira mais rápida e informada, diretamente na fonte.
 
-### 12. Diferenças entre DBMSs
+### diferenças-entre-dbmss
 
 A variedade de Sistemas de Gerenciamento de Banco de Dados (DBMS) disponíveis no mercado oferece uma ampla gama de funcionalidades, desempenho e características específicas. Embora todos sigam os princípios fundamentais do SQL, cada um tem suas peculiaridades. Vamos explorar as diferenças mais notáveis:
 
-#### 12.1 Sintaxes Específicas de Diferentes DBMSs
+#### sintaxes-específicas-de-diferentes-dbmss
 
 - O que são: 
         
@@ -2733,7 +2740,7 @@ O SQL Server usa +, o Oracle utiliza ||, e o PostgreSQL oferece a função CONCA
     
 Conhecer essas diferenças permite que os desenvolvedores escrevam consultas otimizadas e compatíveis para cada DBMS.
 
-#### 12.2 Funções e Características Exclusivas
+#### funções-e-características-exclusivas
     
 - O que são: 
         
@@ -2753,7 +2760,7 @@ PostGIS para PostgreSQL e Spatial Extensions para MySQL são exemplos de extens�
         
 Essas características exclusivas podem ser decisivas ao escolher um DBMS para necessidades específicas, como análise geoespacial ou processamento de séries temporais.
 
-#### 12.3 Casos de Uso e Quando Escolher Cada DBMS
+#### casos-de-uso-e-quando-escolher-cada-dbms
 
 - O que são: 
         
@@ -2783,11 +2790,11 @@ Entender os pontos fortes e fracos de cada DBMS ajuda a tomar decisões informad
 
 Ao explorar as diferenças entre os DBMSs, é crucial lembrar que não existe uma solução única para todos. A escolha do DBMS certo depende das necessidades específicas do projeto, do orçamento, da experiência da equipe e de outros fatores. Conhecer as nuances de cada sistema permite uma implementação mais eficiente e eficaz.
 
-### 13. Prática e Projetos Reais
+### prática-e-projetos-reais
 
 A teoria é fundamental, mas a prática é o que solidifica o conhecimento. Ao trabalhar com dados do mundo real, os alunos enfrentam desafios e situações que não são comuns em exemplos de livros didáticos. O banco de dados AdventureWorks da Microsoft é um excelente exemplo de um conjunto de dados do mundo real que simula uma empresa fictícia e seus processos de negócios.
 
-#### 13.1 Análise de um Conjunto de Dados do Mundo Real
+#### análise-de-um-conjunto-de-dados-do-mundo-real
 
 - O que é o AdventureWorks: 
         
@@ -2797,7 +2804,7 @@ O AdventureWorks é um banco de dados de exemplo da Microsoft que simula uma emp
         
 Trabalhar com o AdventureWorks permite que os alunos se familiarizem com uma estrutura de banco de dados complexa, entendam relações entre tabelas e pratiquem consultas em um ambiente semelhante ao que encontrariam em muitas empresas.
 
-#### 13.2 Resolução de Problemas Comuns do Dia a Dia
+#### resolução-de-problemas-comuns-do-dia-a-dia
 
 - Desafios típicos: 
         
@@ -2807,7 +2814,7 @@ Com o AdventureWorks, os alunos podem enfrentar desafios como determinar os prod
         
 Ao resolver esses problemas, os alunos aplicarão conceitos aprendidos no curso, como junções, funções agregadas e subconsultas, para obter insights valiosos dos dados.
 
-#### 13.3 Construção de um Mini-Projeto
+#### construção-de-um-mini-projeto
 
 - Sistema de Gerenciamento de Pedidos: 
         
@@ -2823,7 +2830,7 @@ Ao construir um projeto prático, os alunos não apenas aplicam seus conheciment
 
 Ao final deste módulo, os alunos terão uma compreensão profunda de como o SQL é usado no mundo real e estarão bem preparados para enfrentar desafios semelhantes em suas carreiras.
 
-#### 14. Recursos para Aprendizado Contínuo
+#### recursos-para-aprendizado-contínuo
 
 - Documentação Oficial: 
         
@@ -2839,11 +2846,11 @@ Sites como Stack Overflow e Reddit têm comunidades ativas onde os profissionais
 
 Ao adotar essas melhores práticas e utilizar os recursos certos, os profissionais de SQL não apenas melhoram sua eficiência, mas também garantem que suas consultas sejam robustas, escaláveis e fáceis de manter.
 
-### 15. Conclusão e Próximos Passos
+### conclusão-e-próximos-passos
 
 Ao chegar ao final deste curso, os alunos terão adquirido uma compreensão profunda e prática do SQL, desde os fundamentos até os tópicos mais avançados. No entanto, o aprendizado é um processo contínuo, e é essencial refletir sobre o que foi aprendido e considerar os próximos passos na jornada de aprimoramento profissional.
 
-#### 16. Projeto Final
+#### projeto-final
 
 - Exame Abrangente: 
         
@@ -2853,20 +2860,20 @@ Um teste final que abrange todos os tópicos discutidos ao longo do curso, garan
         
 Uma oportunidade para os alunos avaliarem o curso, fornecendo feedback sobre os conteúdos, metodologia e áreas de melhoria. Isso é vital para aprimorar futuras edições do curso.
 
-#### 17. Recomendações para Aprendizado Avançado
+#### recomendações-para-aprendizado-avançado
 
-##### 17.1 Integração SQL com Outras Ferramentas 
+##### integração-sql-com-outras-ferramentas
         
 Explorar como o SQL pode ser integrado a ferramentas de visualização de dados, como Tableau ou Power BI, para criar dashboards interativos e relatórios.
     
-##### 17.2 Aprendizado de Outras Linguagens Relacionadas a Banco de Dados
+##### aprendizado-de-outras-linguagens-relacionadas-a-banco-de-dados
         
 Considerar a aprendizagem de linguagens como PL/SQL (Oracle) ou T-SQL (SQL Server) para aprimorar ainda mais as habilidades em banco de dados.
     
-##### 17.3 DBT (Data Build Tool)
+##### dbt-data-build-tool
 
 Explorar ferramentas como DBT, que permitem que os desenvolvedores apliquem práticas de engenharia de software ao desenvolvimento de pipelines de dados.
 
-#### 18. Conclusão
+#### conclusão
 
 O SQL é uma linguagem poderosa e versátil que permite aos desenvolvedores e analistas de dados acessar, manipular e analisar dados de maneira eficiente e eficaz. Ao dominar o SQL, você pode se tornar um profissional mais eficiente, produtivo e valioso para sua organização.
