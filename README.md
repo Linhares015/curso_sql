@@ -1593,6 +1593,8 @@ Estas são algumas das funções de agregação mais comuns em SQL. A disponibil
     ```
     Resultado: `1234`
 
+    [Mais Opções de CAST e CONVERT](https://learn.microsoft.com/pt-br/sql/t-sql/functions/cast-and-convert-transact-sql?view=sql-server-ver16)
+
 - TO_DATE():
     - Descrição: Converte uma string em uma data.
     
