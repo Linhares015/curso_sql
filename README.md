@@ -72,7 +72,9 @@ docker rmi <image_id>
     - [Entendendo tabelas, registros e campos](#entendendo-tabelas-registros-e-campos)
     - [Tipos de dados](#tipos-de-dados)
     - [Comandos básicos](#comandos-básicos)
-    - [Filtrando e ordenando dados](#filtrando-e-ordenando-dados)
+    - [Filtragem](#filtragem)
+    - [Ordenação](#ordenação)
+    - [Agrupamento](#agrupamento)
 - [Funções e Agregações](#funções-e-agregações)
     - [Funções de String](#funções-de-string)
     - [Funções de Data](#funções-de-data)
@@ -402,6 +404,10 @@ Lembre-se de que a disponibilidade, a sintaxe e o comportamento exatos desses ti
         
 - WHERE: Permite filtrar os resultados com base em uma condição. Por exemplo, SELECT nome FROM clientes WHERE idade > 21; retornaria os nomes de todos os clientes com mais de 21 anos.
 
+- ORDER BY: Ordena os resultados com base em uma ou mais colunas. Por exemplo, SELECT nome FROM clientes ORDER BY nome; retornaria os nomes de todos os clientes em ordem alfabética.
+
+- GROUP BY: Agrupa os resultados com base em uma ou mais colunas. Por exemplo, SELECT departamento, COUNT(*) FROM funcionários GROUP BY departamento; retornaria o número de funcionários em cada departamento.
+
 - Lembre-se sempre:
 
 ```sql
@@ -410,11 +416,10 @@ select -- Selecione
 from tabela --Aonde
 where condicao -- Quando
 ```
-#### filtrando-e-ordenando-dados
 
+
+#### filtragem: 
 [Voltar ao Topo](#menu)
-
-##### Filtragem: 
 
 Os operadores lógicos são fundamentais em SQL, especialmente quando se trabalha com a cláusula WHERE para filtrar resultados. Eles permitem combinar ou modificar condições para tornar uma consulta mais específica ou flexível. Aqui estão os operadores lógicos mais comuns usados em SQL:
 
@@ -459,7 +464,8 @@ OR manager = 'Yes');
 
 Neste exemplo, a consulta retornará todos os registros de empregados no departamento de vendas que têm mais de 5 anos de experiência ou que são gerentes. Graças aos parênteses, a consulta não se limita a retornar gerentes com mais de 5 anos de experiência.
         
-##### Ordenação: 
+#### ordenação: 
+[Voltar ao Topo](#menu)
 
 A ordenação é uma parte crucial das consultas SQL, permitindo que os usuários apresentem os resultados de uma maneira específica e legível. A cláusula ORDER BY é usada para classificar os registros em ordem crescente ou decrescente com base em uma ou mais colunas. Aqui estão os principais componentes e conceitos relacionados à ordenação em SQL:
 
@@ -524,7 +530,85 @@ ORDER BY department ASC
 
 Neste exemplo, os registros serão primeiro ordenados pelo departamento em ordem ascendente. Dentro de cada departamento, os registros serão ordenados pelo sobrenome em ordem descendente.
 
-A cláusula ORDER BY é extremamente útil para apresentar dados de uma maneira que faça sentido para os usuários finais, seja para relatórios, análises ou qualquer outra finalidade. Ao compreender e utilizar eficazmente as opções de ordenação, você pode garantir que seus resultados sejam não apenas precisos, mas também facilmente interpretáveis.
+A cláusula `ORDER BY` é extremamente útil para apresentar dados de uma maneira que faça sentido para os usuários finais, seja para relatórios, análises ou qualquer outra finalidade. Ao compreender e utilizar eficazmente as opções de ordenação, você pode garantir que seus resultados sejam não apenas precisos, mas também facilmente interpretáveis.
+
+#### agrupamento:
+[Voltar ao Topo](#menu)
+
+A cláusula `GROUP BY` é usada para agrupar linhas que têm os mesmos valores em colunas específicas em resumo, como somatório, média, contagem, etc. É frequentemente usada com funções de agregação para realizar operações em cada grupo de linhas.
+Como Funciona:
+
+- Agrupamento: As linhas da tabela são agrupadas com base em uma ou mais colunas especificadas na cláusula GROUP BY. Cada grupo representa um conjunto de linhas que têm os mesmos valores nas colunas de agrupamento.
+
+- Agregação: Para cada grupo formado, são calculados valores agregados usando funções de agregação, como `SUM()`, `AVG()`, `COUNT()`, `MIN()`, `MAX()`, etc. O resultado final consiste em uma linha para cada grupo, com as colunas de agrupamento e os valores agregados calculados.
+
+- Filtragem de Grupo: A cláusula `HAVING` é usada para filtrar grupos após a agregação. Diferentemente da cláusula `WHERE`, que filtra linhas antes da agregação, `HAVING` filtra os grupos formados.
+
+Exemplo Básico:
+
+```sql
+SELECT 
+    departamento
+    , COUNT(*) as numero_funcionarios
+FROM funcionarios
+GROUP BY departamento;
+```
+
+Neste exemplo, os funcionários são agrupados pelo departamento, e é contado o número de funcionários em cada departamento.
+
+Técnicas e Segredos:
+
+- Uso de HAVING: Filtra os grupos após a agregação.
+
+```sql
+SELECT 
+    departamento
+    , AVG(salario) as salario_medio
+FROM funcionarios
+GROUP BY departamento
+HAVING salario_medio > 5000;
+```
+
+Lista os departamentos onde o salário médio é maior que 5000.
+
+- Agrupamento por Múltiplas Colunas: Você pode agrupar por mais de uma coluna.
+
+```sql
+SELECT 
+    departamento
+    , cargo
+    , COUNT(*) as numero_funcionarios
+FROM funcionarios
+GROUP BY departamento, cargo;
+```
+
+Agrupa os funcionários por departamento e cargo.
+
+- Uso com ORDER BY: Ordena os resultados após o agrupamento e agregação.
+
+```sql
+SELECT 
+    departamento
+    , SUM(salario) as total_salarios
+FROM funcionarios
+GROUP BY departamento
+ORDER BY total_salarios DESC;
+```
+
+Lista os departamentos pela soma total dos salários em ordem decrescente.
+
+- Agrupamento por Expressões: Você pode agrupar por expressões ou funções.
+
+```sql
+SELECT 
+    YEAR(data_contratacao) as ano_contratacao
+    , COUNT(*) as numero_contratacoes
+FROM funcionarios
+GROUP BY YEAR(data_contratacao);
+```
+Conta o número de contratações por ano.
+
+Estas são algumas técnicas e segredos do GROUP BY que podem ajudá-lo a manipular e analisar dados de forma eficiente em SQL.
 
 ### funções-e-agregações
 
