@@ -130,6 +130,7 @@ docker rmi <image_id>
     - [Análise Exploratória com SQL](#análise-exploratória-com-sql)
     - [Funções Analíticas e Janelas](#funções-analíticas-e-janelas)
 - [Diferenças entre DBMSs](#diferenças-entre-dbmss)
+    - [Modelo ANSI](#modelo-ansi)
     - [Sintaxes Específicas de Diferentes DBMSs](#sintaxes-específicas-de-diferentes-dbmss)
     - [Funções e Características Exclusivas](#funções-e-características-exclusivas)
     - [Casos de Uso e Quando Escolher Cada DBMS](#casos-de-uso-e-quando-escolher-cada-dbms)
@@ -2890,6 +2891,70 @@ O SQL, quando usado para análise de dados, oferece uma maneira eficiente e dire
 
 A variedade de Sistemas de Gerenciamento de Banco de Dados (DBMS) disponíveis no mercado oferece uma ampla gama de funcionalidades, desempenho e características específicas. Embora todos sigam os princípios fundamentais do SQL, cada um tem suas peculiaridades. Vamos explorar as diferenças mais notáveis:
 
+#### modelo-ansi
+
+O SQL ANSI (American National Standards Institute) é um padrão que define a linguagem SQL (Structured Query Language) para manipulação e consulta de dados em sistemas de gerenciamento de banco de dados relacionais (RDBMS). O SQL ANSI estabelece as regras e convenções para a linguagem SQL, garantindo que os comandos SQL sejam consistentes entre diferentes sistemas de banco de dados, como MySQL, PostgreSQL, SQL Server, Oracle, etc.
+Instâncias do SQL ANSI:
+
+O SQL ANSI é composto por várias "instâncias" ou partes, cada uma abordando diferentes aspectos da linguagem SQL. Algumas das principais instâncias incluem:
+
+- SQL/Framework: Define a estrutura geral da linguagem SQL e estabelece as bases para outras instâncias.
+
+- SQL/Foundation:Define a sintaxe básica e os elementos fundamentais da linguagem SQL, como tipos de dados, operadores, funções de agregação, etc.
+    
+- SQL/CLI (Call-Level Interface): Define a interface de chamada de procedimento para comunicação entre aplicações cliente e servidores de banco de dados.
+    
+- SQL/PSM (Persistent Stored Modules): Define a sintaxe e a semântica para rotinas armazenadas, como procedimentos armazenados e funções, triggers, etc.
+
+- Principais Comandos SQL ANSI:
+
+    - DDL (Data Definition Language):
+        
+        - CREATE: Utilizado para criar objetos no banco de dados, como tabelas, índices, etc.
+        
+        - ALTER: Utilizado para modificar a estrutura de objetos existentes no banco de dados.
+        
+        - DROP: Utilizado para excluir objetos do banco de dados.
+
+    - DML (Data Manipulation Language):
+        
+        - SELECT: Utilizado para consultar e recuperar dados de uma ou mais tabelas.
+        
+        - INSERT: Utilizado para inserir novas linhas em uma tabela.
+        
+        - UPDATE: Utilizado para modificar dados existentes em uma tabela.
+        
+        - DELETE: Utilizado para excluir linhas de uma tabela.
+
+    - DCL (Data Control Language):
+        
+        - GRANT: Utilizado para conceder privilégios de acesso a objetos do banco de dados a usuários ou roles.
+        
+        - REVOKE: Utilizado para remover privilégios de acesso concedidos anteriormente.
+
+    - TCL (Transaction Control Language):
+        
+        - COMMIT: Utilizado para salvar permanentemente as alterações feitas por uma transação.
+        
+        - ROLLBACK: Utilizado para desfazer as alterações feitas por uma transação.
+        
+        - SAVEPOINT: Define um ponto na transação ao qual você pode posteriormente fazer um ROLLBACK.
+        
+        - SET TRANSACTION: Configura as propriedades da transação.
+
+    - Cláusulas e Operadores:
+        
+        - WHERE: Utilizado para filtrar os resultados de uma consulta.
+        
+        - GROUP BY: Utilizado para agrupar linhas que têm os mesmos valores em colunas específicas.
+        
+        - HAVING: Utilizado para filtrar grupos após a agregação.
+        
+        - ORDER BY: Utilizado para ordenar os resultados de uma consulta.
+        
+        - JOIN: Utilizado para combinar linhas de duas ou mais tabelas com base em uma condição relacionada.
+
+O SQL ANSI serve como base para a implementação de SQL em diferentes sistemas de gerenciamento de banco de dados, embora cada sistema possa ter suas próprias extensões e variações da linguagem padrão.
 #### sintaxes-específicas-de-diferentes-dbmss
 
 [Voltar ao Topo](#menu)
