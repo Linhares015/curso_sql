@@ -1927,6 +1927,19 @@ Estas são funções que operam em um conjunto de linhas que estão relacionadas
     ```
     Numera as pessoas por ordem crescente de idade.
 
+    - Você também pode usar o PARTITION para particionar os resultados por uma coluna específica.
+
+    Exemplo:
+
+    ```sql
+    SELECT 
+        name
+        , age
+        , ROW_NUMBER() OVER (PARTITION BY name ORDER BY age) AS row_num
+    FROM people;
+    ```
+    
+
 - RANK():
 
     - Descrição: Atribui um rank a cada linha, com valores idênticos recebendo o mesmo rank.
