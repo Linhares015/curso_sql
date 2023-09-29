@@ -2472,12 +2472,14 @@ Views são úteis para simplificar consultas complexas, restringir o acesso a pa
         
 Como as views não armazenam dados, elas sempre refletem os dados atuais das tabelas subjacentes.
 
+- Exemplos Práticos:
+
 ```sql
 CREATE VIEW vw_ProdutosMaisVendidos AS
 SELECT 
     product.ProductID
     , product.Name AS Produto
-    , SUM(salesh.OrderQty) AS QuantidadeVendida
+    , SUM(sales.OrderQty) AS QuantidadeVendida
     , customer.CustomerID
     , CONCAT(person.FirstName, ' ', person.LastName) AS NomeCliente
 FROM 
@@ -2531,7 +2533,48 @@ Procedimentos armazenados são conjuntos de instruções SQL que podem ser execu
 Triggers podem ser úteis para manter a integridade dos dados, registrar alterações ou automatizar tarefas repetitivas.
         
 Procedimentos armazenados podem melhorar a performance ao reduzir o tráfego de rede, pois múltiplas instruções podem ser executadas em uma única chamada.
-    
+
+- Exemplos Práticos:
+
+```sql
+CREATE PROCEDURE sp_DetalhesPedidosCliente
+    @ClienteID INT
+AS
+BEGIN
+    SELECT 
+        salesh.SalesOrderID AS PedidoID
+        , salesh.OrderDate AS DataPedido
+        , produto.ProductID
+        , produto.Name AS NomeProduto
+        , salesdetail.OrderQty AS Quantidade
+        , salesdetail.UnitPrice AS PrecoUnitario
+        , (salesdetail.OrderQty * salesdetail.UnitPrice) AS TotalItem
+    FROM 
+        Sales.SalesOrderHeader salesh
+        JOIN Sales.SalesOrderDetail salesdetail ON salesh.SalesOrderID = salesdetail.SalesOrderID
+        JOIN Production.Product produto ON salesdetail.ProductID = produto.ProductID
+    WHERE 
+        salesh.CustomerID = @ClienteID
+    ORDER BY 
+        salesh.OrderDate DESC, 
+        produto.Name;
+END
+```
+
+Neste exemplo, estamos criando uma `Stored Procedure` chamada `sp_DetalhesPedidosCliente` que aceita um parâmetro `@ClienteID`. A Procedure irá retornar uma lista de pedidos do cliente especificado, juntamente com os detalhes de cada item do pedido, como ID do produto, nome do produto, quantidade, preço unitário e total do item.
+
+Os resultados serão ordenados pela data do pedido em ordem decrescente e pelo nome do produto.
+
+Depois de criar a Stored Procedure, você pode executá-la passando o ID do cliente como parâmetro:
+
+```sql
+EXEC sp_DetalhesPedidosCliente @ClienteID = 1;
+```
+
+Isso retornará os detalhes dos pedidos do cliente com ID 1.
+
+Lembre-se de verificar as permissões do banco de dados e ajustar o código conforme necessário, dependendo da versão específica do AdventureWorks que você está usando.
+
 #### normalização
 
 [Voltar ao Topo](#menu)
