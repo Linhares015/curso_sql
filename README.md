@@ -2472,6 +2472,48 @@ Views são úteis para simplificar consultas complexas, restringir o acesso a pa
         
 Como as views não armazenam dados, elas sempre refletem os dados atuais das tabelas subjacentes.
 
+```sql
+CREATE VIEW vw_ProdutosMaisVendidos AS
+SELECT 
+    product.ProductID
+    , product.Name AS Produto
+    , SUM(salesh.OrderQty) AS QuantidadeVendida
+    , customer.CustomerID
+    , CONCAT(person.FirstName, ' ', person.LastName) AS NomeCliente
+FROM 
+    Sales.SalesOrderDetail sales
+JOIN Production.Product product ON sales.ProductID = product.ProductID
+JOIN Sales.SalesOrderHeader salesh ON sales.SalesOrderID = salesh.SalesOrderID
+JOIN Sales.Customer customer ON salesh.CustomerID = customer.CustomerID
+JOIN Person.Person person ON customer.PersonID = person.BusinessEntityID
+GROUP BY 
+    product.ProductID,
+    product.Name,
+    customer.CustomerID,
+    person.FirstName,
+    person.LastName
+ORDER BY 
+    QuantidadeVendida DESC;
+```
+
+Neste exemplo, estamos criando uma VIEW chamada vw_ProdutosMaisVendidos. Estamos juntando várias tabelas:
+
+`SalesOrderDetail`, `Product`, `SalesOrderHeader`, `Customer`, e `Person` para obter as informações necessárias.
+
+A `VIEW` irá listar o ID do produto, o nome do produto, a quantidade total vendida desse produto, o ID do cliente e o nome do cliente. Os resultados serão agrupados por produto e cliente e ordenados pela quantidade vendida em ordem decrescente.
+
+Depois de criar a `VIEW`, você pode consultá-la como faria com qualquer outra tabela:
+
+```sql
+SELECT 
+    * 
+FROM vw_ProdutosMaisVendidos;
+```
+
+Isso retornará a lista de produtos mais vendidos, juntamente com as informações do cliente e a quantidade vendida.
+
+Lembre-se de verificar as permissões do banco de dados e ajustar o código conforme necessário, dependendo da versão específica do AdventureWorks que você está usando.
+
 #### triggers-e-procedimentos-armazenados
         
 - Objetivo: 
