@@ -95,13 +95,6 @@ docker rmi <image_id>
     - [Atualizando Dados](#atualizando-dados)
     - [Excluindo Dados](#excluindo-dados)
     - [Transações](#transações)
-- [Funções Especiais do SQL](#funções-especiais-do-sql)
-    - [ROW_NUMBER()](#row_number)
-    - [RANK() e DENSE_RANK()](#rank-e-dense_rank)
-    - [NTILE(n)](#ntilen)
-    - [LAG() e LEAD()](#lag-e-lead)
-    - [CUME_DIST()](#cume_dist)
-    - [FIRST_VALUE() e LAST_VALUE()](#first_value-e-last_value)
 - [Tópicos Avançados](#tópicos-avançados)
     - [Indexação e Performance](#indexação-e-performance)
     - [Views](#views)
@@ -1927,6 +1920,19 @@ Estas são funções que operam em um conjunto de linhas que estão relacionadas
     ```
     Numera as pessoas por ordem crescente de idade.
 
+    - Você também pode usar o PARTITION para particionar os resultados por uma coluna específica.
+
+    Exemplo:
+
+    ```sql
+    SELECT 
+        name
+        , age
+        , ROW_NUMBER() OVER (PARTITION BY name ORDER BY age) AS row_num
+    FROM people;
+    ```
+    
+
 - RANK():
 
     - Descrição: Atribui um rank a cada linha, com valores idênticos recebendo o mesmo rank.
@@ -2364,128 +2370,52 @@ Sempre faça backup dos seus dados antes de executar comandos DELETE, especialme
 
 [Voltar ao Topo](#menu)
 
-- Objetivo:
+- Objetivo: 
 
-Garantir a integridade dos dados ao executar várias operações como uma única unidade de trabalho.
-    
+O principal objetivo das transações em SQL é assegurar a integridade e a consistência dos dados ao agrupar várias operações como uma única unidade de trabalho. Isso é crucial quando se realizam operações complexas que envolvem múltiplas tabelas ou registros, garantindo que, em caso de falha em uma das operações, todas as alterações possam ser revertidas, evitando assim a corrupção dos dados.
+
 - Conceitos Principais:
         
-    BEGIN TRANSACTION: Inicia uma transação.
-    COMMIT: Salva todas as operações realizadas durante a transação.
-    ROLLBACK: Desfaz todas as operações realizadas durante a transação.
-    
+    - `BEGIN TRANSACTION`: Este comando é utilizado para iniciar uma transação. A partir deste ponto, todas as operações realizadas serão parte de uma única unidade de trabalho.
+        
+    - `COMMIT`: Ao executar este comando, todas as operações realizadas durante a transação são salvas permanentemente no banco de dados.
+        
+    - `ROLLBACK`: Este comando é utilizado para desfazer todas as operações realizadas durante a transação, revertendo o banco de dados ao seu estado anterior ao início da transação.
+
 - Considerações:
 
-As transações são essenciais para garantir que o banco de dados permaneça em um estado consistente, mesmo quando ocorrem erros.
 
-Se algo der errado durante uma transação, você pode usar ROLLBACK para reverter o banco de dados ao seu estado anterior, antes do início da transação.
+Transações são fundamentais para manter a integridade dos dados em qualquer sistema de banco de dados relacional. Elas garantem que o banco de dados permaneça em um estado consistente, mesmo quando ocorrem erros ou falhas durante a execução das operações.
 
-É uma prática recomendada sempre usar transações ao realizar operações que alteram vários registros ou tabelas para garantir a integridade dos dados.
+Utilizar o comando `ROLLBACK` permite que, se algo der errado durante uma transação, o banco de dados seja revertido ao seu estado original, evitando assim a persistência de dados incorretos ou inconsistentes.
 
-Dominar a manipulação de dados é fundamental para qualquer profissional que trabalhe com bancos de dados. Isso permite que você interaja efetivamente com os dados, garantindo que as informações sejam precisas, atualizadas e relevantes para suas necessidades analíticas ou operacionais.
+É uma prática recomendada sempre utilizar transações ao realizar operações que alteram múltiplos registros ou tabelas, pois isso assegura que o banco de dados mantenha sua integridade e consistência.
 
-### funções-especiais-do-sql
+Dominar a manipulação de transações é essencial para qualquer profissional que trabalhe com bancos de dados, pois permite interagir efetivamente com os dados, assegurando que as informações sejam precisas, atualizadas e relevantes para as necessidades analíticas ou operacionais.
 
-[Voltar ao Topo](#menu)
+- Exemplo Prático: 
 
-As funções especiais do SQL são ferramentas poderosas que permitem realizar operações mais complexas e avançadas em seus dados. Elas são frequentemente usadas para resolver problemas específicos que não podem ser facilmente abordados com comandos SQL padrão. Vamos explorar algumas das funções especiais mais comuns:
+Suponha que você esteja gerenciando um sistema bancário e queira transferir dinheiro entre duas contas. Isso envolve duas operações: debitar uma conta e creditar outra. Aqui está um exemplo de como você poderia usar transações em SQL para realizar essa tarefa:
 
-#### row_number
-    
-- Objetivo: 
-        
-Atribui um número sequencial a cada linha dentro de um conjunto de resultados.
-    
-Sintaxe Básica:
 ```sql
-ROW_NUMBER() OVER (ORDER BY coluna)
+BEGIN TRANSACTION;
+
+UPDATE Contas
+    SET Saldo = Saldo - 100
+WHERE NumeroConta = 1;
+
+UPDATE Contas
+    SET Saldo = Saldo + 100
+WHERE NumeroConta = 2;
+
+IF @@ERROR = 0
+    COMMIT;
+ELSE
+    ROLLBACK;
 ```
-- Considerações:
-        
-Comumente usado para numerar linhas ou para encontrar registros duplicados.
-        
-A cláusula ORDER BY dentro do OVER() determina a ordem da numeração.
 
-#### rank-e-dense_rank
+Neste exemplo, iniciamos uma transação com `BEGIN TRANSACTION`, realizamos as operações de débito e crédito e, em seguida, verificamos se ocorreu algum erro usando `@@ERROR`. Se não houver erros, confirmamos a transação com COMMIT, caso contrário, revertemos as alterações com ROLLBACK.
 
-[Voltar ao Topo](#menu)
-
-- Objetivo: 
-        
-Atribui um rank a cada linha dentro de um conjunto de resultados.
-    
-Sintaxe Básica:
-```sql
-RANK() OVER (ORDER BY coluna)
-DENSE_RANK() OVER (ORDER BY coluna)
-```
-- Considerações:
-        
-RANK() pode deixar lacunas nos rankings (por exemplo, 1, 2, 2, 4).
-        
-DENSE_RANK() não deixa lacunas nos rankings (por exemplo, 1, 2, 2, 3).
-
-#### ntilen
-
-- Objetivo: 
-        
-Divide o conjunto de resultados em "n" número de aproximadamente tamanhos iguais.
-    
-Sintaxe Básica:
-```sql
-NTILE(n) OVER (ORDER BY coluna)
-```
-- Considerações:
-        
-Útil para dividir um conjunto de resultados em percentis ou quartis.
-
-#### lag-e-lead
-
-- Objetivo: 
-        
-Acessa dados da linha anterior ou da próxima linha, respectivamente, em um conjunto de resultados.
-    
-Sintaxe Básica:
-```sql
-LAG(coluna, n, valor_default) OVER (ORDER BY coluna)
-LEAD(coluna, n, valor_default) OVER (ORDER BY coluna)
-```
-- Considerações:
-        
-Útil para comparar valores entre linhas consecutivas.
-
-#### cume_dist
-
-[Voltar ao Topo](#menu)
-
-- Objetivo: 
-    
-Calcula a proporção acumulada de linhas até a linha atual em um conjunto de resultados.
-    
-Sintaxe Básica:
-```sql
-CUME_DIST() OVER (ORDER BY coluna)
-```
-- Considerações:
-
-Pode ser usado para calcular percentis.
-
-#### first_value-e-last_value
-
-- Objetivo: 
-    
-Retorna o primeiro ou o último valor em um conjunto de resultados, respectivamente.
-    
-Sintaxe Básica:
-```sql
-FIRST_VALUE(coluna) OVER (ORDER BY coluna)
-LAST_VALUE(coluna) OVER (ORDER BY coluna)
-```
-- Considerações:
-        
-Pode ser útil para comparar valores dentro de um conjunto de resultados.
-
-Estas são apenas algumas das muitas funções especiais disponíveis em SQL. Elas oferecem uma grande flexibilidade e poder para resolver problemas complexos e realizar análises avançadas. Ao dominar essas funções, você pode elevar suas habilidades de SQL a um novo patamar e lidar com uma ampla variedade de desafios de manipulação de dados.
 
 ### tópicos-avançados
 
@@ -2496,20 +2426,33 @@ Estas são apenas algumas das muitas funções especiais disponíveis em SQL. El
 #### indexação-e-performance
         
 - Objetivo: 
-        
-Melhorar a velocidade e eficiência das consultas ao banco de dados.
+
+O principal objetivo da utilização de índices em um banco de dados é otimizar a velocidade e eficiência das consultas, permitindo que os dados sejam recuperados de forma mais rápida e eficaz, melhorando assim o desempenho geral do sistema de banco de dados.
     
-- Descrição:
-        
-Um índice é uma estrutura de dados que melhora a velocidade das operações em um banco de dados. Sem índices, o banco de dados teria que percorrer cada linha de uma tabela para encontrar os dados desejados, o que pode ser extremamente ineficiente.
+- Descrição: 
+
+Um índice é uma estrutura de dados especial que armazena um subconjunto de dados de uma tabela de banco de dados de forma organizada, proporcionando um caminho mais rápido para localização de registros. Sem a presença de índices, o sistema de banco de dados teria que realizar uma varredura completa em cada linha da tabela para encontrar os registros desejados, processo conhecido como "full table scan", que é altamente ineficiente, especialmente para grandes volumes de dados.
+
+A utilização de índices é análoga ao uso de um índice em um livro, onde, ao invés de percorrer todas as páginas para encontrar um tópico, você consulta o índice para localizar a página certa, economizando tempo e esforço.
     
 A indexação permite que o banco de dados encontre os dados desejados sem ter que pesquisar cada linha, semelhante a um índice em um livro.
     
 - Considerações:
         
-Embora os índices acelerem as operações de consulta, eles podem desacelerar as operações de inserção, atualização e exclusão, pois o índice também precisa ser atualizado.
-        
-A seleção de quais colunas indexar e como projetar índices é uma arte e requer uma compreensão profunda das consultas que serão executadas.
+É importante notar que, embora os índices sejam extremamente úteis para acelerar as operações de consulta, eles têm um custo. Cada vez que um registro é inserido, atualizado ou excluído, os índices associados também precisam ser atualizados. Isso pode resultar em uma sobrecarga adicional e afetar o desempenho das operações de escrita no banco de dados.
+
+A decisão de quais colunas indexar e como estruturar os índices é uma tarefa complexa e requer uma análise cuidadosa das consultas que serão frequentemente executadas no sistema. Uma compreensão profunda do modelo de dados e das necessidades de negócio é essencial para projetar índices eficientes e otimizar o desempenho do banco de dados.
+
+- Exemplo Prático:
+
+Suponha que temos uma tabela Clientes com milhares de registros e frequentemente realizamos consultas para buscar clientes por nome. Nesse caso, criar um índice na coluna Nome pode significativamente acelerar essas consultas:
+
+```sql
+CREATE INDEX idx_nome
+ON Clientes (Nome);
+```
+
+Com esse índice, as consultas que filtram clientes por nome serão mais rápidas, pois o banco de dados utilizará o índice idx_nome para localizar os registros de forma eficiente, evitando a necessidade de percorrer toda a tabela.
 
 #### views
 
