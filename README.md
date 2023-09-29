@@ -65,34 +65,209 @@ docker rmi <image_id>
 ## menu
 - [Introdução ao SQL](#introdução-ao-sql)
     - [O que é SQL e por que é importante?](#o-que-é-sql-e-por-que-é-importante)
+        - [Definição](#definição)
+        - [História Breve](#história-breve)
+        - [Análise de Dados](#análise-de-dados)
+        - [Desenvolvimento de Aplicações](#desenvolvimento-de-aplicações)
+        - [Integração de Sistemas](#integração-de-sistemas)
     - [Visão geral dos sistemas de gerenciamento de banco de dados (DBMS)](#visão-geral-dos-sistemas-de-gerenciamento-de-banco-de-dados-dbms)
+        - [Definição DBMS](#definição-dbms)
+        - [Tipos de DBMS](#tipos-de-dbms)
+        - [Componentes Principais de um DBMS](#componentes-principais-de-um-dbms)
     - [Principais DBMS e suas características](#principais-dbms-e-suas-características)
+        - [SQL Server](#sql-server)
+        - [SQLite](#sqlite)
+        - [MySQL](#mysql)
+        - [PostgreSQL](#postgresql)
+        - [Oracle](#oracle)
+        - [BigQuery](#bigquery)
+        - [Redshift](#redshift)
     - [Diferença entre Cloud e On-Premises](#diferença-entre-cloud-e-on-premises)
+        - [Cloud (Nuvem)](#cloud-nuvem)
+        - [On-Premises](#on-premises)
 - [Fundamentos do SQL](#fundamentos-do-sql)
     - [Entendendo tabelas, registros e campos](#entendendo-tabelas-registros-e-campos)
+        - [Tabelas](#tabelas)
+        - [Registros (ou Linhas)](#registros-ou-linhas)
+        - [Campos (ou Colunas)](#campos-ou-colunas)
     - [Tipos de dados](#tipos-de-dados)
+        - [Tipos Numéricos](#tipos-numéricos)
+        - [Tipos de Caracteres](#tipos-de-caracteres)
+        - [Tipos de Data e Hora](#tipos-de-data-e-hora)
+        - [Tipos Lógicos](#tipos-lógicos)
+        - [Tipos de Dados Binários](#tipos-de-dados-binários)
+        - [Tipos de Dados Espaciais (para bancos de dados que suportam GIS)](#tipos-de-dados-espaciais-para-bancos-de-dados-que-suportam-gis)
+        - [Tipos de Dados JSON (em DBMSs modernos)](#tipos-de-dados-json-em-dbmss-modernos)
+        - [Tipos de Dados XML (em alguns DBMSs)](#tipos-de-dados-xml-em-alguns-dbmss)
+        - [Outros Tipos](#outros-tipos)
     - [Comandos básicos](#comandos-básicos)
+        - [SELECT](#select)
+        - [FROM](#from)
+        - [WHERE](#where)
+        - [ORDER BY](#order-by)
+        - [GROUP BY](#group-by)
     - [Filtragem](#filtragem)
+        - [Operadores de Comparação](#operadores-de-comparação)
+        - [Operadores Lógicos](#operadores-lógicos)
+        - [Operadores de Existência](#operadores-de-existência)
+        - [Operadores de Conjunto (usados em subconsultas)](#operadores-de-conjunto-usados-em-subconsultas)
     - [Ordenação](#ordenação)
+        - [ORDER BY](#order-by-1)
+        - [Ordenação Múltipla](#ordenação-múltipla)
     - [Agrupamento](#agrupamento)
+        - [Técnicas e Segredos](#técnicas-e-segredos)
 - [Funções e Agregações](#funções-e-agregações)
     - [Funções de String](#funções-de-string)
+        - [UPPER()](#UPPER())
+        - [LOWER()](#LOWER())
+        - [LENGTH()](#LENGTH())
+        - [CONCAT()](#CONCAT())
+        - [TRIM()](#TRIM())
+        - [SUBSTRING()](#SUBSTRING())
+        - [REPLACE()](#REPLACE())
+        - [CHAR_LENGTH()](#CHAR_LENGTH())
+        - [POSITION()](#POSITION())
+        - [LTRIM()_e_RTRIM()](#LTRIM()_e_RTRIM())
+        - [INITCAP()](#INITCAP())
+        - [REPEAT()](#REPEAT())
+        - [REVERSE()](#REVERSE())
+        - [LEFT()_e_RIGHT()](#LEFT()_e_RIGHT())
+        - [PADLEFT()_e_PADRIGHT()](#PADLEFT()_e_PADRIGHT())
+        - [SOUNDEX()](#SOUNDEX())
+        - [LTRIM(R)](#LTRIM(R))
+        - [FORMAT()](#FORMAT())
+        - [ASCII()](#ASCII())
+        - [CHAR()](#CHAR())
     - [Funções de Data](#funções-de-data)
+        - [CURRENT_DATE](#CURRENT_DATE)
+        - [CURRENT_TIMESTAMP](#CURRENT_TIMESTAMP)
+        - [DATEADD()](#DATEADD())
+        - [DATEDIFF()](#DATEDIFF())
+        - [DAY()_MONTH()_YEAR()](#DAY()_MONTH()_YEAR())
+        - [GETDATE()](#GETDATE())
+        - [DATEPART()](#DATEPART())
+        - [LAST_DAY()](#LAST_DAY())
+        - [TO_DATE()](#TO_DATE())
+        - [EXTRACT()](#EXTRACT())
+        - [NOW()](#NOW())
+        - [AGE()](#AGE())
+        - [INTERVAL](#INTERVAL)
+        - [TRUNC()](#TRUNC())
+        - [SYSDATE](#SYSDATE)
+        - [EOMONTH()](#EOMONTH())
+        - [ISDATE()](#ISDATE())
+        - [CAST()](#CAST())
+        - [DATE_FORMAT()](#DATE_FORMAT())
+        - [TIMESTAMPDIFF()](#TIMESTAMPDIFF())
     - [Funções Numéricas](#funções-numéricas)
+        - [ABS()](#ABS())
+        - [ROUND()](#ROUND())
+        - [CEIL()_ou_CEILING()](#CEIL()_ou_CEILING())
+        - [FLOOR()](#FLOOR())
+        - [MOD()](#MOD())
+        - [POWER()](#POWER())
+        - [SQRT()](#SQRT())
+        - [RAND()](#RAND())
+        - [LOG()](#LOG())
+        - [EXP()](#EXP())
+        - [SIN()_COS()_TAN()](#SIN()_COS()_TAN())
+        - [PI()](#PI())
+        - [DEGREES()](#DEGREES())
+        - [RADIANS()](#RADIANS())
+        - [SIGN()](#SIGN())
+        - [TRUNCATE()](#TRUNCATE())
+        - [GREATEST()](#GREATEST())
+        - [LEAST()](#LEAST())
+        - [ATAN2()](#ATAN2())
+        - [LOG10()](#LOG10())
     - [Funções de Agregação](#funções-de-agregação)
+        - [SUM()](#SUM())
+        - [AVG()](#AVG())
+        - [COUNT()](#COUNT())
+        - [MIN()](#MIN())
+        - [MAX()](#MAX())
+        - [GROUP_CONCAT()](#GROUP_CONCAT())
+        - [STDDEV()](#STDDEV())
+        - [VARIANCE()](#VARIANCE())
+        - [FIRST_VALUE()](#FIRST_VALUE())
+        - [LAST_VALUE()](#LAST_VALUE())
+        - [PERCENTILE_CONT()](#PERCENTILE_CONT())
+        - [PERCENTILE_DISC()](#PERCENTILE_DISC())
+        - [MODE()](#MODE())
+        - [ARRAY_AGG()](#ARRAY_AGG())
+        - [COVAR_POP()_COVAR_SAMP()](#COVAR_POP()_COVAR_SAMP())
     - [Funções de Conversão](#funções-de-conversão)
+        - [CAST()](#CAST())
+        - [CONVERT()](#CONVERT())
+        - [TO_DATE()](#TO_DATE())
+        - [TO_CHAR()](#TO_CHAR())
+        - [TO_NUMBER()](#TO_NUMBER())
+        - [STR()](#STR())
+        - [FORMAT()](#FORMAT())
+        - [PARSE()](#PARSE())
+        - [TRY_CAST()](#TRY_CAST())
+        - [TRY_CONVERT()](#TRY_CONVERT())
+        - [TRY_PARSE()](#TRY_PARSE())
     - [Funções de Sistema](#funções-de-sistema)
+        - [DATABASE()](#DATABASE())
+        - [USER()](#USER())
+        - [VERSION()](#VERSION())
+        - [NOW()](#NOW())
+        - [CURDATE()](#CURDATE())
+        - [CURTIME()](#CURTIME())
+        - [LAST_INSERT_ID()](#LAST_INSERT_ID())
+        - [SESSION_USER()](#SESSION_USER())
+        - [SYSTEM_USER()](#SYSTEM_USER())
+        - [UUID()](#UUID())
     - [Funções de Controle de Fluxo](#funções-de-controle-de-fluxo)
+        - [CASE](#CASE)
+        - [IF()](#IF())
+        - [NULLIF()](#NULLIF())
+        - [COALESCE()](#COALESCE())
+        - [IIF()](#IIF())
     - [Funções de Janela](#funções-de-janela)
+        - [ROW_NUMBER()](#ROW_NUMBER())
+        - [DENSE_RANK()](#DENSE_RANK())
+        - [NTILE(n)](#NTILE(n))
+        - [LAG()](#LAG())
+        - [LEAD()](#LEAD())
+        - [FIRST_VALUE()](#FIRST_VALUE())
+        - [LAST_VALUE()](#LAST_VALUE())
     - [Funções de Json](#funções-de-json)
+        - [JSON_VALUE](#JSON_VALUE)
+        - [JSON_QUERY](#JSON_QUERY)
+        - [JSON_OBJECT](#JSON_OBJECT)
+        - [JSON_ARRAY](#JSON_ARRAY)
+        - [JSON_EXISTS](#JSON_EXISTS)
+        - [JSON_LENGTH](#JSON_LENGTH)
+        - [JSON_KEYS](#JSON_KEYS)
+        - [JSON_REMOVE](#JSON_REMOVE)
     - [Funções de Xml](#funções-de-xml)
+        - [XML_VALUE](#XML_VALUE)
+        - [XML_QUERY](#XML_QUERY)
+        - [XML_ELEMENT](#XML_ELEMENT)
+        - [XML_ATTRIBUTES](#XML_ATTRIBUTES)
+        - [XML_EXISTS](#XML_EXISTS)
+        - [XMLTABLE](#XMLTABLE)
+        - [XMLSERIALIZE](#XMLSERIALIZE)
+        - [XMLPARSE](#XMLPARSE)
 - [Junções e Relações](#junções-e-relações)
     - [Chaves Primárias e Estrangeiras](#chaves-primárias-e-estrangeiras)
+        - [Chave Primária (PK)](#chave-primária-pk)
+        - [Chave Estrangeira (FK)](#chave-estrangeira-fk)
     - [Junções](#junções)
+        - [INNER_JOIN](#INNER_JOIN)
+        - [LEFT_JOIN](#LEFT_JOIN)
+        - [RIGHT_JOIN](#RIGHT_JOIN)
+        - [FULL_JOIN](#FULL_JOIN)
     - [Subconsultas](#subconsultas)
+        - [Subconsultas_Correlacionadas](#subconsultas-correlacionadas)
+        - [Subconsultas_Não_Correlacionada](#subconsultas-não-correlacionada)
 - [Manipulação de Dados](#manipulação-de-dados)
     - [Inserindo Dados](#inserindo-dados)
+        - [INSERT](#insert)
     - [Atualizando Dados](#atualizando-dados)
+        - [DELETE](#delete)
     - [Excluindo Dados](#excluindo-dados)
     - [Transações](#transações)
 - [Tópicos Avançados](#tópicos-avançados)
@@ -146,8 +321,9 @@ docker rmi <image_id>
 
 
 ### o-que-é-sql-e-por-que-é-importante
-
 [Voltar ao Topo](#menu)
+
+
 #### Definição 
 SQL (Structured Query Language) é uma linguagem padrão para armazenar, manipular e recuperar dados em bancos de dados.
 
@@ -176,9 +352,10 @@ Muitos aplicativos modernos dependem de bancos de dados para armazenar informaç
 SQL serve como uma linguagem comum entre diferentes sistemas para troca de dados.
 
 ### visão-geral-dos-sistemas-de-gerenciamento-de-banco-de-dados-dbms
-
 [Voltar ao Topo](#menu)
-#### Definição 
+
+
+#### Definição DBMS  
 Um DBMS é um software que permite criar, definir e manipular bancos de dados para vários aplicativos.
     
 #### Tipos de DBMS
@@ -198,8 +375,9 @@ Um DBMS é um software que permite criar, definir e manipular bancos de dados pa
     Auxiliam na manutenção e monitoramento do banco de dados. Usaremos nesse curso o um banco SQLServer, e o Dbeaver como ferramenta de administração.
     
 ### principais-dbms-e-suas-características
-
 [Voltar ao Topo](#menu)
+
+
 
 #### SQL Server
 - Visão Geral: Desenvolvido pela Microsoft, o SQL Server é um RDBMS poderoso e versátil que suporta uma ampla variedade de cargas de trabalho de transação e análise.
@@ -266,8 +444,9 @@ Um DBMS é um software que permite criar, definir e manipular bancos de dados pa
 
 
 ### diferença-entre-cloud-e-on-premises
-
 [Voltar ao Topo](#menu)
+
+
 
 #### Cloud (Nuvem)
 
@@ -313,94 +492,105 @@ Um DBMS é um software que permite criar, definir e manipular bancos de dados pa
         
 - Escalabilidade: Aumentar a capacidade pode exigir novos investimentos e tempo.
 
-### fundamentos-do-sql
-
+## fundamentos-do-sql
 [Voltar ao Topo](#menu)
+
 
 O SQL é uma linguagem poderosa e versátil, mas, como qualquer linguagem, é essencial entender seus fundamentos para usá-la efetivamente. Aqui, exploraremos os conceitos básicos que formam a base da linguagem SQL.
 
-#### entendendo-tabelas-registros-e-campos
+### entendendo-tabelas-registros-e-campos
+[Voltar ao Topo](#menu)
 
-##### Tabelas: 
+
+#### Tabelas: 
 
 Em um banco de dados relacional, as tabelas são estruturas que armazenam dados em formato tabular. Pense nelas como equivalentes a planilhas em uma aplicação de planilha eletrônica. Cada tabela tem um nome único e consiste em linhas e colunas.
         
-##### Registros (ou Linhas): 
+#### Registros (ou Linhas): 
 
 Cada linha em uma tabela representa um registro. Um registro é um conjunto único de dados relacionados que são armazenados juntos.
         
-##### Campos (ou Colunas): 
+#### Campos (ou Colunas): 
 
 As colunas em uma tabela representam campos. Cada campo tem um nome e armazena um tipo específico de informação. Por exemplo, em uma tabela de "Clientes", você pode ter campos como "Nome", "Endereço" e "Número de Telefone".
 
-#### tipos-de-dados
-
+### tipos-de-dados
 [Voltar ao Topo](#menu)
+
         
 Os tipos de dados em SQL definem o tipo de valor que uma coluna pode conter. É crucial escolher o tipo de dado correto para uma coluna, pois isso afeta não apenas o tipo de informação que você pode armazenar, mas também o desempenho do banco de dados e a quantidade de espaço de armazenamento usado. Aqui está uma lista dos tipos de dados mais comuns em SQL, agrupados por categorias:
 
-- Tipos Numéricos:
-    - `INT`: Um número inteiro.
-    - `SMALLINT`: Um número inteiro menor que INT.
-    - `TINYINT`: Um número inteiro ainda menor que SMALLINT.
-    - `BIGINT`: Um número inteiro maior que INT.
-    - `FLOAT`: Número de ponto flutuante.
-    - `REAL`: Número de ponto flutuante menor que FLOAT.
-    - `DECIMAL(p, s)`: Número decimal fixo. Onde p é a precisão total e s é a escala.
-    - `NUMERIC(p, s)`: Semelhante ao DECIMAL.
+#### Tipos Numéricos:
+- `INT`: Um número inteiro.
+- `SMALLINT`: Um número inteiro menor que INT.
+- `TINYINT`: Um número inteiro ainda menor que SMALLINT.
+- `BIGINT`: Um número inteiro maior que INT.
+- `FLOAT`: Número de ponto flutuante.
+- `REAL`: Número de ponto flutuante menor que FLOAT.
+- `DECIMAL(p, s)`: Número decimal fixo. Onde p é a precisão total e s é a escala.
+- `NUMERIC(p, s)`: Semelhante ao DECIMAL.
 
-- Tipos de Caracteres:
-    - `CHAR(n)`: String de tamanho fixo.
-    - `VARCHAR(n)`: String de tamanho variável.
-    - `TEXT`: Uma string de tamanho variável longa.
+#### Tipos de Caracteres:
+- `CHAR(n)`: String de tamanho fixo.
+- `VARCHAR(n)`: String de tamanho variável.
+- `TEXT`: Uma string de tamanho variável longa.
 
-- Tipos de Data e Hora:
-    - `DATE`: Data no formato YYYY-MM-DD.
-    - `TIME`: Hora no formato HH:MI:SS.
-    - `DATETIME`: Combinação de data e hora.
-    - `TIMESTAMP`: Marca de data/hora que inclui a data e a hora até a fração de segundo.
+#### Tipos de Data e Hora:
+- `DATE`: Data no formato YYYY-MM-DD.
+- `TIME`: Hora no formato HH:MI:SS.
+- `DATETIME`: Combinação de data e hora.
+- `TIMESTAMP`: Marca de data/hora que inclui a data e a hora até a fração de segundo.
 
-- Tipos Lógicos:
-    - `BIT`: Valor binário (0 ou 1).
-    - `BOOLEAN`: Verdadeiro ou falso.
+#### Tipos Lógicos:
+- `BIT`: Valor binário (0 ou 1).
+- `BOOLEAN`: Verdadeiro ou falso.
 
-- Tipos de Dados Binários:
-    - `BINARY(n)`: Dados binários de tamanho fixo.
-    - `VARBINARY(n)`: Dados binários de tamanho variável.
-    - `BLOB`: Dados binários de tamanho variável longo.
+#### Tipos de Dados Binários:
+- `BINARY(n)`: Dados binários de tamanho fixo.
+- `VARBINARY(n)`: Dados binários de tamanho variável.
+- `BLOB`: Dados binários de tamanho variável longo.
 
-- Tipos de Dados Espaciais (para bancos de dados que suportam GIS):
-    - `GEOMETRY`: Tipo de dado base para todos os tipos espaciais.
-    - `POINT`: Representa um ponto em um plano.
-    - `LINESTRING`: Representa uma linha.
-    - `POLYGON`: Representa um polígono.
+#### Tipos de Dados Espaciais (para bancos de dados que suportam GIS):
+- `GEOMETRY`: Tipo de dado base para todos os tipos espaciais.
+- `POINT`: Representa um ponto em um plano.
+- `LINESTRING`: Representa uma linha.
+- `POLYGON`: Representa um polígono.
 
-- Tipos de Dados JSON (em DBMSs modernos):
-    - `JSON`: Armazena valores JSON.
-    - `JSONB`: Armazena valores JSON em formato binário (específico do PostgreSQL).
+#### Tipos de Dados JSON (em DBMSs modernos):
+- `JSON`: Armazena valores JSON.
+- `JSONB`: Armazena valores JSON em formato binário (específico do PostgreSQL).
 
-- Tipos de Dados XML (em alguns DBMSs):
-    - `XML`: Armazena valores XML.
+#### Tipos de Dados XML (em alguns DBMSs):
+- `XML`: Armazena valores XML.
 
-- Outros Tipos:
-    - `UUID`: Identificador único universal.
-    - `ENUM`: Um tipo que consiste em uma lista estática de strings.
+#### Outros Tipos:
+- `UUID`: Identificador único universal.
+- `ENUM`: Um tipo que consiste em uma lista estática de strings.
 
 Lembre-se de que a disponibilidade, a sintaxe e o comportamento exatos desses tipos de dados podem variar dependendo do sistema de gerenciamento de banco de dados (DBMS) que você está usando. Além disso, muitos DBMSs oferecem tipos de dados adicionais ou variações dos tipos listados acima. Sempre consulte a documentação oficial do seu DBMS ao projetar sua base de dados.
 
-#### comandos-básicos
-
+### comandos-básicos
 [Voltar ao Topo](#menu)
         
-- SELECT: Usado para selecionar dados de uma ou mais tabelas. Por exemplo, SELECT nome FROM clientes; retornaria todos os nomes da tabela de clientes.
-        
-- FROM: Especifica de qual tabela você deseja selecionar ou recuperar dados.
-        
-- WHERE: Permite filtrar os resultados com base em uma condição. Por exemplo, SELECT nome FROM clientes WHERE idade > 21; retornaria os nomes de todos os clientes com mais de 21 anos.
+#### SELECT: 
 
-- ORDER BY: Ordena os resultados com base em uma ou mais colunas. Por exemplo, SELECT nome FROM clientes ORDER BY nome; retornaria os nomes de todos os clientes em ordem alfabética.
+Usado para selecionar dados de uma ou mais tabelas. Por exemplo, SELECT nome FROM clientes; retornaria todos os nomes da tabela de clientes.
+        
+#### FROM: 
 
-- GROUP BY: Agrupa os resultados com base em uma ou mais colunas. Por exemplo, SELECT departamento, COUNT(*) FROM funcionários GROUP BY departamento; retornaria o número de funcionários em cada departamento.
+Especifica de qual tabela você deseja selecionar ou recuperar dados.
+        
+#### WHERE: 
+
+Permite filtrar os resultados com base em uma condição. Por exemplo, SELECT nome FROM clientes WHERE idade > 21; retornaria os nomes de todos os clientes com mais de 21 anos.
+
+#### ORDER BY: 
+
+Ordena os resultados com base em uma ou mais colunas. Por exemplo, SELECT nome FROM clientes ORDER BY nome; retornaria os nomes de todos os clientes em ordem alfabética.
+
+#### GROUP BY: 
+
+Agrupa os resultados com base em uma ou mais colunas. Por exemplo, SELECT departamento, COUNT(*) FROM funcionários GROUP BY departamento; retornaria o número de funcionários em cada departamento.
 
 - Lembre-se sempre:
 
@@ -411,37 +601,37 @@ from tabela --Aonde
 where condicao -- Quando
 ```
 
-
-#### filtragem: 
+### filtragem: 
 [Voltar ao Topo](#menu)
+
 
 Os operadores lógicos são fundamentais em SQL, especialmente quando se trabalha com a cláusula WHERE para filtrar resultados. Eles permitem combinar ou modificar condições para tornar uma consulta mais específica ou flexível. Aqui estão os operadores lógicos mais comuns usados em SQL:
 
-- Operadores de Comparação:
-    - `=` : Igual a.
-    - `<>` ou `!=` : Diferente de.
-    - `>` : Maior que.
-    - `<` : Menor que.
-    - `>=` : Maior ou igual a.
-    - `<=` : Menor ou igual a.
-    - `BETWEEN` : Entre um intervalo (inclusive).
-    - `LIKE` : Pesquisa por um padrão específico.
-    - `IN` : Verifica se o valor está em uma lista de valores.
+#### Operadores de Comparação:
+- `=` : Igual a.
+- `<>` ou `!=` : Diferente de.
+- `>` : Maior que.
+- `<` : Menor que.
+- `>=` : Maior ou igual a.
+- `<=` : Menor ou igual a.
+- `BETWEEN` : Entre um intervalo (inclusive).
+- `LIKE` : Pesquisa por um padrão específico.
+- `IN` : Verifica se o valor está em uma lista de valores.
 
-- Operadores Lógicos:
-    - `AND` : Retorna verdadeiro se ambas as condições especificadas forem verdadeiras.
-    - `OR` : Retorna verdadeiro se pelo menos uma das condições especificadas for verdadeira.
-    - `NOT` : Retorna verdadeiro se a condição especificada for falsa.
+#### Operadores Lógicos:
+- `AND` : Retorna verdadeiro se ambas as condições especificadas forem verdadeiras.
+- `OR` : Retorna verdadeiro se pelo menos uma das condições especificadas for verdadeira.
+- `NOT` : Retorna verdadeiro se a condição especificada for falsa.
 
-- Operadores de Existência:
-    - `IS NULL` : Retorna verdadeiro se o valor é nulo.
-    - `IS NOT NULL` : Retorna verdadeiro se o valor não é nulo.
-    - `EXISTS` : Retorna verdadeiro se a subconsulta retornar pelo menos um registro.
+#### Operadores de Existência:
+- `IS NULL` : Retorna verdadeiro se o valor é nulo.
+- `IS NOT NULL` : Retorna verdadeiro se o valor não é nulo.
+- `EXISTS` : Retorna verdadeiro se a subconsulta retornar pelo menos um registro.
 
-- Operadores de Conjunto (usados em subconsultas):
-    - `ALL` : Compara um valor a todos os valores em outra lista ou conjunto de resultados.
-    - `ANY` : Compara um valor a pelo menos um dos valores em outra lista ou conjunto de resultados.
-    - `SOME` : Funciona da mesma forma que ANY.
+#### Operadores de Conjunto (usados em subconsultas):
+- `ALL` : Compara um valor a todos os valores em outra lista ou conjunto de resultados.
+- `ANY` : Compara um valor a pelo menos um dos valores em outra lista ou conjunto de resultados.
+- `SOME` : Funciona da mesma forma que ANY.
 
 Ao usar esses operadores, é crucial entender a ordem das operações para garantir que sua consulta retorne os resultados esperados. Por exemplo, o operador AND tem precedência sobre o OR, o que significa que, em uma expressão com ambos, as condições ligadas por AND serão avaliadas primeiro. Se necessário, você pode usar parênteses para alterar a ordem de avaliação e tornar sua intenção mais clara.
 
@@ -458,15 +648,16 @@ OR manager = 'Yes');
 
 Neste exemplo, a consulta retornará todos os registros de empregados no departamento de vendas que têm mais de 5 anos de experiência ou que são gerentes. Graças aos parênteses, a consulta não se limita a retornar gerentes com mais de 5 anos de experiência.
         
-#### ordenação: 
+### ordenação: 
 [Voltar ao Topo](#menu)
+
 
 A ordenação é uma parte crucial das consultas SQL, permitindo que os usuários apresentem os resultados de uma maneira específica e legível. A cláusula ORDER BY é usada para classificar os registros em ordem crescente ou decrescente com base em uma ou mais colunas. Aqui estão os principais componentes e conceitos relacionados à ordenação em SQL:
 
-- ORDER BY: 
-    - É a cláusula usada para especificar a ordem dos registros retornados.
-    - Pode ser aplicada a qualquer tipo de coluna: numérica, string, data, etc.
-    - Por padrão, a ordenação é em ordem ascendente.
+#### ORDER BY: 
+- É a cláusula usada para especificar a ordem dos registros retornados.
+- Pode ser aplicada a qualquer tipo de coluna: numérica, string, data, etc.
+- Por padrão, a ordenação é em ordem ascendente.
 
 Exemplo:
 
@@ -508,9 +699,9 @@ ORDER BY sale_date DESC;
 
 Este exemplo retornará todos os registros da tabela sales, ordenados pela data de venda do mais recente para o mais antigo.
 
-- Ordenação Múltipla:
-    - É possível ordenar os resultados por mais de uma coluna.
-    - A ordenação é aplicada da esquerda para a direita, ou seja, a primeira coluna especificada tem prioridade sobre as subsequentes.
+#### Ordenação Múltipla:
+- É possível ordenar os resultados por mais de uma coluna.
+- A ordenação é aplicada da esquerda para a direita, ou seja, a primeira coluna especificada tem prioridade sobre as subsequentes.
 
 Exemplo:
 
@@ -526,10 +717,12 @@ Neste exemplo, os registros serão primeiro ordenados pelo departamento em ordem
 
 A cláusula `ORDER BY` é extremamente útil para apresentar dados de uma maneira que faça sentido para os usuários finais, seja para relatórios, análises ou qualquer outra finalidade. Ao compreender e utilizar eficazmente as opções de ordenação, você pode garantir que seus resultados sejam não apenas precisos, mas também facilmente interpretáveis.
 
-#### agrupamento:
+### agrupamento:
 [Voltar ao Topo](#menu)
 
+
 A cláusula `GROUP BY` é usada para agrupar linhas que têm os mesmos valores em colunas específicas em resumo, como somatório, média, contagem, etc. É frequentemente usada com funções de agregação para realizar operações em cada grupo de linhas.
+
 Como Funciona:
 
 - Agrupamento: As linhas da tabela são agrupadas com base em uma ou mais colunas especificadas na cláusula GROUP BY. Cada grupo representa um conjunto de linhas que têm os mesmos valores nas colunas de agrupamento.
@@ -550,7 +743,7 @@ GROUP BY departamento;
 
 Neste exemplo, os funcionários são agrupados pelo departamento, e é contado o número de funcionários em cada departamento.
 
-Técnicas e Segredos:
+#### Técnicas e Segredos:
 
 - Uso de HAVING: Filtra os grupos após a agregação.
 
@@ -604,19 +797,19 @@ Conta o número de contratações por ano.
 
 Estas são algumas técnicas e segredos do GROUP BY que podem ajudá-lo a manipular e analisar dados de forma eficiente em SQL.
 
-### funções-e-agregações
-
+## funções-e-agregações
 [Voltar ao Topo](#menu)
+
 
 O SQL não é apenas sobre a recuperação de dados brutos; é também sobre a transformação e análise desses dados para obter insights valiosos. As funções e agregações são ferramentas essenciais nesse processo, permitindo que você manipule e resuma dados de maneiras significativas.
 
-#### funções-de-string 
+### funções-de-string 
+[Voltar ao Topo](#menu)
 
 Permitem manipular e formatar strings.
 
-- UPPER():
-
-    - Descrição: Converte todos os caracteres de uma string para maiúsculas.
+#### UPPER():
+- Descrição: Converte todos os caracteres de uma string para maiúsculas.
     
     Exemplo:
 
@@ -626,9 +819,9 @@ Permitem manipular e formatar strings.
     ```
     Resultado: `BANANA`
 
-- LOWER():
+#### LOWER():
 
-    - Descrição: Converte todos os caracteres de uma string para minúsculas.
+- Descrição: Converte todos os caracteres de uma string para minúsculas.
     
     Exemplo:
 
@@ -638,9 +831,9 @@ Permitem manipular e formatar strings.
     ```
     Resultado: `apple`
 
-- LENGTH():
+#### LENGTH():
 
-    - Descrição: Retorna o número de caracteres em uma string.
+- Descrição: Retorna o número de caracteres em uma string.
     
     Exemplo:
 
@@ -650,9 +843,9 @@ Permitem manipular e formatar strings.
     ```
     Resultado: `5`
 
-- CONCAT():
+#### CONCAT():
 
-    - Descrição: Combina duas ou mais strings.
+- Descrição: Combina duas ou mais strings.
     
     Exemplo:
 
@@ -662,9 +855,9 @@ Permitem manipular e formatar strings.
     ```
     Resultado: `pineapple`
 
-- TRIM():
+#### TRIM():
 
-    - Descrição: Remove espaços do início e do final de uma string.
+- Descrição: Remove espaços do início e do final de uma string.
     
     Exemplo:
 
@@ -674,9 +867,9 @@ Permitem manipular e formatar strings.
     ```
     Resultado: `mango`
 
-- SUBSTRING():
+#### SUBSTRING():
 
-    - Descrição: Extrai uma parte da string.
+- Descrição: Extrai uma parte da string.
     
     Exemplo:
 
@@ -686,9 +879,9 @@ Permitem manipular e formatar strings.
     ```
     Resultado: `straw`
 
-- REPLACE():
+#### REPLACE():
 
-    - Descrição: Substitui uma substring por outra.
+- Descrição: Substitui uma substring por outra.
     
     Exemplo:
 
@@ -698,9 +891,9 @@ Permitem manipular e formatar strings.
     ```
     Resultado: `redberry is red`
 
-- CHAR_LENGTH():
+#### CHAR_LENGTH():
 
-    - Descrição: Retorna o número de caracteres em uma string.
+- Descrição: Retorna o número de caracteres em uma string.
     
     Exemplo:
 
@@ -710,9 +903,9 @@ Permitem manipular e formatar strings.
     ```
     Resultado: `4`
 
-- POSITION():
+#### POSITION():
 
-    - Descrição: Retorna a posição da primeira ocorrência de uma substring.
+- Descrição: Retorna a posição da primeira ocorrência de uma substring.
     
     Exemplo:
 
@@ -722,9 +915,9 @@ Permitem manipular e formatar strings.
     ```
     Resultado: `5`
 
-- LTRIM() e RTRIM():
+#### LTRIM()_e_RTRIM():
 
-    - Descrição: Remove espaços do início ou final.
+- Descrição: Remove espaços do início ou final.
     
     Exemplo:
 
@@ -735,9 +928,9 @@ Permitem manipular e formatar strings.
     ```
     Resultado: `raspberry` e `blackberry`
 
-- INITCAP():
+#### INITCAP():
 
-    - Descrição: Converte a primeira letra de cada palavra para maiúscula.
+- Descrição: Converte a primeira letra de cada palavra para maiúscula.
     
     Exemplo:
 
@@ -747,9 +940,9 @@ Permitem manipular e formatar strings.
     ```
     Resultado: `Hello World`
 
-- REPEAT():
+#### REPEAT():
 
-    - Descrição: Repete uma string um número específico de vezes.
+- Descrição: Repete uma string um número específico de vezes.
     
     Exemplo:
 
@@ -759,9 +952,9 @@ Permitem manipular e formatar strings.
     ```
     Resultado: `hahaha`
 
-- REVERSE():
+#### REVERSE():
 
-    - Descrição: Inverte uma string.
+- Descrição: Inverte uma string.
     
     Exemplo:
 
@@ -771,9 +964,9 @@ Permitem manipular e formatar strings.
     ```
     Resultado: `nolem`
 
-- LEFT() e RIGHT():
+#### LEFT()_e_RIGHT():
 
-    - Descrição: Retorna um número específico de caracteres do início ou final da string.
+- Descrição: Retorna um número específico de caracteres do início ou final da string.
     
     Exemplo:
 
@@ -784,9 +977,9 @@ Permitem manipular e formatar strings.
     ```
     Resultado: `che` e `rry`
 
-- PADLEFT() e PADRIGHT():
+#### PADLEFT()_e_PADRIGHT():
 
-    - Descrição: Adiciona caracteres à esquerda ou à direita de uma string até atingir um comprimento especificado.
+- Descrição: Adiciona caracteres à esquerda ou à direita de uma string até atingir um comprimento especificado.
     
     Exemplo:
 
@@ -797,9 +990,9 @@ Permitem manipular e formatar strings.
     ```
     Resultado: `000fruit` e `fruit000`
 
-- SOUNDEX():
+#### SOUNDEX():
 
-    - Descrição: Retorna um código que representa a string, útil para encontrar palavras que soam de forma semelhante.
+- Descrição: Retorna um código que representa a string, útil para encontrar palavras que soam de forma semelhante.
     
     Exemplo:
 
@@ -809,9 +1002,9 @@ Permitem manipular e formatar strings.
     ```
     Resultado: `Um código específico para "pear".`
 
-- LTRIM(R):
+#### LTRIM(R):
 
-    - Descrição: Remove caracteres específicos do início ou final da string.
+- Descrição: Remove caracteres específicos do início ou final da string.
     
     Exemplo:
 
@@ -821,9 +1014,9 @@ Permitem manipular e formatar strings.
     ```
     Resultado: `123`
 
-- FORMAT():
+#### FORMAT():
 
-    - Descrição: Formata uma string de acordo com um padrão especificado.
+- Descrição: Formata uma string de acordo com um padrão especificado.
     
     Exemplo:
 
@@ -833,9 +1026,9 @@ Permitem manipular e formatar strings.
     ```
     Resultado: `12,345.68`
 
-- ASCII():
+#### ASCII():
 
-    - Descrição: Retorna o valor ASCII do primeiro caractere da string.
+- Descrição: Retorna o valor ASCII do primeiro caractere da string.
     
     Exemplo:
 
@@ -845,9 +1038,9 @@ Permitem manipular e formatar strings.
     ```
     Resultado: `65`
 
-- CHAR():
+#### CHAR():
 
-    - Descrição: Retorna o caractere correspondente a um valor ASCII.
+- Descrição: Retorna o caractere correspondente a um valor ASCII.
     
     Exemplo:
 
@@ -859,15 +1052,15 @@ Permitem manipular e formatar strings.
 
 Estas são apenas algumas das muitas funções de manipulação de strings disponíveis em SQL. A disponibilidade e a sintaxe exata podem variar dependendo do sistema de gerenciamento de banco de dados que você está usando.
     
-#### funções-de-data 
-
+### funções-de-data 
 [Voltar ao Topo](#menu)
+
 
 Estas são cruciais para trabalhar com campos de data e hora. 
 
-- CURRENT_DATE:
+#### CURRENT_DATE:
 
-    - Descrição: Retorna a data atual.
+- Descrição: Retorna a data atual.
     
     Exemplo:
 
@@ -877,9 +1070,9 @@ Estas são cruciais para trabalhar com campos de data e hora.
     ```
     Resultado: `2023-07-10` (por exemplo)
 
-- CURRENT_TIMESTAMP:
+#### CURRENT_TIMESTAMP:
 
-    - Descrição: Retorna a data e hora atuais.
+- Descrição: Retorna a data e hora atuais.
     
     Exemplo:
 
@@ -889,9 +1082,9 @@ Estas são cruciais para trabalhar com campos de data e hora.
     ```
     Resultado: `2023-07-10 12:00:00` (por exemplo)
 
-- DATEADD():
+#### DATEADD():
 
-    - Descrição: Adiciona um intervalo específico a uma data.
+- Descrição: Adiciona um intervalo específico a uma data.
     
     Exemplo:
 
@@ -901,9 +1094,9 @@ Estas são cruciais para trabalhar com campos de data e hora.
     ```
     Resultado: `2023-07-17`
 
-- DATEDIFF():
+#### DATEDIFF():
 
-    - Descrição: Retorna a diferença entre duas datas.
+- Descrição: Retorna a diferença entre duas datas.
     
     Exemplo:
 
@@ -913,9 +1106,9 @@ Estas são cruciais para trabalhar com campos de data e hora.
     ```
     Resultado: `9`
 
-- DAY(), MONTH(), YEAR():
+#### DAY()_MONTH()_YEAR():
 
-    - Descrição: Extraem o dia, mês ou ano de uma data, respectivamente.
+- Descrição: Extraem o dia, mês ou ano de uma data, respectivamente.
     
     Exemplo:
 
@@ -927,9 +1120,9 @@ Estas são cruciais para trabalhar com campos de data e hora.
     ```
     Resultado: `10`, `7`, `2023`
 
-- GETDATE():
+#### GETDATE():
 
-    - Descrição: Retorna a data e hora atuais (específico do SQL Server).
+- Descrição: Retorna a data e hora atuais (específico do SQL Server).
     
     Exemplo:
 
@@ -939,9 +1132,9 @@ Estas são cruciais para trabalhar com campos de data e hora.
     ```
     Resultado: `2023-07-10 12:00:00` (por exemplo)
 
-- DATEPART():
+#### DATEPART():
 
-    - Descrição: Retorna uma parte específica de uma data, como o dia da semana.
+- Descrição: Retorna uma parte específica de uma data, como o dia da semana.
     
     Exemplo:
 
@@ -951,9 +1144,9 @@ Estas são cruciais para trabalhar com campos de data e hora.
     ```
     Resultado: `2`
 
-- LAST_DAY():
+#### LAST_DAY():
 
-    - Descrição: Retorna o último dia do mês para a data fornecida.
+- Descrição: Retorna o último dia do mês para a data fornecida.
     
     Exemplo:
 
@@ -963,9 +1156,9 @@ Estas são cruciais para trabalhar com campos de data e hora.
     ```
     Resultado: `2023-07-31`
 
-- TO_DATE():
+#### TO_DATE():
 
-    - Descrição: Converte uma string para uma data.
+- Descrição: Converte uma string para uma data.
     
     Exemplo:
 
@@ -975,9 +1168,9 @@ Estas são cruciais para trabalhar com campos de data e hora.
     ```
     Resultado: `2023-07-10`
 
-- EXTRACT():
+#### EXTRACT():
 
-    - Descrição: Extrai uma parte específica de uma data, como o trimestre.
+- Descrição: Extrai uma parte específica de uma data, como o trimestre.
     
     Exemplo:
 
@@ -987,9 +1180,9 @@ Estas são cruciais para trabalhar com campos de data e hora.
     ```
     Resultado: `3`
 
-- NOW():
+#### NOW():
 
-    - Descrição: Retorna a data e hora atuais.
+- Descrição: Retorna a data e hora atuais.
     
     Exemplo:
 
@@ -999,9 +1192,9 @@ Estas são cruciais para trabalhar com campos de data e hora.
     ```
     Resultado: `2023-07-10 12:00:00` (por exemplo)
 
-- AGE():
+#### AGE():
 
-    - Descrição: Retorna a idade entre duas datas.
+- Descrição: Retorna a idade entre duas datas.
     
     Exemplo:
 
@@ -1011,9 +1204,9 @@ Estas são cruciais para trabalhar com campos de data e hora.
     ```
     Resultado: `23 years 6 mons 9 days`
 
-- INTERVAL:
+#### INTERVAL:
 
-    - Descrição: Usado para adicionar ou subtrair um intervalo específico de uma data.
+- Descrição: Usado para adicionar ou subtrair um intervalo específico de uma data.
     
     Exemplo:
 
@@ -1023,9 +1216,9 @@ Estas são cruciais para trabalhar com campos de data e hora.
     ```
     Resultado: `2024-07-10`
 
-- TRUNC():
+#### TRUNC():
 
-    - Descrição: Trunca uma data para o início do dia, mês ou ano.
+- Descrição: Trunca uma data para o início do dia, mês ou ano.
     
     Exemplo:
 
@@ -1035,9 +1228,9 @@ Estas são cruciais para trabalhar com campos de data e hora.
     ```
     Resultado: `2023-07-01`
 
-- SYSDATE:
+#### SYSDATE:
 
-    - Descrição: Retorna a data e hora atuais do sistema (específico do Oracle).
+- Descrição: Retorna a data e hora atuais do sistema (específico do Oracle).
     
     Exemplo:
 
@@ -1046,9 +1239,9 @@ Estas são cruciais para trabalhar com campos de data e hora.
         SYSDATE FROM DUAL;
     ```
 
-- EOMONTH():
+#### EOMONTH():
 
-    - Descrição: Retorna o último dia do mês da data fornecida.
+- Descrição: Retorna o último dia do mês da data fornecida.
     
     Exemplo:
 
@@ -1058,9 +1251,9 @@ Estas são cruciais para trabalhar com campos de data e hora.
     ```
     Resultado: `2023-07-31`
 
-- ISDATE():
+#### ISDATE():
 
-    - Descrição: Verifica se uma expressão é uma data válida.
+- Descrição: Verifica se uma expressão é uma data válida.
     
     Exemplo:
 
@@ -1070,9 +1263,9 @@ Estas são cruciais para trabalhar com campos de data e hora.
     ```
     Resultado: `1` (verdadeiro)
 
-- CAST():
+#### CAST():
 
-    - Descrição: Converte um tipo de dado em outro, como uma string em uma data.
+- Descrição: Converte um tipo de dado em outro, como uma string em uma data.
     
     Exemplo:
 
@@ -1082,9 +1275,9 @@ Estas são cruciais para trabalhar com campos de data e hora.
     ```
     Resultado: `2023-07-10`
 
-- DATE_FORMAT():
+#### DATE_FORMAT():
 
-    - Descrição: Formata uma data de acordo com um padrão especificado.
+- Descrição: Formata uma data de acordo com um padrão especificado.
     
     Exemplo:
 
@@ -1094,9 +1287,9 @@ Estas são cruciais para trabalhar com campos de data e hora.
     ```
     Resultado: `Tuesday 10th July 2023`
 
-- TIMESTAMPDIFF():
+#### TIMESTAMPDIFF():
 
-    - Descrição: Retorna a diferença entre duas datas em um intervalo específico, como dias ou meses.
+- Descrição: Retorna a diferença entre duas datas em um intervalo específico, como dias ou meses.
     
     Exemplo:
 
@@ -1108,15 +1301,15 @@ Estas são cruciais para trabalhar com campos de data e hora.
 
 Estas são algumas das funções relacionadas a datas em SQL. A disponibilidade e a sintaxe exata podem variar dependendo do sistema de gerenciamento de banco de dados que você está usando.
 
-#### funções-numéricas
-
+### funções-numéricas
 [Voltar ao Topo](#menu)
+
 
 Estas são usadas para realizar operações matemáticas. 
 
-- ABS():
+#### ABS():
 
-    - Descrição: Retorna o valor absoluto de um número.
+- Descrição: Retorna o valor absoluto de um número.
     
     Exemplo:
 
@@ -1126,9 +1319,9 @@ Estas são usadas para realizar operações matemáticas.
     ```
     Resultado: `123`
 
-- ROUND():
+#### ROUND():
 
-    - Descrição: Arredonda um número para um número especificado de casas decimais.
+- Descrição: Arredonda um número para um número especificado de casas decimais.
     
     Exemplo:
 
@@ -1138,9 +1331,9 @@ Estas são usadas para realizar operações matemáticas.
     ```
     Resultado: `123.46`
 
-- CEIL() ou CEILING():
+#### CEIL()_ou_CEILING():
 
-    - Descrição: Arredonda um número para o menor inteiro maior ou igual ao número.
+- Descrição: Arredonda um número para o menor inteiro maior ou igual ao número.
     
     Exemplo:
 
@@ -1150,9 +1343,9 @@ Estas são usadas para realizar operações matemáticas.
     ```
     Resultado: `124`
 
-- FLOOR():
+#### FLOOR():
 
-    - Descrição: Arredonda um número para o maior inteiro menor ou igual ao número.
+- Descrição: Arredonda um número para o maior inteiro menor ou igual ao número.
     
     Exemplo:
 
@@ -1162,9 +1355,9 @@ Estas são usadas para realizar operações matemáticas.
     ```
     Resultado: `123`
 
-- MOD():
+#### MOD():
 
-    - Descrição: Retorna o resto da divisão de dois números.
+- Descrição: Retorna o resto da divisão de dois números.
     
     Exemplo:
 
@@ -1174,9 +1367,9 @@ Estas são usadas para realizar operações matemáticas.
     ```
     Resultado: `1`
 
-- POWER():
+#### POWER():
 
-    - Descrição: Retorna o valor de um número elevado à potência de outro número.
+- Descrição: Retorna o valor de um número elevado à potência de outro número.
     
     Exemplo:
 
@@ -1186,9 +1379,9 @@ Estas são usadas para realizar operações matemáticas.
     ```
     Resultado: `8`
 
-- SQRT():
+#### SQRT():
 
-    - Descrição: Retorna a raiz quadrada de um número.
+- Descrição: Retorna a raiz quadrada de um número.
     
     Exemplo:
 
@@ -1198,9 +1391,9 @@ Estas são usadas para realizar operações matemáticas.
     ```
     Resultado: `4`
 
-- RAND():
+#### RAND():
 
-    - Descrição: Retorna um número aleatório entre 0 e 1.
+- Descrição: Retorna um número aleatório entre 0 e 1.
     
     Exemplo:
 
@@ -1210,9 +1403,9 @@ Estas são usadas para realizar operações matemáticas.
     ```
     Resultado: `0.123456789`
 
-- LOG():
+#### LOG():
 
-    - Descrição: Retorna o logaritmo natural de um número.
+- Descrição: Retorna o logaritmo natural de um número.
     
     Exemplo:
 
@@ -1222,9 +1415,9 @@ Estas são usadas para realizar operações matemáticas.
     ```
     Resultado: `2.302585092994046`
 
-- EXP():
+#### EXP():
 
-    - Descrição: Retorna e (número de Euler) elevado à potência de um número dado.
+- Descrição: Retorna e (número de Euler) elevado à potência de um número dado.
     
     Exemplo:
 
@@ -1234,9 +1427,9 @@ Estas são usadas para realizar operações matemáticas.
     ```
     Resultado: Aproximadamente `2.71828`
 
-- SIN(), COS(), TAN():
+#### SIN()_COS()_TAN():
 
-    - Descrição: Funções trigonométricas que retornam o seno, cosseno e tangente de um número, respectivamente.
+- Descrição: Funções trigonométricas que retornam o seno, cosseno e tangente de um número, respectivamente.
     
     Exemplo:
 
@@ -1248,9 +1441,9 @@ Estas são usadas para realizar operações matemáticas.
     ```
     Resultado: `1`, `-1`, `1`
 
-- PI():
+#### PI():
 
-    - Descrição: Retorna o valor de π (pi).
+- Descrição: Retorna o valor de π (pi).
     
     Exemplo:
 
@@ -1260,9 +1453,9 @@ Estas são usadas para realizar operações matemáticas.
     ```
     Resultado: Aproximadamente `3.14159`
 
-- DEGREES():
+#### DEGREES():
 
-    - Descrição: Converte um valor em radianos para graus.
+- Descrição: Converte um valor em radianos para graus.
     
     Exemplo:
 
@@ -1272,9 +1465,9 @@ Estas são usadas para realizar operações matemáticas.
     ```
     Resultado: `180`
 
-- RADIANS():
+#### RADIANS():
 
-    - Descrição: Converte um valor em graus para radianos.
+- Descrição: Converte um valor em graus para radianos.
     
     Exemplo:
 
@@ -1284,9 +1477,9 @@ Estas são usadas para realizar operações matemáticas.
     ```
     Resultado: Aproximadamente `3.14159`
 
-- SIGN():
+#### SIGN():
 
-    - Descrição: Retorna o sinal de um número (-1, 0, 1 para números negativos, zero e positivos, respectivamente).
+- Descrição: Retorna o sinal de um número (-1, 0, 1 para números negativos, zero e positivos, respectivamente).
     
     Exemplo:
 
@@ -1296,9 +1489,9 @@ Estas são usadas para realizar operações matemáticas.
     ```
     Resultado: `-1`
 
-- TRUNCATE():
+#### TRUNCATE():
 
-    Descrição: Trunca um número para um número especificado de casas decimais, sem arredondamento.
+- Descrição: Trunca um número para um número especificado de casas decimais, sem arredondamento.
     
     Exemplo:
 
@@ -1308,9 +1501,9 @@ Estas são usadas para realizar operações matemáticas.
     ```
     Resultado: `123.45`
 
-- GREATEST():
+####  GREATEST():
 
-    - Descrição: Retorna o maior valor em uma lista de expressões.
+- Descrição: Retorna o maior valor em uma lista de expressões.
     
     Exemplo:
 
@@ -1320,9 +1513,9 @@ Estas são usadas para realizar operações matemáticas.
     ```
     Resultado: `5`
 
-- LEAST():
+#### LEAST():
 
-    - Descrição: Retorna o menor valor em uma lista de expressões.
+- Descrição: Retorna o menor valor em uma lista de expressões.
     
     Exemplo:
 
@@ -1332,9 +1525,9 @@ Estas são usadas para realizar operações matemáticas.
     ```
     Resultado: `1`
 
-- ATAN2():
+#### ATAN2():
 
-    - Descrição: Retorna a arco tangente do quociente de seus argumentos.
+- Descrição: Retorna a arco tangente do quociente de seus argumentos.
     
     Exemplo:
 
@@ -1344,9 +1537,9 @@ Estas são usadas para realizar operações matemáticas.
     ```
     Resultado: `0.7853981633974483`
 
-- LOG10():
+#### LOG10():
 
-    - Descrição: Retorna o logaritmo base 10 de um número.
+- Descrição: Retorna o logaritmo base 10 de um número.
     
     Exemplo:
 
@@ -1357,15 +1550,14 @@ Estas são usadas para realizar operações matemáticas.
     Resultado: `2`
 
 Estas são algumas das funções numéricas mais comuns em SQL. A disponibilidade e a sintaxe exata podem variar dependendo do sistema de gerenciamento de banco de dados que você está usando.
-#### funções-de-agregação
-
+### funções-de-agregação
 [Voltar ao Topo](#menu)
 
 Estas funções são usadas para resumir e analisar conjuntos de dados.
 
-- SUM():
+#### SUM():
 
-    - Descrição: Retorna a soma total de uma coluna numérica.
+- Descrição: Retorna a soma total de uma coluna numérica.
     
     Exemplo:
 
@@ -1375,9 +1567,9 @@ Estas funções são usadas para resumir e analisar conjuntos de dados.
     ```
     Resultado: `100000`
 
-- AVG():
+#### AVG():
 
-    - Descrição: Retorna a média dos valores em uma coluna numérica.
+- Descrição: Retorna a média dos valores em uma coluna numérica.
     
     Exemplo:
 
@@ -1387,9 +1579,9 @@ Estas funções são usadas para resumir e analisar conjuntos de dados.
     ```
     Resultado: `50000`
 
-- COUNT():
+#### COUNT():
 
-    - Descrição: Retorna o número de linhas que correspondem a um critério especificado.
+- Descrição: Retorna o número de linhas que correspondem a um critério especificado.
     
     Exemplo:
 
@@ -1399,9 +1591,9 @@ Estas funções são usadas para resumir e analisar conjuntos de dados.
     ```
     Resultado: `2`
 
-- MIN():
+#### MIN():
 
-    - Descrição: Retorna o menor valor em uma coluna.
+- Descrição: Retorna o menor valor em uma coluna.
     
     Exemplo:
 
@@ -1411,9 +1603,9 @@ Estas funções são usadas para resumir e analisar conjuntos de dados.
     ```
     Resultado: `25000`
 
-- MAX():
+#### MAX():
 
-    - Descrição: Retorna o maior valor em uma coluna.
+- Descrição: Retorna o maior valor em uma coluna.
     
     Exemplo:
 
@@ -1423,9 +1615,9 @@ Estas funções são usadas para resumir e analisar conjuntos de dados.
     ```
     Resultado: `75000`
 
-- GROUP_CONCAT() (em alguns DBMS, como MySQL) ou STRING_AGG() (em SQL Server):
+#### GROUP_CONCAT() (em alguns DBMS, como MySQL) ou STRING_AGG() (em SQL Server):
 
-    - Descrição: Agrega valores de várias linhas em uma única string.
+- Descrição: Agrega valores de várias linhas em uma única string.
     
     Exemplo (usando GROUP_CONCAT):
 
@@ -1438,9 +1630,9 @@ Estas funções são usadas para resumir e analisar conjuntos de dados.
     ```
     Resultado: `engineering` e `John, Jane`
 
-- STDDEV():
+#### STDDEV():
 
-    - Descrição: Retorna o desvio padrão de um conjunto de números.
+- Descrição: Retorna o desvio padrão de um conjunto de números.
     
     Exemplo:
 
@@ -1451,9 +1643,9 @@ Estas funções são usadas para resumir e analisar conjuntos de dados.
     ```
     Resultado: `25000`
 
-- VARIANCE():
+#### VARIANCE():
 
-    - Descrição: Retorna a variância de um conjunto de números.
+- Descrição: Retorna a variância de um conjunto de números.
     
     Exemplo:
 
@@ -1464,9 +1656,9 @@ Estas funções são usadas para resumir e analisar conjuntos de dados.
     ```
     Resultado: `625000000`
 
-- FIRST_VALUE():
+#### FIRST_VALUE():
 
-    - Descrição: Retorna o primeiro valor em um conjunto ordenado de valores.
+- Descrição: Retorna o primeiro valor em um conjunto ordenado de valores.
     
     Exemplo:
 
@@ -1477,9 +1669,9 @@ Estas funções são usadas para resumir e analisar conjuntos de dados.
     ```
     Resultado: `John`
 
-- LAST_VALUE():
+#### LAST_VALUE():
 
-    - Descrição: Retorna o último valor em um conjunto ordenado de valores.
+- Descrição: Retorna o último valor em um conjunto ordenado de valores.
     
     Exemplo:
 
@@ -1490,9 +1682,9 @@ Estas funções são usadas para resumir e analisar conjuntos de dados.
     ```
     Resultado: `Jane`
 
-- PERCENTILE_CONT():
+#### PERCENTILE_CONT():
 
-    - Descrição: Calcula o valor do percentil contínuo para um conjunto ordenado de valores.
+- Descrição: Calcula o valor do percentil contínuo para um conjunto ordenado de valores.
     
     Exemplo:
 
@@ -1503,9 +1695,9 @@ Estas funções são usadas para resumir e analisar conjuntos de dados.
     ```
     Resultado: `50000`
 
-- PERCENTILE_DISC():
+#### PERCENTILE_DISC():
 
-    - Descrição: Calcula o valor do percentil discreto para um conjunto ordenado de valores.
+- Descrição: Calcula o valor do percentil discreto para um conjunto ordenado de valores.
     
     Exemplo:
 
@@ -1516,9 +1708,9 @@ Estas funções são usadas para resumir e analisar conjuntos de dados.
     ```
     Resultado: `50000`
 
-- MODE():
+#### MODE():
 
-    - Descrição: Retorna o valor que aparece com mais frequência em um conjunto de valores.
+- Descrição: Retorna o valor que aparece com mais frequência em um conjunto de valores.
     
     Exemplo:
 
@@ -1529,9 +1721,9 @@ Estas funções são usadas para resumir e analisar conjuntos de dados.
     ```
     Resultado: `engineering`
 
-- ARRAY_AGG():
+#### ARRAY_AGG():
 
-    - Descrição: Agrega valores de várias linhas em uma matriz.
+- Descrição: Agrega valores de várias linhas em uma matriz.
     
     Exemplo:
 
@@ -1544,9 +1736,9 @@ Estas funções são usadas para resumir e analisar conjuntos de dados.
     ```
     Resultado: `engineering` e `John, Jane`
 
-- COVAR_POP(), COVAR_SAMP():
+#### COVAR_POP()_COVAR_SAMP():
 
-    - Descrição: Calcula a covariância de um conjunto de números.
+- Descrição: Calcula a covariância de um conjunto de números.
     
     Exemplo:
 
@@ -1557,15 +1749,15 @@ Estas funções são usadas para resumir e analisar conjuntos de dados.
     ```
     Resultado: `125000000`
 
-#### funções-de-conversão
-
+### funções-de-conversão
 [Voltar ao Topo](#menu)
+
 
 Estas são algumas das funções de agregação mais comuns em SQL. A disponibilidade e a sintaxe exata podem variar dependendo do sistema de gerenciamento de banco de dados que você está usando.
 
-- CAST():
+#### CAST():
         
-    - Descrição: Converte um tipo de dado em outro.
+- Descrição: Converte um tipo de dado em outro.
     
     Exemplo: 
     
@@ -1575,9 +1767,9 @@ Estas são algumas das funções de agregação mais comuns em SQL. A disponibil
     ```
     Resultado: `1234`
 
-- CONVERT():
+#### CONVERT():
         
-    - Descrição: Semelhante ao CAST(), mas com uma sintaxe diferente e, em alguns DBMSs, oferece mais opções.
+- Descrição: Semelhante ao CAST(), mas com uma sintaxe diferente e, em alguns DBMSs, oferece mais opções.
         
     Exemplo: 
     
@@ -1589,8 +1781,9 @@ Estas são algumas das funções de agregação mais comuns em SQL. A disponibil
 
     [Mais Opções de CAST e CONVERT](https://learn.microsoft.com/pt-br/sql/t-sql/functions/cast-and-convert-transact-sql?view=sql-server-ver16)
 
-- TO_DATE():
-    - Descrição: Converte uma string em uma data.
+#### TO_DATE():
+
+- Descrição: Converte uma string em uma data.
     
     Exemplo: 
     
@@ -1600,8 +1793,9 @@ Estas são algumas das funções de agregação mais comuns em SQL. A disponibil
     ```
     Resultado: `2023-01-01`
 
-- TO_CHAR():
-    - Descrição: Converte um número ou data em uma string.
+#### TO_CHAR():
+
+- Descrição: Converte um número ou data em uma string.
     
     Exemplo: 
     
@@ -1611,8 +1805,9 @@ Estas são algumas das funções de agregação mais comuns em SQL. A disponibil
     ```
     Resultado: `1234`
 
-- TO_NUMBER():
-    - Descrição: Converte uma string em um número.
+#### TO_NUMBER():
+    
+- Descrição: Converte uma string em um número.
 
     Exemplo: 
     
@@ -1621,8 +1816,9 @@ Estas são algumas das funções de agregação mais comuns em SQL. A disponibil
         TO_NUMBER('1234.56', '9999.99') AS ResultNumber;
     ```
     Resultado: `1234.56`
-- STR():
-    - Descrição: Converte um número em uma string.
+#### STR():
+    
+- Descrição: Converte um número em uma string.
     
     Exemplo: 
     
@@ -1632,8 +1828,9 @@ Estas são algumas das funções de agregação mais comuns em SQL. A disponibil
     ```
     Resultado: `1234`
 
-- FORMAT():
-    - Descrição: Formata um valor usando um padrão específico. Muito útil para formatar números e datas.
+#### FORMAT():
+    
+- Descrição: Formata um valor usando um padrão específico. Muito útil para formatar números e datas.
     
     Exemplo: 
     
@@ -1643,8 +1840,9 @@ Estas são algumas das funções de agregação mais comuns em SQL. A disponibil
     ```
     Resultado: `1,234.57`
 
-- PARSE():
-    - Descrição: Analisa uma string usando um formato específico e a converte em um tipo de dado específico.
+#### PARSE():
+    
+- Descrição: Analisa uma string usando um formato específico e a converte em um tipo de dado específico.
     
     Exemplo: 
     
@@ -1653,8 +1851,10 @@ Estas são algumas das funções de agregação mais comuns em SQL. A disponibil
         PARSE('2023-01-01' AS DATE USING 'en-US') AS ResultDate;
     ```
     Resultado: `2023-01-01` 
-- TRY_CAST():
-    - Descrição: Semelhante ao CAST(), mas retorna NULL se a conversão falhar.
+
+#### TRY_CAST():
+
+- Descrição: Semelhante ao CAST(), mas retorna NULL se a conversão falhar.
     
     Exemplo: 
     
@@ -1664,8 +1864,9 @@ Estas são algumas das funções de agregação mais comuns em SQL. A disponibil
     ```
     Resultado: `NULL` 
 
-- TRY_CONVERT():
-    - Descrição: Semelhante ao CONVERT(), mas retorna NULL se a conversão falhar.
+#### TRY_CONVERT():
+    
+- Descrição: Semelhante ao CONVERT(), mas retorna NULL se a conversão falhar.
     
     Exemplo: 
     
@@ -1675,8 +1876,9 @@ Estas são algumas das funções de agregação mais comuns em SQL. A disponibil
     ```
     Resultado: `NULL`
 
-- TRY_PARSE():
-    - Descrição: Semelhante ao PARSE(), mas retorna NULL se a análise falhar.
+#### TRY_PARSE():
+    
+- Descrição: Semelhante ao PARSE(), mas retorna NULL se a análise falhar.
 
     Exemplo: 
     
@@ -1688,15 +1890,16 @@ Estas são algumas das funções de agregação mais comuns em SQL. A disponibil
 
 Estes são algumas das principais funções de conversão em SQL. A disponibilidade e a sintaxe exata podem variar dependendo do sistema de gerenciamento de banco de dados (DBMS) que você está usando. Além disso, é importante lembrar que a conversão inadequada de tipos de dados pode levar a erros ou resultados inesperados, então sempre é bom testar e entender completamente as conversões antes de aplicá-las em situações reais.
 
-#### funções-de-sistema
-
+### funções-de-sistema
 [Voltar ao Topo](#menu)
+
+
 
 Estas são funções específicas do sistema que retornam informações sobre o sistema de banco de dados.
 
-- DATABASE():
+#### DATABASE():
         
-    - Descrição: Retorna o nome do banco de dados atual.
+- Descrição: Retorna o nome do banco de dados atual.
         
     Exemplo: 
     
@@ -1705,9 +1908,9 @@ Estas são funções específicas do sistema que retornam informações sobre o 
         DATABASE() AS CurrentDatabase;
     ```
 
-- USER():
+#### USER():
         
-    - Descrição: Retorna o nome do usuário atual.
+- Descrição: Retorna o nome do usuário atual.
         
     Exemplo: 
     
@@ -1716,9 +1919,9 @@ Estas são funções específicas do sistema que retornam informações sobre o 
         USER() AS CurrentUser;
     ```
 
-- VERSION():
+#### VERSION():
     
-    - Descrição: Retorna a versão atual do sistema de gerenciamento de banco de dados.
+- Descrição: Retorna a versão atual do sistema de gerenciamento de banco de dados.
         
     Exemplo: 
     
@@ -1727,9 +1930,9 @@ Estas são funções específicas do sistema que retornam informações sobre o 
         VERSION() AS DBVersion;
     ```
     
-- NOW():
+#### NOW():
     
-    - Descrição: Retorna a data e hora atuais.
+- Descrição: Retorna a data e hora atuais.
         
     Exemplo:
 
@@ -1738,9 +1941,9 @@ Estas são funções específicas do sistema que retornam informações sobre o 
         NOW() AS CurrentDateTime;
     ```
 
-- CURDATE():
+#### CURDATE():
     
-    - Descrição: Retorna a data atual.
+- Descrição: Retorna a data atual.
         
     Exemplo: 
     
@@ -1749,9 +1952,9 @@ Estas são funções específicas do sistema que retornam informações sobre o 
         CURDATE() AS CurrentDate;
     ```
 
-- CURTIME():
+#### CURTIME():
 
-    - Descrição: Retorna a hora atual.
+- Descrição: Retorna a hora atual.
         
     Exemplo: 
     
@@ -1760,9 +1963,9 @@ Estas são funções específicas do sistema que retornam informações sobre o 
         CURTIME() AS CurrentTime;
     ```
 
-- LAST_INSERT_ID():
+#### LAST_INSERT_ID():
         
-    - Descrição: Retorna o último ID inserido em uma tabela com uma coluna de autoincremento.
+- Descrição: Retorna o último ID inserido em uma tabela com uma coluna de autoincremento.
         
     Exemplo: 
     
@@ -1771,9 +1974,9 @@ Estas são funções específicas do sistema que retornam informações sobre o 
     SELECT LAST_INSERT_ID();
     ```
     
-- SESSION_USER():
+#### SESSION_USER():
         
-    - Descrição: Retorna o nome do usuário da sessão atual.
+- Descrição: Retorna o nome do usuário da sessão atual.
         
     Exemplo: 
     
@@ -1782,9 +1985,9 @@ Estas são funções específicas do sistema que retornam informações sobre o 
         SESSION_USER() AS SessionUser;
     ```
 
-- SYSTEM_USER():
+#### SYSTEM_USER():
         
-    - Descrição: Retorna o nome do usuário do sistema.
+- Descrição: Retorna o nome do usuário do sistema.
         
     Exemplo: 
     
@@ -1793,9 +1996,9 @@ Estas são funções específicas do sistema que retornam informações sobre o 
         SYSTEM_USER() AS SystemUser;
     ```
 
-- UUID():
+#### UUID():
         
-    - Descrição: Gera um valor UUID (Universal Unique Identifier) único.
+- Descrição: Gera um valor UUID (Universal Unique Identifier) único.
         
     Exemplo: 
     
@@ -1804,28 +2007,17 @@ Estas são funções específicas do sistema que retornam informações sobre o 
         UUID() AS UniqueID;
     ```
 
-- RAND():
-    
-    - Descrição: Gera um número aleatório entre 0 e 1.
-        
-    Exemplo: 
-    
-    ```sql
-    SELECT 
-        RAND() AS RandomNumber;
-    ```
-
 Estas são algumas das principais funções de sistema em SQL. A disponibilidade e a sintaxe exata podem variar dependendo do sistema de gerenciamento de banco de dados (DBMS) que você está usando. Funções de sistema são extremamente úteis para obter informações sobre o ambiente do banco de dados, gerar valores únicos ou aleatórios e muito mais.
 
-#### funções-de-controle-de-fluxo
-
+### funções-de-controle-de-fluxo
 [Voltar ao Topo](#menu)
+
 
 Estas são funções que controlam o fluxo de execução de uma consulta.
 
-- CASE:
+#### CASE:
 
-    - Descrição: Permite condições em consultas SQL. Pode ser usado em instruções ou expressões.
+- Descrição: Permite condições em consultas SQL. Pode ser usado em instruções ou expressões.
     
     Exemplo:
 
@@ -1841,9 +2033,9 @@ Estas são funções que controlam o fluxo de execução de uma consulta.
     ```
     Classifica pessoas em grupos de idade.
 
-- IF():
+#### IF():
 
-    - Descrição: Retorna um valor se a condição for verdadeira e outro se for falsa.
+- Descrição: Retorna um valor se a condição for verdadeira e outro se for falsa.
     
     Exemplo:
 
@@ -1855,9 +2047,9 @@ Estas são funções que controlam o fluxo de execução de uma consulta.
     ```
     Classifica pessoas como estudante ou não-estudante.
 
-- NULLIF():
+#### NULLIF():
 
-    - Descrição: Retorna NULL se dois valores forem iguais, caso contrário, retorna o primeiro valor.
+- Descrição: Retorna NULL se dois valores forem iguais, caso contrário, retorna o primeiro valor.
     
     Exemplo:
 
@@ -1869,9 +2061,9 @@ Estas são funções que controlam o fluxo de execução de uma consulta.
     ```
     Retorna NULL para idade se o valor for 0.
 
-- COALESCE():
+#### COALESCE():
 
-    - Descrição: Retorna o primeiro valor não nulo na lista.
+- Descrição: Retorna o primeiro valor não nulo na lista.
     
     Exemplo:
 
@@ -1883,9 +2075,9 @@ Estas são funções que controlam o fluxo de execução de uma consulta.
     ```
     Retorna o primeiro método de contato disponível ou 'N/A' se ambos forem nulos.
 
-- IIF():
+#### IIF():
 
-    - Descrição: Função similar ao IF(), mas mais concisa. Retorna um valor se a condição for verdadeira e outro se for falsa.
+- Descrição: Função similar ao IF(), mas mais concisa. Retorna um valor se a condição for verdadeira e outro se for falsa.
     
     Exemplo:
 
@@ -1899,15 +2091,15 @@ Estas são funções que controlam o fluxo de execução de uma consulta.
 
 Estas são algumas das principais funções de controle de fluxo em SQL. Elas permitem que os desenvolvedores criem lógica condicional em suas consultas, tornando-as mais dinâmicas e adaptáveis às necessidades de análise de dados. A disponibilidade e a sintaxe exata podem variar dependendo do sistema de gerenciamento de banco de dados (DBMS) que você está usando. Utilizar funções de controle de fluxo corretamente pode melhorar significativamente a eficiência e a clareza de suas consultas SQL.
 
-#### funções-de-janela
-
+### funções-de-janela
 [Voltar ao Topo](#menu)
+
 
 Estas são funções que operam em um conjunto de linhas que estão relacionadas a uma linha atual.
 
-- ROW_NUMBER():
+#### ROW_NUMBER():
 
-    - Descrição: Atribui um número único a cada linha de um conjunto de resultados.
+- Descrição: Atribui um número único a cada linha de um conjunto de resultados.
     
     Exemplo:
 
@@ -1933,9 +2125,9 @@ Estas são funções que operam em um conjunto de linhas que estão relacionadas
     ```
     
 
-- RANK():
+#### RANK():
 
-    - Descrição: Atribui um rank a cada linha, com valores idênticos recebendo o mesmo rank.
+- Descrição: Atribui um rank a cada linha, com valores idênticos recebendo o mesmo rank.
     
     Exemplo:
 
@@ -1948,9 +2140,9 @@ Estas são funções que operam em um conjunto de linhas que estão relacionadas
     ```
     Classifica os resultados do exame por pontuação, do maior para o menor.
 
-- DENSE_RANK():
+#### DENSE_RANK():
 
-    - Descrição: Semelhante ao RANK(), mas sem lacunas entre os ranks quando há valores idênticos.
+- Descrição: Semelhante ao RANK(), mas sem lacunas entre os ranks quando há valores idênticos.
     
     Exemplo:
 
@@ -1963,9 +2155,9 @@ Estas são funções que operam em um conjunto de linhas que estão relacionadas
     ```
     Classifica os resultados do exame por pontuação, sem lacunas no ranking.
 
-- NTILE(n):
+#### NTILE(n):
 
-    - Descrição: Divide o conjunto de resultados em 'n' número de aproximadamente tamanhos iguais.
+- Descrição: Divide o conjunto de resultados em 'n' número de aproximadamente tamanhos iguais.
     Exemplo:
 
     ```sql
@@ -1977,9 +2169,9 @@ Estas são funções que operam em um conjunto de linhas que estão relacionadas
     ```
     Divide os resultados do exame em quartis.
 
-- LAG():
+#### LAG():
 
-    - Descrição: Acessa dados da linha anterior no conjunto de resultados.
+- Descrição: Acessa dados da linha anterior no conjunto de resultados.
     
     Exemplo:
 
@@ -1992,9 +2184,9 @@ Estas são funções que operam em um conjunto de linhas que estão relacionadas
     ```
     Compara as vendas de um mês com o mês anterior.
 
-- LEAD():
+#### LEAD():
 
-    - Descrição: Acessa dados da próxima linha no conjunto de resultados.
+- Descrição: Acessa dados da próxima linha no conjunto de resultados.
     
     Exemplo:
 
@@ -2007,9 +2199,9 @@ Estas são funções que operam em um conjunto de linhas que estão relacionadas
     ```
     Compara as vendas de um mês com o próximo mês.
 
-- FIRST_VALUE():
+#### FIRST_VALUE():
 
-    - Descrição: Retorna o primeiro valor em uma janela ordenada.
+- Descrição: Retorna o primeiro valor em uma janela ordenada.
     
     Exemplo:
 
@@ -2022,9 +2214,9 @@ Estas são funções que operam em um conjunto de linhas que estão relacionadas
     ```
     Mostra a primeira temperatura registrada no conjunto de dados.
 
-- LAST_VALUE():
+#### LAST_VALUE():
 
-    - Descrição: Retorna o último valor em uma janela ordenada.
+- Descrição: Retorna o último valor em uma janela ordenada.
     
     Exemplo:
 
@@ -2040,15 +2232,15 @@ Estas são funções que operam em um conjunto de linhas que estão relacionadas
 Estas são algumas das principais funções de janela em SQL. Elas oferecem uma maneira poderosa de realizar análises complexas diretamente no banco de dados, sem a necessidade de extrair dados ou usar ferramentas adicionais. A capacidade de entender e usar funções de janela é uma habilidade valiosa para qualquer profissional que trabalhe com análise de dados. A disponibilidade e a sintaxe exata podem variar dependendo do sistema de gerenciamento de banco de dados (DBMS) que você está usando.
 
 
-#### funções-de-json
-
+### funções-de-json
 [Voltar ao Topo](#menu)
+
 
 Estas são funções que operam em dados JSON.
 
-- JSON_VALUE:
+#### JSON_VALUE:
 
-    - Descrição: Extrai um valor escalar de um objeto JSON.
+- Descrição: Extrai um valor escalar de um objeto JSON.
     
     Exemplo:
 
@@ -2058,9 +2250,9 @@ Estas são funções que operam em dados JSON.
     ```
     Retorna `Alice`.
 
-- JSON_QUERY:
+#### JSON_QUERY:
 
-    - Descrição: Extrai um objeto ou array do JSON.
+- Descrição: Extrai um objeto ou array do JSON.
     
     Exemplo:
 
@@ -2070,9 +2262,9 @@ Estas são funções que operam em dados JSON.
     ```
     Retorna [`SQL`, `Python`].
 
-- JSON_OBJECT:
+#### JSON_OBJECT:
 
-    - Descrição: Cria um objeto JSON a partir de pares chave-valor.
+- Descrição: Cria um objeto JSON a partir de pares chave-valor.
     
     Exemplo:
 
@@ -2082,9 +2274,9 @@ Estas são funções que operam em dados JSON.
     ```
     Retorna {`name`: `Alice`, `age`: `30`}.
 
-- JSON_ARRAY:
+#### JSON_ARRAY:
 
-    - Descrição: Cria um array JSON a partir de uma lista de valores.
+- Descrição: Cria um array JSON a partir de uma lista de valores.
     
     Exemplo:
 
@@ -2094,9 +2286,9 @@ Estas são funções que operam em dados JSON.
     ```
     Retorna [`SQL`, `Python`].
 
-- JSON_EXISTS:
+#### JSON_EXISTS:
 
-    - Descrição: Verifica se um caminho específico existe dentro de um objeto JSON.
+- Descrição: Verifica se um caminho específico existe dentro de um objeto JSON.
     
     Exemplo:
 
@@ -2106,9 +2298,9 @@ Estas são funções que operam em dados JSON.
     ```
     Retorna true se o caminho existir, caso contrário, retorna false.
 
-- JSON_LENGTH:
+#### JSON_LENGTH:
 
-    - Descrição: Retorna o número de elementos em um array JSON ou o número de pares chave-valor em um objeto JSON.
+- Descrição: Retorna o número de elementos em um array JSON ou o número de pares chave-valor em um objeto JSON.
     
     Exemplo:
 
@@ -2118,9 +2310,9 @@ Estas são funções que operam em dados JSON.
     ```
     Retorna `2`.
 
-- JSON_KEYS:
+#### JSON_KEYS:
 
-    - Descrição: Retorna um array contendo as chaves de um objeto JSON.
+- Descrição: Retorna um array contendo as chaves de um objeto JSON.
     
     Exemplo:
 
@@ -2130,7 +2322,7 @@ Estas são funções que operam em dados JSON.
     ```
     Retorna [`name`, `age`].
 
-- JSON_REMOVE:
+#### JSON_REMOVE:
 
     - Descrição: Remove um ou mais caminhos de um objeto JSON.
     
@@ -2144,15 +2336,15 @@ Estas são funções que operam em dados JSON.
 
 Estas são algumas das principais funções JSON em SQL. Elas são cruciais para trabalhar com dados semi-estruturados em um ambiente relacional. A capacidade de manipular e consultar dados JSON diretamente no SQL oferece uma grande flexibilidade e poder aos desenvolvedores. Assim como outras funções, a disponibilidade e a sintaxe exata dessas funções podem variar dependendo do sistema de gerenciamento de banco de dados (DBMS) que você está usando.
 
-#### funções-de-xml
-
+### funções-de-xml
 [Voltar ao Topo](#menu)
+
 
 Estas são funções que operam em dados XML.
 
-- XML_VALUE:
+#### XML_VALUE:
 
-    - Descrição: Extrai um valor de um elemento ou atributo XML.
+- Descrição: Extrai um valor de um elemento ou atributo XML.
     
     Exemplo:
 
@@ -2162,9 +2354,9 @@ Estas são funções que operam em dados XML.
     ```
     Retorna `Alice`.
 
-- XML_QUERY:
+#### XML_QUERY:
 
-    - Descrição: Extrai um fragmento XML usando uma expressão XQuery.
+- Descrição: Extrai um fragmento XML usando uma expressão XQuery.
     
     Exemplo:
 
@@ -2174,9 +2366,9 @@ Estas são funções que operam em dados XML.
     ```
     Retorna `<skill>SQL</skill><skill>Python</skill>`.
 
-- XML_ELEMENT:
+#### XML_ELEMENT:
 
-    - Descrição: Cria um elemento XML com um nome especificado e valor.
+- Descrição: Cria um elemento XML com um nome especificado e valor.
     
     Exemplo:
 
@@ -2186,9 +2378,9 @@ Estas são funções que operam em dados XML.
     ```
     Retorna `<name>Alice</name>`.
 
-- XML_ATTRIBUTES:
+#### XML_ATTRIBUTES:
 
-    - Descrição: Cria atributos XML para um elemento.
+- Descrição: Cria atributos XML para um elemento.
     
     Exemplo:
 
@@ -2198,9 +2390,9 @@ Estas são funções que operam em dados XML.
     ```
     Retorna `<user name="Alice"/>`.
 
-- XML_EXISTS:
+#### XML_EXISTS:
 
-    - Descrição: Verifica se uma expressão XQuery retorna um resultado.
+- Descrição: Verifica se uma expressão XQuery retorna um resultado.
     
     Exemplo:
 
@@ -2210,9 +2402,9 @@ Estas são funções que operam em dados XML.
     ```
     Retorna true se a expressão XQuery retornar um resultado, caso contrário, retorna false.
 
-- XMLTABLE:
+#### XMLTABLE:
 
-    - Descrição: Transforma XML em uma tabela relacional.
+- Descrição: Transforma XML em uma tabela relacional.
     
     Exemplo:
 
@@ -2223,9 +2415,9 @@ Estas são funções que operam em dados XML.
     ```
     Retorna uma tabela com nomes `Alice` e `Bob`.
 
-- XMLSERIALIZE:
+#### XMLSERIALIZE:
 
-    - Descrição: Converte um valor XML em uma string.
+- Descrição: Converte um valor XML em uma string.
     
     Exemplo:
 
@@ -2235,9 +2427,9 @@ Estas são funções que operam em dados XML.
     ```
     Retorna a string `Alice`.
 
-- XMLPARSE:
+#### XMLPARSE:
 
-    - Descrição: Converte uma string em um valor XML.
+- Descrição: Converte uma string em um valor XML.
     
     Exemplo:
 
@@ -2249,125 +2441,397 @@ Estas são funções que operam em dados XML.
 
 Estas são algumas das principais funções XML em SQL. Elas são essenciais para trabalhar com dados estruturados em formato XML em um ambiente relacional. A capacidade de manipular, consultar e transformar dados XML diretamente no SQL oferece uma grande flexibilidade aos desenvolvedores. Assim como outras funções, a disponibilidade e a sintaxe exata dessas funções podem variar dependendo do sistema de gerenciamento de banco de dados (DBMS) que você está usando.
 
-### junções-e-relações
-
+## junções-e-relações
 [Voltar ao Topo](#menu)
+
 
 A capacidade de relacionar tabelas é uma das características mais poderosas dos sistemas de banco de dados relacional. Isso permite que os dados sejam organizados de forma eficiente, evitando redundâncias e facilitando a recuperação de informações de várias tabelas de forma coesa. Vamos mergulhar profundamente neste tópico.
 
-#### chaves-primárias-e-estrangeiras
+### chaves-primárias-e-estrangeiras
+[Voltar ao Topo](#menu)
 
-##### Chave Primária (PK): 
+#### Chave Primária (PK): 
 
 É uma coluna ou conjunto de colunas em uma tabela que identifica exclusivamente cada linha da tabela. Uma PK garante que não haja duas linhas com o mesmo valor e que nenhum valor na coluna da chave primária seja NULL.
         
-##### Chave Estrangeira (FK): 
+#### Chave Estrangeira (FK): 
 
 É uma coluna ou conjunto de colunas em uma tabela que é usada para estabelecer e impor um link entre os dados em duas tabelas. Ela estabelece uma relação entre duas tabelas ao referenciar a chave primária de outra tabela. A principal utilidade da FK é garantir a integridade referencial dos dados.
 
-#### junções
-
+### junções
 [Voltar ao Topo](#menu)
 
-##### INNER JOIN: 
 
-Esta é a junção mais comum. Ela retorna linhas quando há pelo menos uma correspondência em ambas as tabelas. Se uma linha em uma das tabelas não corresponder a nenhuma linha na outra tabela, ela será omitida dos resultados.
+
+#### INNER_JOIN:
+    
+- Descrição:
+
+O `INNER JOIN` é o tipo de junção mais comum em SQL. Ele retorna as linhas que têm correspondência em ambas as tabelas envolvidas na junção. Se uma linha em uma tabela não tem correspondência na outra, ela não aparece no conjunto de resultados.
+
+- Exemplo:
+
+```sql
+SELECT 
+    Clientes.Nome
+    , Pedidos.PedidoID
+FROM Clientes
+INNER JOIN Pedidos ON Clientes.ClienteID = Pedidos.ClienteID;
+```
+
+Neste exemplo, estamos buscando os nomes dos clientes e os `IDs` dos pedidos, retornando apenas os clientes que possuem pedidos.
+
+- Considerações Avançadas:
         
-##### LEFT JOIN (ou LEFT OUTER JOIN): 
-
-Retorna todas as linhas da tabela à esquerda e as correspondentes da tabela à direita. Se não houver correspondência, o resultado é NULL na tabela à direita.
+    - Performance: O uso eficiente de índices nas colunas envolvidas na junção pode melhorar significativamente a performance do `INNER JOIN`.
         
-##### RIGHT JOIN (ou RIGHT OUTER JOIN): 
+    - Filtragem: O `INNER JOIN` pode ser usado em conjunto com cláusulas `WHERE` para filtrar ainda mais os resultados.
 
-É o oposto do LEFT JOIN. Retorna todas as linhas da tabela à direita e as correspondentes da tabela à esquerda. Se não houver correspondência, o resultado é NULL na tabela à esquerda.
+#### LEFT_JOIN
+
+- Descrição:
+
+O `LEFT JOIN` retorna todas as linhas da tabela à esquerda e as linhas correspondentes da tabela à direita. Se não existe correspondência para uma linha da tabela à esquerda, a saída exibe `NULL` para cada coluna da tabela à direita.
+
+- Exemplo:
+
+```sql
+SELECT 
+    Clientes.Nome
+    , Pedidos.PedidoID
+FROM Clientes
+LEFT JOIN Pedidos ON Clientes.ClienteID = Pedidos.ClienteID;
+```
+
+Aqui, todos os clientes serão listados, independentemente de terem feito pedidos.
+
+- Considerações Avançadas:
         
-##### FULL JOIN (ou FULL OUTER JOIN): 
+    - Uso com Agregação: `LEFT JOIN` é útil em consultas agregadas para incluir itens que não têm correspondência na tabela à direita.
+        
+    - Tratamento de NULL: É importante tratar valores `NULL` ao usar `LEFT JOIN`, especialmente ao realizar operações em colunas que podem conter `NULL`.
 
-Retorna linhas quando há uma correspondência em uma das tabelas. Portanto, ele retorna todas as linhas da tabela à esquerda e todas as linhas da tabela à direita.
+#### RIGHT_JOIN
 
-#### subconsultas
+- Descrição:
 
+O `RIGHT JOIN` é o inverso do `LEFT JOIN`. Retorna todas as linhas da tabela à direita e as linhas correspondentes da tabela à esquerda. Se não existe correspondência para uma linha da tabela à direita, a saída exibe NULL para cada coluna da tabela à esquerda.
+
+- Exemplo:
+
+```sql
+SELECT 
+    Clientes.Nome
+    , Pedidos.PedidoID
+FROM Clientes
+RIGHT JOIN Pedidos ON Clientes.ClienteID = Pedidos.ClienteID;
+```
+
+Neste caso, todos os pedidos serão listados, mesmo que não tenham um cliente associado.
+
+- Considerações Avançadas:
+        
+    - Substituição por LEFT JOIN: Em muitos casos, `RIGHT JOIN` pode ser substituído por `LEFT JOIN` reordenando as tabelas na consulta.
+        
+    - Raridade de Uso: `RIGHT JOIN` é menos comum que `LEFT JOIN`, mas pode ser útil dependendo da estrutura da consulta.
+
+#### FULL_JOIN
+
+- Descrição:
+
+O `FULL JOIN` retorna linhas quando há uma correspondência em pelo menos uma das tabelas. Portanto, ele retorna todas as linhas da tabela à esquerda e todas as linhas da tabela à direita, com as linhas correspondentes de ambos os lados quando disponíveis. Se não houver correspondência, a parte não correspondente exibe `NULL`.
+
+- Exemplo:
+
+```sql
+SELECT 
+    Clientes.Nome
+    , Pedidos.PedidoID
+FROM Clientes
+FULL JOIN Pedidos ON Clientes.ClienteID = Pedidos.ClienteID;
+```
+
+Este exemplo lista todos os clientes e todos os pedidos, correspondentes ou não.
+
+- Considerações Avançadas:
+        
+    - Uso Específico: `FULL JOIN` é menos comum que `INNER JOIN` e `LEFT JOIN`, mas é muito útil para comparar registros entre tabelas.
+
+    - Tratamento de NULL: Assim como com `LEFT JOIN` e `RIGHT JOIN`, o tratamento de valores NULL é crucial ao usar `FULL JOIN`.
+
+- Conclusão:
+
+Entender as diferenças e usos de cada tipo de junção em SQL é fundamental para a construção de consultas eficientes e precisas. O domínio desses conceitos permite ao desenvolvedor manipular e analisar dados de maneira mais flexível e profunda, atendendo a uma variedade de necessidades e cenários.
+### subconsultas
 [Voltar ao Topo](#menu)
+
+
 
 Uma subconsulta é uma consulta dentro de outra consulta. Ela pode retornar um ou mais valores e é usada em várias situações, como para comparar com um valor ou lista de valores, verificar a existência de dados, entre outros.
         
-##### Subconsultas Correlacionadas: 
+#### Subconsultas Correlacionadas: 
 
 São subconsultas que são executadas uma vez para cada linha processada pela consulta externa. Elas são chamadas "correlacionadas" porque a subconsulta depende da consulta externa.
         
-##### Subconsultas Não Correlacionadas: 
+#### Subconsultas Não Correlacionadas: 
 
 São subconsultas que são executadas apenas uma vez e o resultado é entregue à consulta principal.
 
 Entender junções e relações é fundamental para trabalhar com bancos de dados relacionais. Elas permitem que os analistas de dados explorem e analisem dados de várias tabelas simultaneamente, proporcionando uma visão mais completa e integrada dos dados. Ao dominar esses conceitos, você pode combinar, comparar e analisar dados de várias fontes com facilidade e precisão.
 
-### manipulação-de-dados
-
+## manipulação-de-dados
 [Voltar ao Topo](#menu)
+
 
 A manipulação de dados é uma parte essencial do trabalho com bancos de dados. Ela se refere ao processo de inserção, atualização, exclusão e gerenciamento de dados armazenados em um banco de dados. Vamos explorar cada um desses aspectos em detalhes:
 
-#### inserindo-dados
-    
-##### INSERT
+### inserindo-dados
+[Voltar ao Topo](#menu)
+
+
+#### INSERT
     
 - Objetivo:
 
-Adicionar novos registros a uma tabela.
-    
-Sintaxe Básica:
+O comando `INSERT` em SQL é utilizado para adicionar novos registros a uma tabela, permitindo assim a expansão do conjunto de dados armazenados no banco de dados. Este comando é fundamental para a operação de qualquer sistema de gerenciamento de banco de dados, pois possibilita a inclusão de novas informações.
+
+- Sintaxe Básica:
+
 ```sql
 INSERT INTO nome_tabela (coluna1, coluna2, coluna3, ...)
 VALUES (valor1, valor2, valor3, ...);
 ```
-- Considerações:
 
-Ao inserir dados, é crucial garantir que os tipos de dados das colunas correspondam aos valores fornecidos.
+#### Considerações Avançadas:
 
-Se estiver inserindo valores para todas as colunas da tabela, você não precisa especificar os nomes das colunas na consulta SQL.
+- `Tipos de Dados`: É essencial garantir que os valores fornecidos correspondam aos tipos de dados das colunas. A tentativa de inserir um tipo de dado incompatível resultará em um erro.
 
-#### atualizando-dados
+- Exemplo:
 
+```sql
+-- Inserir um registro com tipos de dados correspondentes
+INSERT INTO Clientes (ClienteID, Nome, Email)
+VALUES (1, 'João Silva', 'joao.silva@email.com');
+```
+
+- `Inserção Completa`: Se estiver inserindo valores para todas as colunas da tabela, não é necessário especificar os nomes das colunas. No entanto, a ordem dos valores deve corresponder à ordem das colunas na tabela.
+
+- Exemplo:
+
+```sql
+-- Inserir um registro sem especificar os nomes das colunas
+INSERT INTO Clientes
+VALUES (2, 'Maria Oliveira', 'maria.oliveira@email.com');
+```
+
+- `Inserção com SELECT`: É possível utilizar o comando `INSERT` juntamente com `SELECT` para inserir registros baseados em resultados de uma consulta.
+
+- Exemplo:
+
+```sql
+-- Inserir registros em uma tabela com base em registros de outra tabela
+INSERT INTO ClientesVIP (ClienteID, Nome)
+SELECT 
+    ClienteID
+    , Nome
+FROM Clientes
+WHERE Saldo > 1000;
+```
+
+- `Inserção de Múltiplos Registros`: Alguns SGBDs permitem a inserção de múltiplos registros em uma única consulta, o que pode melhorar a eficiência.
+
+- Exemplo:
+
+```sql
+-- Inserir múltiplos registros em uma única consulta
+INSERT INTO Clientes (Nome, Email)
+VALUES ('Carlos Pereira', 'carlos.pereira@email.com'),
+       ('Fernanda Costa', 'fernanda.costa@email.com');
+```
+
+- `Retorno de IDs Gerados`: Ao inserir registros em tabelas com colunas auto-incrementadas, é útil obter o ID gerado para uso em operações subsequentes.
+
+- Exemplo:
+
+```sql
+-- Inserir um registro e retornar o ID gerado
+INSERT INTO Clientes (Nome, Email)
+VALUES ('Roberto Almeida', 'roberto.almeida@email.com');
+SELECT SCOPE_IDENTITY() AS NovoClienteID;
+```
+
+- Conclusão:
+
+O comando `INSERT` é uma ferramenta versátil e essencial em SQL, permitindo a inclusão de novos dados no banco de forma variada e eficiente. O entendimento de suas funcionalidades avançadas, como inserção com `SELECT` e retorno de `IDs` gerados, é fundamental para o desenvolvimento de soluções robustas e otimizadas em sistemas de banco de dados.
+
+### atualizando-dados
 [Voltar ao Topo](#menu)
 
-##### UPDATE
+
+
+#### UPDATE
 
 - Objetivo:
 
-Modificar registros existentes em uma tabela.
-    
-Sintaxe Básica:
+O comando `UPDATE` em SQL tem como objetivo principal modificar registros existentes em uma tabela, permitindo a atualização de um ou mais campos com novos valores. Esse comando é essencial para manter a integridade e a relevância dos dados armazenados em um banco de dados.
+
+- Sintaxe Básica:
+
 ```sql
 UPDATE nome_tabela
-SET coluna1 = valor1, coluna2 = valor2, ...
+    SET coluna1 = valor1
+    , coluna2 = valor2
+    , ...
 WHERE condição;
 ```
-- Considerações:
 
-A cláusula WHERE é essencial ao atualizar registros para garantir que apenas os registros desejados sejam modificados. Sem ela, todos os registros da tabela serão atualizados.
+#### Considerações Avançadas:
 
-É fundamental testar sua condição WHERE com uma consulta SELECT antes de executar o UPDATE para evitar alterações indesejadas.
+- `Cláusula WHERE`: A cláusula `WHERE` é crucial ao utilizar o comando `UPDATE`, pois ela define quais registros serão afetados pela operação. **A ausência dessa cláusula resultará na atualização de todos os registros da tabela, o que pode ter consequências indesejadas.**
 
-#### excluindo-dados
+- Exemplo:
+
+```sql
+-- Atualiza apenas o registro onde o ID é igual a 1
+UPDATE Clientes
+    SET Nome = 'João Silva'
+WHERE ID = 1;
+```
+
+- `Testar com SELECT`: Antes de executar um `UPDATE`, é altamente recomendado testar a condição `WHERE` com uma consulta `SELECT` para garantir que apenas os registros desejados sejam selecionados e modificados.
+
+- Exemplo:
+
+```sql
+-- Verifica quais registros serão afetados
+SELECT 
+    * 
+FROM Clientes
+WHERE Nome LIKE 'João%';
+```
+
+- `Atualização com JOIN`: O comando `UPDATE` pode ser combinado com `JOIN` para atualizar registros em uma tabela com base em condições relacionadas a outra tabela.
+
+- Exemplo:
+
+```sql
+-- Atualiza os preços dos produtos com base em uma tabela de descontos
+UPDATE Produtos p
+JOIN Descontos d ON p.ProdutoID = d.ProdutoID
+    SET p.Preco = p.Preco - (p.Preco * d.Desconto);
+```
+ou
+```sql
+UPDATE p
+    SET p.Preco = p.Preco - (p.Preco * d.Desconto)
+from Produtos p
+JOIN Descontos d ON p.ProdutoID = d.ProdutoID
+```
+
+- `Backup e Transações`: Ao realizar atualizações significativas, é prudente fazer backup dos dados e utilizar transações para garantir que as alterações possam ser revertidas em caso de erro.
+
+- Exemplo:
+
+```sql
+BEGIN TRANSACTION;
+
+UPDATE Clientes
+    SET Cidade = 'São Paulo'
+WHERE Estado = 'SP';
+
+-- Se tudo estiver correto, commit, senão rollback
+COMMIT;
+```
+
+- `Limitar Atualizações`: Dependendo do SGBD, é possível limitar o número de registros atualizados usando cláusulas como `LIMIT` ou `TOP`.
+
+- Exemplo:
+
+```sql
+-- Atualiza apenas os 10 primeiros registros que atendem à condição
+UPDATE TOP (10) Clientes
+    SET Status = 'Inativo'
+WHERE Saldo < 0;
+```
+
+- Conclusão:
+
+O comando `UPDATE` é uma ferramenta poderosa e essencial em SQL, mas requer cuidado e atenção para evitar a modificação indesejada de dados. O uso de práticas como testar com `SELECT`, utilizar transações e fazer backups são essenciais para operações seguras e eficientes.
+
+### excluindo-dados
+[Voltar ao Topo](#menu)
 
 ##### DELETE
 
-- Objetivo: 
+- Objetivo:
 
-Remover registros de uma tabela.
+O comando `DELETE` em SQL é utilizado para remover registros existentes de uma tabela. Este comando é vital para a manutenção da integridade e relevância dos dados em um banco de dados, permitindo a remoção de informações obsoletas ou incorretas.
 
-Sintaxe Básica:
+- Sintaxe Básica:
+
 ```sql
 DELETE FROM nome_tabela WHERE condição;
-```  
-- Considerações:
-        
-Assim como com o UPDATE, a cláusula WHERE é crucial ao excluir registros. Sem ela, todos os registros da tabela serão excluídos.
+```
 
-Sempre faça backup dos seus dados antes de executar comandos DELETE, especialmente em ambientes de produção.
+###### Considerações Avançadas:
 
-#### transações
+- `Cláusula WHERE`: A cláusula `WHERE` é indispensável ao utilizar o comando `DELETE`, pois determina quais registros serão removidos. **A ausência dessa cláusula resultará na exclusão de todos os registros da tabela, o que pode ter consequências graves e irreversíveis.**
 
+- Exemplo:
+
+```sql
+-- Deletar o registro onde o ID é igual a 1
+DELETE FROM Clientes WHERE ClienteID = 1;
+```
+
+- `Backup de Dados`: É imperativo realizar backup dos dados antes de executar comandos `DELETE`, especialmente em ambientes de produção, para evitar a perda irreparável de informações importantes.
+
+- `Transações`: Utilizar transações ao executar comandos `DELETE` permite que você reverta a operação caso algo dê errado, garantindo assim a segurança dos dados.
+
+- Exemplo:
+
+```sql
+BEGIN TRANSACTION;
+
+DELETE FROM Pedidos WHERE DataPedido < '2022-01-01';
+
+-- Se tudo estiver correto, commit, senão rollback
+COMMIT;
+```
+
+- `DELETE vs TRUNCATE`: Enquanto `DELETE` remove registros com base em uma condição, o comando `TRUNCATE` remove todos os registros de uma tabela de forma mais eficiente, mas não pode ser usado com uma cláusula `WHERE`.
+
+- Exemplo:
+
+```sql
+-- Deletar todos os registros de uma tabela
+TRUNCATE TABLE TabelaTemporaria;
+```
+
+- `Restrições de Chave Estrangeira`: Ao tentar deletar registros que são referenciados por chaves estrangeiras em outras tabelas, você pode encontrar erros de restrição. É necessário considerar as dependências entre as tabelas e, se necessário, deletar os registros relacionados primeiro.
+
+- Exemplo:
+
+```sql
+-- Deletar registros relacionados antes de deletar o registro principal
+DELETE FROM Pedidos WHERE ClienteID = 1;
+DELETE FROM Clientes WHERE ClienteID = 1;
+```
+
+- `Limitar Exclusões`: Dependendo do SGBD, é possível limitar o número de registros deletados usando cláusulas como `LIMIT` ou `TOP`.
+
+- Exemplo:
+
+```sql
+
+-- Deletar apenas os 10 primeiros registros que atendem à condição
+DELETE TOP (10) FROM Clientes WHERE Status = 'Inativo';
+```
+
+- Conclusão:
+
+O comando `DELETE` é uma ferramenta poderosa em SQL para a manutenção da integridade dos dados, mas requer cuidado e atenção para evitar a exclusão indesejada de informações. O uso de práticas como realização de backups, utilização de transações e consideração de restrições de chave estrangeira são essenciais para operações seguras e eficientes.
+### transações
 [Voltar ao Topo](#menu)
 
 - Objetivo: 
@@ -2417,13 +2881,14 @@ ELSE
 Neste exemplo, iniciamos uma transação com `BEGIN TRANSACTION`, realizamos as operações de débito e crédito e, em seguida, verificamos se ocorreu algum erro usando `@@ERROR`. Se não houver erros, confirmamos a transação com COMMIT, caso contrário, revertemos as alterações com ROLLBACK.
 
 
-### tópicos-avançados
-
+## tópicos-avançados
 [Voltar ao Topo](#menu)
+
 
 À medida que nos aprofundamos no mundo do SQL, encontramos tópicos que são essenciais para profissionais que desejam otimizar, proteger e expandir a funcionalidade de seus bancos de dados. Estes tópicos avançados são a espinha dorsal de muitos sistemas de banco de dados em produção e são cruciais para garantir a eficiência, segurança e escalabilidade.
 
-#### indexação-e-performance
+### indexação-e-performance
+[Voltar ao Topo](#menu)
         
 - Objetivo: 
 
@@ -2454,8 +2919,7 @@ ON Clientes (Nome);
 
 Com esse índice, as consultas que filtram clientes por nome serão mais rápidas, pois o banco de dados utilizará o índice idx_nome para localizar os registros de forma eficiente, evitando a necessidade de percorrer toda a tabela.
 
-#### views
-
+### views
 [Voltar ao Topo](#menu)
 
 - Objetivo: 
@@ -2516,8 +2980,10 @@ Isso retornará a lista de produtos mais vendidos, juntamente com as informaçõ
 
 Lembre-se de verificar as permissões do banco de dados e ajustar o código conforme necessário, dependendo da versão específica do AdventureWorks que você está usando.
 
-#### triggers-e-procedimentos-armazenados
-        
+### triggers-e-procedimentos-armazenados
+[Voltar ao Topo](#menu)
+
+
 - Objetivo: 
         
 Automatizar e encapsular operações lógicas no nível do banco de dados.
@@ -2575,35 +3041,72 @@ Isso retornará os detalhes dos pedidos do cliente com ID 1.
 
 Lembre-se de verificar as permissões do banco de dados e ajustar o código conforme necessário, dependendo da versão específica do AdventureWorks que você está usando.
 
-#### normalização
-
+### normalização
 [Voltar ao Topo](#menu)
 
-- Objetivo: 
-        
-Organizar dados para reduzir a redundância e melhorar a integridade dos dados.
-    
+
+
+- Objetivo:
+
+A normalização tem como principal objetivo organizar o esquema de um banco de dados relacional de forma a reduzir a redundância de dados e melhorar a integridade dos mesmos, proporcionando uma estrutura de dados mais eficiente e confiável.
+
 - Descrição:
-        
-A normalização é o processo de organizar as colunas e tabelas de um banco de dados relacional para minimizar a duplicação de dados e garantir relações lógicas entre as tabelas.
-    
-- Considerações:
-        
-Existem várias formas normais, cada uma com regras específicas sobre a estrutura e relações das tabelas.
-        
-Embora a normalização possa melhorar a integridade dos dados e a eficiência das operações de atualização, pode também complicar as consultas e, em alguns casos, afetar a performance.
 
-Estes tópicos avançados fornecem uma base sólida para qualquer profissional de banco de dados. Ao dominar esses conceitos, você estará bem equipado para projetar, otimizar e manter bancos de dados robustos e eficientes.
+A normalização é um processo sistemático que envolve a decomposição de tabelas em componentes menores e mais manejáveis, enquanto mantém as relações lógicas entre elas. Este processo é realizado através de uma série de regras ou normas, conhecidas como formas normais (1NF, 2NF, 3NF, BCNF, etc.), cada uma delas abordando diferentes aspectos da estrutura e relações das tabelas.
 
-### 8. Maiores Erros em SQL: Explicação e Soluções
+#### Considerações Avançadas:
+
+- Formas Normais: Existem várias formas normais, cada uma com regras específicas. A aplicação sucessiva destas formas normais elimina diferentes tipos de anomalias e redundâncias.
+
+- Exemplo:
+    - 1NF: Garante que cada coluna contém valores atômicos, eliminando grupos de valores.
+        
+    - 2NF: Remove dependências parciais, garantindo que cada atributo não-chave depende totalmente da chave primária.
+        
+    - 3NF: Elimina dependências transitivas entre atributos não-chave.
+
+- Desnormalização: Em alguns casos, para otimizar a performance de consultas, pode-se optar pela desnormalização, que é o processo inverso da normalização. A desnormalização pode envolver a introdução de redundância controlada e a combinação de tabelas através do uso de técnicas como pré-agregação.
+
+- Exemplo:
+
+```sql
+-- Tabela desnormalizada para armazenar informações de pedidos e clientes
+CREATE TABLE PedidosClientes (
+  PedidoID INT PRIMARY KEY,
+  DataPedido DATE,
+  ClienteID INT,
+  NomeCliente VARCHAR(255),
+  Total DECIMAL(10, 2)
+);
+```
+
+- Integridade Referencial: A normalização frequentemente resulta na criação de relações entre tabelas através de chaves estrangeiras, o que ajuda a manter a integridade referencial dos dados.
+
+- Exemplo:
+
+```sql
+
+ -- Definindo uma chave estrangeira para garantir a integridade referencial
+ALTER TABLE Pedidos
+ADD FOREIGN KEY (ClienteID) REFERENCES Clientes(ClienteID);
+```
+
+- Impacto na Performance: Embora a normalização ofereça benefícios significativos em termos de integridade dos dados e eficiência de armazenamento, ela pode, em alguns casos, levar a um aumento na complexidade das consultas e potencialmente afetar a performance, especialmente em bancos de dados muito grandes.
+
+- Balanceamento: É essencial encontrar um equilíbrio entre a normalização e as necessidades de performance do sistema. O nível ideal de normalização depende dos requisitos específicos de cada aplicação e do volume e natureza dos dados.
+
+- Conclusão:
+
+A normalização é um conceito fundamental em design de banco de dados, proporcionando uma estrutura de dados robusta e consistente. Dominar as técnicas de normalização e entender quando e como aplicá-las ou, em alguns casos, optar pela desnormalização, são habilidades essenciais para profissionais que desejam projetar, otimizar e manter bancos de dados eficientes e confiáveis.
+
+
+## maiores-erros-em-sql-explicação-e-soluções
+[Voltar ao Topo](#menu)
 
 O SQL, apesar de ser uma linguagem poderosa para manipulação e consulta de dados, também é suscetível a erros comuns que podem afetar a performance, a integridade dos dados e a segurança. Vamos explorar alguns dos erros mais comuns, entender por que eles ocorrem e aprender como resolvê-los.
 
-#### maiores-erros-em-sql-explicação-e-soluções
-
+### subqueries-ineficientes
 [Voltar ao Topo](#menu)
-
-#### subqueries-ineficientes
 
 - Descrição: 
         
@@ -2617,7 +3120,9 @@ Se possível, limite a quantidade de dados retornados pela subquery usando cláu
         
 Considere a utilização de CTEs (Common Table Expressions) para tornar as subqueries mais legíveis e otimizáveis.
     
-#### uso-excessivo-de-wildcards
+### uso-excessivo-de-wildcards
+[Voltar ao Topo](#menu)
+
 
 - Descrição: 
         
@@ -2629,9 +3134,10 @@ Especifique explicitamente as colunas que você precisa em sua consulta.
         
 Isso não apenas melhora a performance, mas também torna o código mais legível e menos propenso a erros.
 
-#### não-utilizar-índices-adequadamente
-
+### não-utilizar-índices-adequadamente
 [Voltar ao Topo](#menu)
+
+
 
 - Descrição: 
 
@@ -2643,7 +3149,8 @@ Certifique-se de que as colunas frequentemente consultadas ou filtradas estejam 
         
 Evite índices desnecessários, pois eles podem desacelerar operações de inserção e atualização.
 
-#### consultas-n1
+### consultas-n1
+[Voltar ao Topo](#menu)
 
 - Descrição: 
 
@@ -2653,8 +3160,7 @@ Este é um problema comum onde, para cada registro em um conjunto de resultados,
         
 Use junções para buscar todos os dados relacionados de uma vez, em vez de fazer múltiplas consultas individuais.
     
-#### não-considerar-a-distribuição-de-dados
-
+### não-considerar-a-distribuição-de-dados
 [Voltar ao Topo](#menu)
 
 - Descrição: 
@@ -2665,7 +3171,8 @@ A performance pode ser afetada se a distribuição de dados em uma coluna não f
         
 Use estatísticas e histogramas para entender a distribuição de dados e otimize suas consultas e índices de acordo.
     
-#### injeção-de-sql
+### injeção-de-sql
+[Voltar ao Topo](#menu)
         
 - Descrição: 
         
@@ -2677,8 +3184,7 @@ Nunca construa consultas SQL concatenando strings diretamente com entradas do us
         
 Use consultas parametrizadas ou prepared statements para garantir que as entradas sejam tratadas como dados e não como código SQL.
     
-#### não-utilizar-transações-quando-necessário
-
+### não-utilizar-transações-quando-necessário
 [Voltar ao Topo](#menu)
     
 - Descrição: 
@@ -2692,12 +3198,12 @@ Use transações sempre que estiver realizando múltiplas operações que depend
 Estes são apenas alguns dos erros mais comuns em SQL. A chave para escrever SQL eficiente e seguro é entender profundamente a linguagem, o esquema do banco de dados e os dados subjacentes. Com prática e experiência, você pode evitar esses erros e escrever consultas que são rápidas, precisas e seguras.
 
 
-### estilo-de-código-sql-e-boas-práticas
+## estilo-de-código-sql-e-boas-práticas
+[Voltar ao Topo](#menu)
 
 A legibilidade e a manutenção do código SQL são tão importantes quanto a eficiência das consultas. Adotar um estilo de código consistente e seguir boas práticas não apenas torna o código mais compreensível, mas também facilita a colaboração entre desenvolvedores e analistas. Vamos explorar o estilo de código, o modelo de escrita CTE e as ferramentas que podem ajudar a manter a qualidade do código.
 
-#### estilo-de-código-sql
-
+### estilo-de-código-sql
 [Voltar ao Topo](#menu)
 
 - Indentação: Use espaços (geralmente dois ou quatro) para indentar o código e mostrar a estrutura da consulta.
@@ -2708,13 +3214,14 @@ A legibilidade e a manutenção do código SQL são tão importantes quanto a ef
     
 - Comentários: Use comentários para explicar a lógica complexa, decisões de design ou qualquer aspecto que possa não ser imediatamente óbvio para outros desenvolvedores.
 
-#### common-table-expressions-ctes
+### common-table-expressions-ctes
+[Voltar ao Topo](#menu)
 
 - O que são: 
         
 CTEs são consultas temporárias que você pode referenciar dentro de uma instrução SELECT, INSERT, UPDATE ou DELETE. Eles são definidos usando a cláusula WITH.
     
-##### Benefícios do Uso de CTEs:
+#### Benefícios do Uso de CTEs:
 
 - Legibilidade: 
     
@@ -2728,11 +3235,12 @@ Ao dividir uma consulta em várias CTEs, é mais fácil modificar ou depurar par
         
 Uma CTE pode ser referenciada várias vezes na mesma consulta, evitando a repetição de subconsultas.
 
-#### ferramentas-e-extensões-para-vscode
-
+### ferramentas-e-extensões-para-vscode
 [Voltar ao Topo](#menu)
 
-##### SQLFluff:
+
+
+#### SQLFluff:
         
 - Descrição: 
         
@@ -2742,7 +3250,7 @@ SQLFluff é um linter para SQL que ajuda a identificar problemas de estilo e pot
         
 Além de verificar o estilo, o SQLFluff pode formatar automaticamente o código SQL para seguir um estilo consistente.
 
-##### VSCode SQL Server (mssql)
+#### VSCode SQL Server (mssql)
 
 - Descrição: 
         
@@ -2752,7 +3260,7 @@ Esta extensão permite conectar-se a servidores SQL, executar consultas e visual
         
 Facilita a escrita e teste de consultas sem sair do ambiente de desenvolvimento.
     
-##### SQLTools
+#### SQLTools
 
 - Descrição: 
         
@@ -2764,93 +3272,347 @@ Uma ferramenta versátil que pode se conectar a vários bancos de dados, tornand
 
 Adotar um estilo de código consistente e usar ferramentas que promovam a qualidade do código são práticas essenciais para qualquer desenvolvedor ou analista SQL. Elas não apenas melhoram a legibilidade e manutenção do código, mas também promovem uma colaboração mais eficaz entre membros da equipe.
 
-### recursos-avançados-em-sql
-
+## recursos-avançados-em-sql
 [Voltar ao Topo](#menu)
+
 
 O SQL, como linguagem de consulta estruturada, oferece uma variedade de recursos avançados que permitem aos desenvolvedores e analistas de dados manipular e gerenciar dados de maneira mais eficiente e flexível. Vamos explorar alguns desses recursos em detalhes:
 
-#### tabelas-temporárias
-
-- O que são: 
-        
-Tabelas temporárias são tabelas que existem temporariamente e são automaticamente descartadas após o término da sessão ou da consulta. Elas são geralmente prefixadas com # (por exemplo, #MinhaTabelaTemp).
-    
-- Uso: 
-
-São úteis para armazenar resultados intermediários, especialmente quando se trabalha com grandes volumes de dados ou consultas complexas.
-    
-- Benefícios: 
-        
-Permitem melhorar a performance ao evitar repetições de subconsultas e facilitam a legibilidade ao dividir consultas complexas em etapas.
-
-#### variáveis
-    
-- O que são: 
-        
-As variáveis permitem armazenar valores temporários para uso em uma consulta ou procedimento.
-    
-- Declaração: 
-        
-Geralmente, são declaradas usando a palavra-chave DECLARE e atribuídas usando SET ou SELECT.
-    
-- Uso: 
-
-São úteis para armazenar valores que serão referenciados várias vezes em uma consulta ou para armazenar resultados intermediários.
-
-#### loops
-    
-- O que são: 
-        
-Loops permitem a execução repetida de um bloco de código até que uma condição especificada seja atendida.
-    
-- Tipos comuns: 
-        
-WHILE é o tipo mais comum de loop em SQL.
-    
-- Uso: 
-
-Embora o SQL seja projetado principalmente para operações de conjunto, os loops são úteis em procedimentos armazenados ou quando tarefas específicas precisam ser repetidas.
-
-#### defaults
-
+### tabelas-temporárias
 [Voltar ao Topo](#menu)
 
-- O que são: 
-        
-Defaults são valores predefinidos que são atribuídos a uma coluna caso nenhum valor seja especificado durante uma operação de INSERT.
+- O que são:
 
-- Uso: 
-        
-São úteis para garantir que uma coluna sempre tenha um valor, mesmo que não seja fornecido explicitamente.
-    
-- Benefícios: 
-        
-Ajudam a manter a integridade dos dados e podem simplificar operações de inserção.
+Tabelas temporárias são estruturas de armazenamento temporário no SQL Server, que existem apenas durante a duração da sessão ou da consulta que as criou. São úteis para armazenar e manipular um conjunto de resultados temporários. Existem três tipos principais de tabelas temporárias: locais `#`, globais `##` e variáveis de tabela `@`.
 
-#### identity
+- Tipos de Tabelas Temporárias:
 
-- O que é: 
+    - `Tabelas Temporárias Locais (#)`:
+        - Prefixo: `#`
+        - Exemplo: `#MinhaTabelaTemp`
+        - Escopo: São visíveis apenas na sessão que as criou e são automaticamente descartadas ao final da sessão.
+        - Uso: São úteis para armazenar resultados temporários em procedimentos armazenados e blocos de código.
+
+    - `Tabelas Temporárias Globais (##)`:
+        - Prefixo: `##`
+        - Exemplo: `##MinhaTabelaTempGlobal`
+        - Escopo: São visíveis para todas as sessões e são descartadas quando a última sessão que as referencia é encerrada.
+        - Uso: São úteis quando múltiplas sessões precisam acessar os mesmos dados temporários.
+
+    - `Variáveis de Tabela (@)`:
+        - Prefixo: @
+        - Exemplo: `DECLARE @MinhaTabelaTemp AS TABLE (ID INT, Nome NVARCHAR(255))`
+        - Escopo: São visíveis apenas na sessão que as criou e têm um escopo ainda mais restrito que as tabelas temporárias locais, geralmente dentro do batch, stored procedure ou função que as criou.
+        - Uso: São úteis para armazenar pequenos volumes de dados e quando o escopo restrito é desejável.
+
+- Uso e Benefícios:
+
+Tabelas temporárias são extremamente úteis em diversas situações, como:
+- Armazenamento de Resultados Intermediários: Facilitam o processamento de consultas complexas ao armazenar resultados intermediários, evitando a necessidade de subconsultas repetitivas.
+
+- Melhoria de Performance: Podem melhorar significativamente a performance de consultas ao reduzir o tempo de execução e o uso de recursos, especialmente com grandes volumes de dados.
+
+- Divisão de Consultas Complexas: Ajudam a tornar o código mais legível e manutenível ao dividir consultas complexas em etapas lógicas.
+
+- Exemplo Prático:
+
+```sql
+-- Criando uma tabela temporária local para armazenar resultados intermediários
+CREATE TABLE #ClientesComPedidos
+(
+    ClienteID INT,
+    NomeCliente NVARCHAR(255)
+);
+
+-- Inserindo dados na tabela temporária
+INSERT INTO #ClientesComPedidos (ClienteID, NomeCliente)
+SELECT ClienteID, Nome
+FROM Clientes
+WHERE EXISTS (SELECT 1 FROM Pedidos WHERE Pedidos.ClienteID = Clientes.ClienteID);
+
+-- Consultando a tabela temporária
+SELECT * FROM #ClientesComPedidos;
+```
+
+- Considerações Adicionais:
+    - Índices: Assim como tabelas permanentes, tabelas temporárias podem ter índices, o que pode otimizar consultas.
         
-A propriedade Identity é usada para gerar automaticamente valores numéricos sequenciais para uma coluna, geralmente usada como chave primária.
-    
-- Uso: 
+    - Restrições e Triggers: Tabelas temporárias suportam a definição de restrições e a criação de triggers.
         
-É comumente usada em tabelas onde é necessário um identificador único para cada linha, mas o valor exato não é importante.
-    
-- Benefícios: 
-        
-Garante a unicidade dos registros e elimina a necessidade de gerar manualmente um valor único.
+    - Limpeza: Embora tabelas temporárias sejam automaticamente descartadas, é uma boa prática excluí-las explicitamente quando não forem mais necessárias, utilizando o comando `DROP TABLE` ou `DROP TABLE IF EXISTS`.
 
-Estes recursos avançados do SQL proporcionam uma maior flexibilidade e eficiência na manipulação e gestão de dados. Ao compreender e utilizar adequadamente esses recursos, os desenvolvedores e analistas podem otimizar suas consultas, garantir a integridade dos dados e simplificar tarefas complexas.
+- Conclusão:
 
-### sql-para-análise-de-dados
+O entendimento e a utilização eficiente de tabelas temporárias são essenciais para desenvolvedores SQL, pois oferecem flexibilidade, otimização de performance e organização de código. Conhecer as diferenças e os usos apropriados dos diferentes tipos de tabelas temporárias permite a criação de soluções mais robustas e eficientes em ambientes de banco de dados.
 
+### variáveis
 [Voltar ao Topo](#menu)
+    
+- O que são:
+
+Variáveis em SQL são objetos que armazenam valores temporários, permitindo a manipulação e referência desses valores em consultas, procedimentos armazenados, funções e outros objetos do banco de dados. Elas proporcionam flexibilidade e dinamismo na construção de scripts SQL.
+
+- Declaração e Atribuição:
+
+Variáveis são geralmente declaradas usando a palavra-chave DECLARE e podem ser atribuídas valores usando `SET` ou `SELECT`.
+
+```sql
+-- Declaração de variável
+DECLARE @MeuNumero INT;
+
+-- Atribuição usando SET
+SET @MeuNumero = 10;
+
+-- Atribuição usando SELECT
+SELECT @MeuNumero = 20;
+```
+
+- Uso e Aplicações Práticas:
+
+Variáveis são extremamente úteis em diversas situações, tais como:
+- Armazenamento de Valores Temporários: Permitem armazenar resultados intermediários ou valores que serão referenciados várias vezes em uma consulta ou procedimento.
+    
+- Parametrização de Consultas: Facilitam a criação de consultas dinâmicas e parametrizadas, especialmente em procedimentos armazenados.
+    
+- Controle de Fluxo: São utilizadas em estruturas de controle de fluxo, como loops e condicionais, para manipular a lógica de execução de scripts.
+
+```sql
+-- Exemplo de uso de variável para parametrização de consulta
+DECLARE @ClienteID INT;
+SET @ClienteID = 1;
+
+SELECT * FROM Clientes WHERE ClienteID = @ClienteID;
+```
+
+- Considerações Avançadas:
+        
+    - Escopo: O escopo de uma variável refere-se à extensão do código onde ela pode ser referenciada. Variáveis declaradas em um bloco de código, procedimento ou função são locais a esse escopo e não podem ser acessadas fora dele.
+        
+    - Tipos de Dados: Variáveis podem ser de qualquer tipo de dado disponível no SQL Server, incluindo tipos de dados personalizados e tipos de tabela.
+        
+    - Inicialização: Variáveis devem ser inicializadas antes de serem utilizadas, caso contrário, o SQL Server retornará um erro.
+        
+    - Variáveis de Sistema: O SQL Server possui variáveis de sistema predefinidas (por exemplo, `@@ROWCOUNT`), que armazenam valores específicos do sistema e podem ser referenciadas em consultas e procedimentos.
+
+```sql
+-- Exemplo de uso de variável de sistema
+SELECT 
+    * 
+FROM Clientes;
+PRINT 'Número de linhas afetadas: ' + CAST(@@ROWCOUNT AS NVARCHAR);
+```
+    
+- Conclusão:
+
+O entendimento e a utilização eficiente de variáveis são fundamentais para desenvolvedores SQL, proporcionando a capacidade de criar scripts e consultas mais dinâmicos, flexíveis e reutilizáveis. Através do uso adequado de variáveis, é possível otimizar a performance, melhorar a legibilidade do código e implementar soluções mais robustas e adaptáveis a diferentes necessidades.
+
+### loops
+[Voltar ao Topo](#menu)
+    
+- O que são:
+
+Loops são estruturas de controle de fluxo que permitem a execução repetida de um bloco de código enquanto uma condição especificada é verdadeira. Eles são fundamentais para realizar tarefas repetitivas e iterativas, especialmente em procedimentos armazenados e scripts de manipulação de dados.
+
+- Tipos Comuns:
+
+O tipo mais comum de loop em SQL é o `WHILE`. Este loop continua executando um blobo de código enquanto a condição especificada for verdadeira.
+
+```sql
+-- Exemplo de uso do WHILE loop
+DECLARE @Contador INT = 0;
+
+WHILE @Contador < 5
+BEGIN
+    PRINT 'Número: ' + CAST(@Contador AS NVARCHAR);
+    SET @Contador = @Contador + 1;
+END
+```
+
+- Uso e Aplicações Práticas: Embora SQL seja uma linguagem projetada principalmente para operações de conjunto, os loops são particularmente úteis nas seguintes situações:
+
+    - Procedimentos Armazenados e Funções: Loops são frequentemente utilizados em procedimentos armazenados e funções para realizar operações repetitivas, como processamento de linhas de uma tabela.
+    
+    - Manipulação de Dados: São úteis para tarefas de manipulação de dados, como atualizações em lote, inserções condicionais e exclusões controladas.
+    
+    - Controle de Fluxo: Permitem a implementação de lógicas complexas de controle de fluxo, especialmente quando combinados com estruturas condicionais como IF.
+
+```sql
+-- Exemplo de uso do WHILE loop para atualização em lote
+DECLARE @BatchSize INT = 100;
+DECLARE @RowsAffected INT = 1;
+
+WHILE @RowsAffected > 0
+BEGIN
+    UPDATE TOP (@BatchSize) MinhaTabela
+    SET Coluna1 = 'NovoValor'
+    WHERE Coluna1 IS NULL;
+
+    SET @RowsAffected = @@ROWCOUNT;
+END
+```
+    
+- Considerações Avançadas:
+        
+    - Performance: Loops podem ser menos eficientes que operações de conjunto para grandes volumes de dados. É importante avaliar a performance e considerar alternativas quando apropriado.
+        
+    - Controle de Transações: Em loops que realizam modificações de dados, é prudente implementar controle de transações para garantir a integridade dos dados.
+        
+    - Evitar Loops Infinitos: É crucial garantir que a condição de saída do loop seja alcançável, para evitar loops infinitos que podem consumir recursos do servidor.
+        
+    - Variáveis de Controle: O uso de variáveis para controlar a execução e a condição de saída do loop é uma prática comum e recomendada.
+
+```sql
+-- Exemplo de uso do WHILE loop com controle de transações
+DECLARE @Contador INT = 0;
+
+BEGIN TRANSACTION;
+
+WHILE @Contador < 5
+BEGIN
+    -- Código de manipulação de dados
+    
+    IF @@ERROR <> 0
+    BEGIN
+        ROLLBACK TRANSACTION;
+        PRINT 'Erro detectado. Transação desfeita.';
+        RETURN;
+    END
+    
+    SET @Contador = @Contador + 1;
+END
+
+COMMIT TRANSACTION;
+```
+
+- Conclusão:
+
+O domínio das estruturas de loop é essencial para desenvolvedores SQL, permitindo a criação de soluções mais dinâmicas e adaptáveis. Embora o SQL seja orientado a conjuntos, o uso inteligente de loops pode resolver problemas complexos, otimizar a manipulação de dados e enriquecer a lógica de negócios em procedimentos armazenados e funções.
+
+### defaults
+[Voltar ao Topo](#menu)
+
+- O que são:
+
+Defaults são valores predefinidos atribuídos automaticamente a uma coluna no caso de uma operação de `INSERT` não especificar um valor para essa coluna. Eles servem como um mecanismo de segurança para garantir que os registros mantenham a integridade, preenchendo campos que, de outra forma, seriam deixados em branco.
+
+- Uso e Aplicações Práticas: Defaults são extremamente úteis em diversas situações, como:
+    - Garantir Valores Não Nulos: São utilizados para assegurar que uma coluna sempre tenha um valor, evitando a inserção de nulos onde não são permitidos.
+    
+    - Simplificar Inserções: Facilitam operações de inserção, uma vez que o usuário não precisa fornecer um valor para cada coluna.
+    
+    - Valores de Auditoria: Frequentemente usados para atribuir automaticamente timestamps de criação e modificação de registros.
+
+```sql
+-- Exemplo de criação de tabela com valor default
+CREATE TABLE Produtos (
+    ProdutoID INT PRIMARY KEY,
+    Nome NVARCHAR(255) NOT NULL,
+    Preco DECIMAL(10, 2) NOT NULL,
+    DataCriacao DATETIME DEFAULT GETDATE() -- Atribui a data e hora atual como valor default
+);
+
+-- Inserindo um registro sem especificar DataCriacao
+INSERT INTO Produtos (ProdutoID, Nome, Preco) VALUES (1, 'Produto A', 100.00);
+
+-- Consultando a tabela
+SELECT * FROM Produtos;
+```
+- Considerações Avançadas:
+
+    - Tipos de Defaults:
+        - Valores Constantes: Podem ser valores fixos, como números, strings ou datas.
+            
+        - Funções de Sistema: Como `GETDATE()` para timestamps ou `NEWID()` para GUIDs.
+            
+        - Expressões: Expressões que calculam um valor baseado em outras colunas ou funções.
+
+        - Constraints DEFAULT: Defaults podem ser definidos como constraints, permitindo nomeação e gerenciamento mais fácil.
+            
+Podem ser alterados ou removidos posteriormente usando `ALTER TABLE`.
+
+```sql
+-- Exemplo de criação de constraint DEFAULT
+ALTER TABLE Produtos
+ADD CONSTRAINT DF_Produtos_DataCriacao DEFAULT GETDATE() FOR DataCriacao;
+
+    Defaults e NULLs:
+        Se um valor default é definido para uma coluna, mas um NULL é explicitamente inserido, o NULL sobrescreverá o valor default.
+        Para garantir um valor não nulo, a coluna deve ser definida como NOT NULL.
+```
+    
+- Conclusão:
+
+O entendimento e a aplicação adequada de valores default são essenciais para manter a integridade dos dados e simplificar operações de inserção. Eles oferecem uma maneira eficiente de gerenciar valores não fornecidos, automatizar a atribuição de valores e garantir a consistência dos dados em um banco de dados relacional. O uso estratégico de defaults, aliado ao conhecimento de suas nuances, permite aos desenvolvedores SQL criar soluções mais robustas e eficientes.
+
+### identity
+[Voltar ao Topo](#menu)
+
+- O que é:
+
+A propriedade `Identity` no SQL é uma propriedade de coluna que gera automaticamente valores numéricos sequenciais. Cada novo registro inserido na tabela recebe um valor único e incremental na coluna Identity, geralmente utilizada como chave primária para garantir a unicidade dos registros.
+
+```sql
+-- Exemplo de criação de tabela com coluna Identity
+CREATE TABLE Clientes (
+    ClienteID INT IDENTITY(1,1) PRIMARY KEY,
+    Nome NVARCHAR(255) NOT NULL
+);
+```
+- Uso e Aplicações Práticas: A propriedade Identity é amplamente utilizada em cenários onde:
+
+    - Identificador Único: É necessário um identificador único para cada linha, e o valor exato desse identificador não é crucial.
+    
+    - Autoincremento: É preciso evitar a geração manual de identificadores, garantindo que cada novo registro seja automaticamente numerado de forma sequencial.
+    
+    - Chave Primária: Serve como uma solução prática para a criação de chaves primárias em tabelas, assegurando a integridade referencial.
+
+```sql
+-- Inserindo registros em uma tabela com coluna Identity
+INSERT INTO Clientes (Nome) VALUES ('Carlos'), ('Ana');
+
+-- Consultando a tabela
+SELECT * FROM Clientes;
+```
+
+- Benefícios e Considerações Avançadas:
+        
+    - Unicidade e Integridade: A propriedade Identity assegura a unicidade dos registros e contribui para a integridade dos dados, eliminando a possibilidade de conflitos de identificadores.
+        
+    - Performance: Contribui para a eficiência das operações de inserção e consulta, especialmente em tabelas com grande volume de dados.
+        
+    - SEED e INCREMENT: Ao definir uma coluna Identity, é possível especificar o valor inicial (SEED) e o incremento, controlando assim a geração de valores.
+        
+    - RESET: É possível redefinir o valor Identity utilizando comandos como DBCC CHECKIDENT.
+        
+    - SCOPE_IDENTITY(): A função `SCOPE_IDENTITY()` pode ser utilizada para recuperar o último valor Identity inserido na sessão atual.
+
+```sql
+-- Exemplo de uso da função SCOPE_IDENTITY()
+INSERT INTO Clientes (Nome) VALUES ('Julia');
+SELECT SCOPE_IDENTITY() AS NovoClienteID;
+```
+    
+IDENTITY_INSERT: O SQL Server permite a inserção explícita de valores em colunas Identity através do comando SET IDENTITY_INSERT Tabela ON, mas seu uso deve ser feito com cautela.
+
+```sql
+-- Exemplo de uso de IDENTITY_INSERT
+SET IDENTITY_INSERT Clientes ON;
+INSERT INTO Clientes (ClienteID, Nome) VALUES (10, 'Roberto');
+SET IDENTITY_INSERT Clientes OFF;
+```
+
+- Conclusão:
+
+A compreensão e utilização eficaz da propriedade Identity são fundamentais para desenvolvedores SQL, proporcionando maior flexibilidade, eficiência e integridade na manipulação de dados. Este recurso, juntamente com suas funcionalidades associadas, permite a otimização de consultas, a simplificação de tarefas complexas e a garantia de unicidade e integridade dos registros em bancos de dados relacionais.
+
+## sql-para-análise-de-dados
+[Voltar ao Topo](#menu)
+
 
 A linguagem SQL, embora tradicionalmente associada à gestão de bancos de dados, é uma ferramenta poderosa para análise de dados. Ela permite que analistas e cientistas de dados acessem, transformem e analisem grandes volumes de dados diretamente na fonte. Vamos explorar como o SQL pode ser usado para esses propósitos:
 
-#### técnicas-de-limpeza-de-dados
+### técnicas-de-limpeza-de-dados
+[Voltar ao Topo](#menu)
 
 - O que é: 
         
@@ -2870,8 +3632,7 @@ Conversão de tipos de dados: Funções como CAST() ou CONVERT().
         
 Dados limpos e de alta qualidade são essenciais para análises precisas e tomada de decisões informadas.
 
-#### análise-exploratória-com-sql
-
+### análise-exploratória-com-sql
 [Voltar ao Topo](#menu)
 
 - O que é: 
@@ -2890,8 +3651,7 @@ Identificação de outliers: Combinando funções de janela com lógica condicio
         
 Fornece uma compreensão inicial dos dados, identifica tendências, padrões e anomalias.
 
-#### funções-analíticas-e-janelas
-
+### funções-analíticas-e-janelas
 [Voltar ao Topo](#menu)
 
 - O que são: 
@@ -2915,11 +3675,13 @@ Permitem análises mais complexas e detalhadas sem a necessidade de subconsultas
 
 O SQL, quando usado para análise de dados, oferece uma maneira eficiente e direta de obter insights a partir de grandes conjuntos de dados. Ao dominar essas técnicas, os analistas podem extrair valor dos dados de maneira mais rápida e informada, diretamente na fonte.
 
-### diferenças-entre-dbmss
+## diferenças-entre-dbmss
+[Voltar ao Topo](#menu)
 
 A variedade de Sistemas de Gerenciamento de Banco de Dados (DBMS) disponíveis no mercado oferece uma ampla gama de funcionalidades, desempenho e características específicas. Embora todos sigam os princípios fundamentais do SQL, cada um tem suas peculiaridades. Vamos explorar as diferenças mais notáveis:
 
-#### modelo-ansi
+### modelo-ansi
+[Voltar ao Topo](#menu)
 
 O SQL ANSI (American National Standards Institute) é um padrão que define a linguagem SQL (Structured Query Language) para manipulação e consulta de dados em sistemas de gerenciamento de banco de dados relacionais (RDBMS). O SQL ANSI estabelece as regras e convenções para a linguagem SQL, garantindo que os comandos SQL sejam consistentes entre diferentes sistemas de banco de dados, como MySQL, PostgreSQL, SQL Server, Oracle, etc.
 Instâncias do SQL ANSI:
@@ -2983,8 +3745,7 @@ O SQL ANSI é composto por várias "instâncias" ou partes, cada uma abordando d
         - JOIN: Utilizado para combinar linhas de duas ou mais tabelas com base em uma condição relacionada.
 
 O SQL ANSI serve como base para a implementação de SQL em diferentes sistemas de gerenciamento de banco de dados, embora cada sistema possa ter suas próprias extensões e variações da linguagem padrão.
-#### sintaxes-específicas-de-diferentes-dbmss
-
+### sintaxes-específicas-de-diferentes-dbmss
 [Voltar ao Topo](#menu)
 
 - O que são: 
@@ -3003,10 +3764,9 @@ O SQL Server usa +, o Oracle utiliza ||, e o PostgreSQL oferece a função CONCA
     
 Conhecer essas diferenças permite que os desenvolvedores escrevam consultas otimizadas e compatíveis para cada DBMS.
 
-#### funções-e-características-exclusivas
-    
+### funções-e-características-exclusivas
 [Voltar ao Topo](#menu)
-
+    
 - O que são: 
         
 Além das funções padrão do SQL, muitos DBMSs introduzem funções e características que são exclusivas ou implementadas de maneira única.
@@ -3025,8 +3785,7 @@ PostGIS para PostgreSQL e Spatial Extensions para MySQL são exemplos de extens�
         
 Essas características exclusivas podem ser decisivas ao escolher um DBMS para necessidades específicas, como análise geoespacial ou processamento de séries temporais.
 
-#### casos-de-uso-e-quando-escolher-cada-dbms
-
+### casos-de-uso-e-quando-escolher-cada-dbms
 [Voltar ao Topo](#menu)
 
 - O que são: 
@@ -3057,12 +3816,12 @@ Entender os pontos fortes e fracos de cada DBMS ajuda a tomar decisões informad
 
 Ao explorar as diferenças entre os DBMSs, é crucial lembrar que não existe uma solução única para todos. A escolha do DBMS certo depende das necessidades específicas do projeto, do orçamento, da experiência da equipe e de outros fatores. Conhecer as nuances de cada sistema permite uma implementação mais eficiente e eficaz.
 
-### prática-e-projetos-reais
+## prática-e-projetos-reais
+[Voltar ao Topo](#menu)
 
 A teoria é fundamental, mas a prática é o que solidifica o conhecimento. Ao trabalhar com dados do mundo real, os alunos enfrentam desafios e situações que não são comuns em exemplos de livros didáticos. O banco de dados AdventureWorks da Microsoft é um excelente exemplo de um conjunto de dados do mundo real que simula uma empresa fictícia e seus processos de negócios.
 
-#### análise-de-um-conjunto-de-dados-do-mundo-real
-
+### análise-de-um-conjunto-de-dados-do-mundo-real
 [Voltar ao Topo](#menu)
 
 - O que é o AdventureWorks: 
@@ -3073,7 +3832,8 @@ O AdventureWorks é um banco de dados de exemplo da Microsoft que simula uma emp
         
 Trabalhar com o AdventureWorks permite que os alunos se familiarizem com uma estrutura de banco de dados complexa, entendam relações entre tabelas e pratiquem consultas em um ambiente semelhante ao que encontrariam em muitas empresas.
 
-#### resolução-de-problemas-comuns-do-dia-a-dia
+### resolução-de-problemas-comuns-do-dia-a-dia
+[Voltar ao Topo](#menu)
 
 - Desafios típicos: 
         
@@ -3083,8 +3843,7 @@ Com o AdventureWorks, os alunos podem enfrentar desafios como determinar os prod
         
 Ao resolver esses problemas, os alunos aplicarão conceitos aprendidos no curso, como junções, funções agregadas e subconsultas, para obter insights valiosos dos dados.
 
-#### construção-de-um-mini-projeto
-
+### construção-de-um-mini-projeto
 [Voltar ao Topo](#menu)
 
 - Sistema de Gerenciamento de Pedidos: 
@@ -3101,7 +3860,8 @@ Ao construir um projeto prático, os alunos não apenas aplicam seus conheciment
 
 Ao final deste módulo, os alunos terão uma compreensão profunda de como o SQL é usado no mundo real e estarão bem preparados para enfrentar desafios semelhantes em suas carreiras.
 
-#### recursos-para-aprendizado-contínuo
+## recursos-para-aprendizado-contínuo
+[Voltar ao Topo](#menu)
 
 - Documentação Oficial: 
         
@@ -3117,13 +3877,14 @@ Sites como Stack Overflow e Reddit têm comunidades ativas onde os profissionais
 
 Ao adotar essas melhores práticas e utilizar os recursos certos, os profissionais de SQL não apenas melhoram sua eficiência, mas também garantem que suas consultas sejam robustas, escaláveis e fáceis de manter.
 
-### conclusão-e-próximos-passos
-
+## conclusão-e-próximos-passos
 [Voltar ao Topo](#menu)
+
 
 Ao chegar ao final deste curso, os alunos terão adquirido uma compreensão profunda e prática do SQL, desde os fundamentos até os tópicos mais avançados. No entanto, o aprendizado é um processo contínuo, e é essencial refletir sobre o que foi aprendido e considerar os próximos passos na jornada de aprimoramento profissional.
 
-#### projeto-final
+## projeto-final
+[Voltar ao Topo](#menu)
 
 - Exame Abrangente: 
         
@@ -3133,27 +3894,32 @@ Um teste final que abrange todos os tópicos discutidos ao longo do curso, garan
         
 Uma oportunidade para os alunos avaliarem o curso, fornecendo feedback sobre os conteúdos, metodologia e áreas de melhoria. Isso é vital para aprimorar futuras edições do curso.
 
-#### recomendações-para-aprendizado-avançado
+## recomendações-para-aprendizado-avançado
+[Voltar ao Topo](#menu)
 
-##### integração-sql-com-outras-ferramentas
-        
+### integração-sql-com-outras-ferramentas
+[Voltar ao Topo](#menu)
+
+
 Explorar como o SQL pode ser integrado a ferramentas de visualização de dados, como Tableau ou Power BI, para criar dashboards interativos e relatórios.
     
-##### aprendizado-de-outras-linguagens-relacionadas-a-banco-de-dados
-
+### aprendizado-de-outras-linguagens-relacionadas-a-banco-de-dados
 [Voltar ao Topo](#menu)
+
 
 Considerar a aprendizagem de linguagens como PL/SQL (Oracle) ou T-SQL (SQL Server) para aprimorar ainda mais as habilidades em banco de dados.
     
-##### dbt-data-build-tool
+### dbt-data-build-tool
+[Voltar ao Topo](#menu)
 
 Explorar ferramentas como DBT, que permitem que os desenvolvedores apliquem práticas de engenharia de software ao desenvolvimento de pipelines de dados.
 
-#### conclusão
+## conclusão
+[Voltar ao Topo](#menu)
 
 O SQL é uma linguagem poderosa e versátil que permite aos desenvolvedores e analistas de dados acessar, manipular e analisar dados de maneira eficiente e eficaz. Ao dominar o SQL, você pode se tornar um profissional mais eficiente, produtivo e valioso para sua organização.
 
-[Voltar ao Topo](#menu)
+
 
 
 Selo:
