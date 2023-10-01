@@ -5,7 +5,7 @@
 - Apresentação Pessoal: 
 
     - Nome: Tiago Linhares;
-    - Cargo: Analitys Engineer;
+    - Cargo: Analytics Engineer;
     - Experiência: 2 anos de TI, focado em Dados;
     - [Meu Linkedin](https://www.linkedin.com/in/tiago-linhares/)
     - [Meu Github](https://github.com/Linhares015)
