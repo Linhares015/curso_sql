@@ -1,6 +1,18 @@
-# SQL na Master: Do Básico ao Avançado
+# SQL na Master: Do Básico ao Avançado 🧙‍♂️
 
-![Alt text](imagens/capa.jpeg)
+
+<p align="center">
+  <img src="imagens/capa.jpeg" width="500" height="300">
+</p>
+
+- Apresentação Pessoal: 
+
+    - Nome: Tiago Linhares;
+    - Cargo: Analytics Engineer;
+    - Experiência: 2 anos de TI, focado em Dados;
+    - [Meu Linkedin](https://www.linkedin.com/in/tiago-linhares/)
+    - [Meu Github](https://github.com/Linhares015)
+    - [Meu Livro - Guia para se Tornar um Analista de Dados](https://www.amazon.com.br/dp/B0CDDFZMLD?ref_=cm_sw_r_mwn_dp_VT4QMG06XS904M6EEQ3A)
 
 ## Material usado no Curso de SQL
 
@@ -267,8 +279,9 @@ docker rmi <image_id>
     - [Inserindo Dados](#inserindo-dados)
         - [INSERT](#insert)
     - [Atualizando Dados](#atualizando-dados)
-        - [DELETE](#delete)
+        - [UPDATE](#update)
     - [Excluindo Dados](#excluindo-dados)
+        - [DELETE](#delete)
     - [Transações](#transações)
 - [Tópicos Avançados](#tópicos-avançados)
     - [Indexação e Performance](#indexação-e-performance)
