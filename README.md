@@ -10,10 +10,11 @@
     - Nome: Tiago Linhares;
     - Cargo: Analytics Engineer;
     - Experiência: 2 anos de TI, focado em Dados;
-    - [Meu Linkedin](https://www.linkedin.com/in/tiago-linhares/)
-    - [Meu Github](https://github.com/Linhares015)
-    - [Meu Livro - Guia para se Tornar um Analista de Dados](https://www.amazon.com.br/dp/B0CDDFZMLD?ref_=cm_sw_r_mwn_dp_VT4QMG06XS904M6EEQ3A)
-    - [30 Dias de Desafio SQL](https://github.com/Linhares015/desafio_sql_30_dias)
+    - [Meu Blog](https://linhares015.github.io/);
+    - [Meu Linkedin](https://www.linkedin.com/in/tiago-linhares/);
+    - [Meu Github](https://github.com/Linhares015);
+    - [Meu Livro - Guia para se Tornar um Analista de Dados](https://www.amazon.com.br/dp/B0CDDFZMLD?ref_=cm_sw_r_mwn_dp_VT4QMG06XS904M6EEQ3A);
+    - [30 Dias de Desafio SQL](https://github.com/Linhares015/desafio_sql_30_dias).
 
 ## Material usado no Curso de SQL
 
